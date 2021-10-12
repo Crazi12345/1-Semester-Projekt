@@ -7,4 +7,5 @@ public class Main {
         Game d = new Game();
         d.play();
     }
+    //test kommentar
 }
