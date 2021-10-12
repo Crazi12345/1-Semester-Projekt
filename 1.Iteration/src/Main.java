@@ -6,5 +6,8 @@ public class Main {
         s.play();
         Game d = new Game();
         d.play();
+        // Jeg vil gerne have en lur
     }
+    //test kommentar
+    //endnu en test kommentar
 }
