@@ -9,7 +9,7 @@ public class Room
 {
     private String description;
     private HashMap<String, Room> exits;
-    private ArrayList<Interactables> interactables = new ArrayList<Interactables>();
+    private ArrayList<Interactables> interactables;
 
 
     public Room(String description, ArrayList interactables)
@@ -33,6 +33,19 @@ public class Room
     public String getLongDescription()
     {
         return "You are " + description + ".\n" + getExitString();
+    }
+
+    public ArrayList getInteractables(){
+        return this.interactables;
+    }
+
+    public String getInteractblesString(){
+        String interactablesString = "You see: ";
+        for (int i = 0; i < interactables.size(); i++) {
+            interactablesString += interactables.get(i).getName();
+            interactablesString += ", ";
+        }
+        return interactablesString;
     }
 
     private String getExitString()
