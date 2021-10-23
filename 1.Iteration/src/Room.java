@@ -9,11 +9,15 @@ public class Room
 {
     private String description;
     private HashMap<String, Room> exits;
+    private ArrayList<Interactables> interactables = new ArrayList<Interactables>();
 
-    public Room(String description) 
+
+    public Room(String description, ArrayList interactables)
     {
         this.description = description;
         exits = new HashMap<String, Room>();
+        this.interactables = interactables;
+
     }
 
     public void setExit(String direction, Room neighbor) 
