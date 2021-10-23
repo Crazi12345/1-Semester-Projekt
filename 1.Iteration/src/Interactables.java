@@ -1,8 +1,19 @@
 public abstract class Interactables {
 
     private String name;
-    private String ShortDescription;
+    private String shortDescription;
+    private String longDescription;
 
-    public abstract String getName();
-    public abstract String getShortDescription();
+    public Interactables(String name, String shortDescription, String longDescription){
+        this.name = name;
+        this.shortDescription = shortDescription;
+        this.longDescription = longDescription;
+    }
+
+    public String getName(){
+        return this.name;
+    };
+    public String getShortDescription(){
+        return this.shortDescription;
+    };
 }
