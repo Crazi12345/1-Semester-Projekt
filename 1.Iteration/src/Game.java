@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class Game
@@ -62,13 +63,15 @@ public class Game
             & currentRoom.getInanimateObjects().get(i).getClass().getName() == "InanimateObjects"){
                 currentRoom.getInanimateObjects().get(i).setIsChecked(true);
                 player.addItem(currentRoom.getInanimateObjects().get(i).getItem());
+                System.out.println(currentRoom.getInanimateObjects().get(i).getLongDescription());
+                System.out.println(currentRoom.getInanimateObjects().get(i).getItem().getName() + " is added to inventory");
                 return;
             }
         }
         for (int i = 0; i < currentRoom.getNPCs().size(); i++) {
             if(currentRoom.getNPCs().get(i).getName() == command.getSecondWord()
             & currentRoom.getNPCs().get(i).getClass().toString() == "NPC"){
-           //     currentRoom.getNPCs().get(i).getLongDescription();
+                System.out.println(currentRoom.getNPCs().get(i).getLongDescription());
                 return;
             }
 
@@ -87,6 +90,7 @@ public class Game
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
         System.out.println();
         System.out.println(currentRoom.getLongDescription());
+        System.out.println(currentRoom.getInteractablesString());
     }
 
     private boolean processCommand(Command command) 
@@ -111,6 +115,12 @@ public class Game
         }
         else if (commandWord == CommandWord.EAT){
             Eat(command);
+        }
+        else if (commandWord == CommandWord.INVENTORY){
+            System.out.println(player.getInventory().toString());
+        }
+        else if (commandWord == CommandWord.LOOK){
+            Look(command);
         }
         return wantToQuit;
     }
@@ -140,7 +150,10 @@ public class Game
         }
         else {
             currentRoom = nextRoom;
+            System.out.println(" ");
             System.out.println(currentRoom.getLongDescription());
+            System.out.println(currentRoom.getInteractablesString());
+
         }
     }
 
