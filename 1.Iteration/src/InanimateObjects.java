@@ -7,6 +7,7 @@ public class InanimateObjects extends Interactables {
     public InanimateObjects(String name, String shortDescription, String longDescription ,Item foundItem) {
         super(name, shortDescription, longDescription);
         this.foundItem = foundItem;
+        this.isChecked = false;
     }
 
     public String interact(String[] interactString){
