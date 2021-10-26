@@ -22,7 +22,7 @@ public class Game
         pub = new Room("in the campus pub", new ArrayList<Interactables>());
         lab = new Room("in a computing lab", new ArrayList<Interactables>());
         office = new Room("in the computing admin office", new ArrayList<Interactables>());
-        
+
         outside.setExit("east", theatre);
         outside.setExit("south", lab);
         outside.setExit("west", pub);
