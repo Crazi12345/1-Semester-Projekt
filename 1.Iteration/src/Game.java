@@ -59,12 +59,14 @@ public class Game
 
     public void Look(Command command){
        for (int i = 0; i < currentRoom.getInanimateObjects().size(); i++) {
-            if (currentRoom.getInanimateObjects().get(i).getName().equals(command.getSecondWord())){
-                currentRoom.getInanimateObjects().get(i).setIsChecked(true);
-                player.addItem(currentRoom.getInanimateObjects().get(i).getItem());
-                System.out.println(currentRoom.getInanimateObjects().get(i).getLongDescription());
-                System.out.println(currentRoom.getInanimateObjects().get(i).getItem().getName() + " is added to inventory");
-                return;
+            if (currentRoom.getInanimateObjects().get(i).getName().equals(command.getSecondWord()) &&
+                currentRoom.getInanimateObjects().get(i).getIsChecked()){
+                    currentRoom.getInanimateObjects().get(i).setIsChecked(true);
+                    player.addItem(currentRoom.getInanimateObjects().get(i).getItem());
+                    System.out.println(currentRoom.getInanimateObjects().get(i).getLongDescription());
+                    System.out.println(currentRoom.getInanimateObjects().get(i).getItem().getName() + " is added to inventory");
+                    currentRoom.getInanimateObjects().get(i).setIsChecked(true);
+                    return;
             }
         }
         for (int i = 0; i < currentRoom.getNPCs().size(); i++) {
