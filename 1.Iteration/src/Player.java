@@ -12,7 +12,7 @@ public class Player {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public int getEnergy() {
@@ -32,10 +32,10 @@ public class Player {
     }
 
     public void addItem(Item item) {
-        inventory.add(item);
+        this.inventory.add(item);
     }
 
     public void removeItem(Item item) {
-        inventory.remove(item);
+        this.inventory.remove(item);
     }
 }
