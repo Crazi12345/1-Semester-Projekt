@@ -4,9 +4,9 @@ public class Player {
     private int energy;
     private int familyEnergy;
     private String name;
-    private ArrayList inventory;
+    private ArrayList<Item> inventory;
 
-    public Player (String name, ArrayList inventory) {
+    public Player (String name, ArrayList<Item> inventory) {
         this.name = name;
         this.inventory = inventory;
     }
