@@ -63,13 +63,15 @@ public class Game
             & currentRoom.getInanimateObjects().get(i).getClass().getName() == "InanimateObjects"){
                 currentRoom.getInanimateObjects().get(i).setIsChecked(true);
                 player.addItem(currentRoom.getInanimateObjects().get(i).getItem());
+                System.out.println(currentRoom.getInanimateObjects().get(i).getLongDescription());
+                System.out.println(currentRoom.getInanimateObjects().get(i).getItem().getName() + " is added to inventory");
                 return;
             }
         }
         for (int i = 0; i < currentRoom.getNPCs().size(); i++) {
             if(currentRoom.getNPCs().get(i).getName() == command.getSecondWord()
             & currentRoom.getNPCs().get(i).getClass().toString() == "NPC"){
-           //     currentRoom.getNPCs().get(i).getLongDescription();
+                System.out.println(currentRoom.getNPCs().get(i).getLongDescription());
                 return;
             }
 
@@ -113,6 +115,12 @@ public class Game
         }
         else if (commandWord == CommandWord.EAT){
             Eat(command);
+        }
+        else if (commandWord == CommandWord.INVENTORY){
+            System.out.println(player.getInventory().toString());
+        }
+        else if (commandWord == CommandWord.LOOK){
+            Look(command);
         }
         return wantToQuit;
     }
