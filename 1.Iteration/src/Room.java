@@ -7,13 +7,15 @@ import java.util.ArrayList;
 
 public class Room 
 {
+    private int id;
     private String description;
     private HashMap<String, Room> exits;
     private ArrayList<Interactables> interactables;
 
 
-    public Room(String description, ArrayList interactables)
+    public Room(int id,String description, ArrayList interactables)
     {
+        this.id = id;
         this.description = description;
         exits = new HashMap<String, Room>();
         this.interactables = interactables;
@@ -39,7 +41,7 @@ public class Room
         return this.interactables;
     }
 
-    public String getInteractblesString(){
+    public String getInteractablesString(){
         String interactablesString = "You see: ";
         for (int i = 0; i < interactables.size(); i++) {
             interactablesString += interactables.get(i).getName();

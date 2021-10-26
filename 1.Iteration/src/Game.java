@@ -8,35 +8,21 @@ public class Game
 
     public Game() 
     {
-        createRooms();
+        createLevels();
         parser = new Parser();
     }
 
 
-    private void createRooms()
-    {
-        Room outside, theatre, pub, lab, office;
-      
-        outside = new Room("outside the main entrance of the university", new ArrayList<Interactables>());
-        theatre = new Room("in a lecture theatre", new ArrayList<Interactables>());
-        pub = new Room("in the campus pub", new ArrayList<Interactables>());
-        lab = new Room("in a computing lab", new ArrayList<Interactables>());
-        office = new Room("in the computing admin office", new ArrayList<Interactables>());
+    public void createLevels(){
+        Level dag_1 = new Level(1,null,null);
+        Level dag_2 = new Level(2,null,null);
+        Level dag_3 = new Level(3,null,null);
+        Level dag_4 = new Level(4,null,null);
+        Level dag_5 = new Level(5,null,null);
 
-        outside.setExit("east", theatre);
-        outside.setExit("south", lab);
-        outside.setExit("west", pub);
 
-        theatre.setExit("west", outside);
 
-        pub.setExit("east", outside);
 
-        lab.setExit("north", outside);
-        lab.setExit("east", office);
-
-        office.setExit("west", lab);
-
-        currentRoom = outside;
     }
 
     public void play() 
@@ -67,7 +53,7 @@ public class Game
         boolean wantToQuit = false;
 
         CommandWord commandWord = command.getCommandWord();
-
+// Calling other method in this class
         if(commandWord == CommandWord.UNKNOWN) {
             System.out.println("I don't know what you mean...");
             return false;
