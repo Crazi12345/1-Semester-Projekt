@@ -3,6 +3,8 @@ import java.util.ArrayList;
 
 public class Game
 {
+    private boolean trading = false;
+    private NPC currentTrader;
     private Parser parser;
     private Room currentRoom;
     private Player player = new Player("Marvin",  new ArrayList<Item>());
@@ -22,10 +24,6 @@ public class Game
         Level dag_4 = new Level(4,null);
         Level dag_5 = new Level(5,null);
         currentRoom = dag_1.createRooms();
-
-
-
-
     }
 
     public void play() 
@@ -52,20 +50,19 @@ public class Game
                 //removes the item
             }
         }{
-            
         }
-
     }
 
     public void Look(Command command){
        for (int i = 0; i < currentRoom.getInanimateObjects().size(); i++) {
-            if (currentRoom.getInanimateObjects().get(i).getName().equals(command.getSecondWord()) &&
-                currentRoom.getInanimateObjects().get(i).getIsChecked() == false){
-                    currentRoom.getInanimateObjects().get(i).setIsChecked(true);
-                    player.addItem(currentRoom.getInanimateObjects().get(i).getItem());
+            if (currentRoom.getInanimateObjects().get(i).getName().equals(command.getSecondWord())){
                     System.out.println(currentRoom.getInanimateObjects().get(i).getLongDescription());
-                    System.out.println(currentRoom.getInanimateObjects().get(i).getItem().getName() + " is added to inventory");
-                    currentRoom.getInanimateObjects().get(i).setIsChecked(true);
+                    if (currentRoom.getInanimateObjects().get(i).getIsChecked() == false){
+                        currentRoom.getInanimateObjects().get(i).setIsChecked(true);
+                        player.addItem(currentRoom.getInanimateObjects().get(i).getItem());
+                        System.out.println(currentRoom.getInanimateObjects().get(i).getItem().getName() + " is added to inventory");
+                        currentRoom.getInanimateObjects().get(i).setIsChecked(true);
+                    }
                     return;
             }
         }
@@ -79,7 +76,39 @@ public class Game
 
 
 
+    public void Talk(Command command){
+        for (int i = 0; i < currentRoom.getInanimateObjects().size(); i++) {
+            if (currentRoom.getInanimateObjects().get(i).getName().equals(command.getSecondWord())){
+                System.out.println("Doesn't seem very talkative...");
+                return;
+            }
+        }
+        for (int i = 0; i < currentRoom.getNPCs().size(); i++) {
+            if(currentRoom.getNPCs().get(i).getName().equals(command.getSecondWord())){
+                if (currentRoom.getNPCs().get(i).getTrader() == true) {
+                    dialogue(currentRoom.getNPCs().get(i));
+                    return;
+                }
+                else{
+                    System.out.println("Pleasure doing business with you");
+                    return;
+                }
+            }
+        }
+        }
 
+    public void dialogue(NPC npc){
+        System.out.println(npc.getQuest());
+        for (int i = 0; i < player.getInventory().size(); i++) {
+            if (player.getInventory().get(i).getName() == npc.getQuestItem().getName()){
+                System.out.println(npc.getQuestComplete());
+                System.out.println("Do you want to give " + npc.getName() + " the " + npc.getQuestItem().getName() + "?");
+                trading = true;
+                currentTrader = npc;
+                break;
+            }
+        }
+    }
 
     private void printWelcome()
     {
@@ -104,28 +133,82 @@ public class Game
         }
 
         if (commandWord == CommandWord.HELP) {
-            printHelp();
+            if(trading) {
+                System.out.println("Yes or no?");
+            }
+            else {
+                printHelp();
+            }
         }
         else if (commandWord == CommandWord.GO) {
-            goRoom(command);
+            if(trading) {
+                System.out.println("that makes no sense");
+            }
+            else {
+                goRoom(command);
+            }
         }
         else if (commandWord == CommandWord.QUIT) {
             wantToQuit = quit(command);
         }
         else if (commandWord == CommandWord.EAT){
-            Eat(command);
+            if(trading) {
+                System.out.println("that makes no sense");
+            }
+            else {
+                Eat(command);
+            }
         }
         else if (commandWord == CommandWord.INVENTORY){
-            String inventoryString = "You have: ";
-            for (int i = 0; i < player.getInventory().size(); i++) {
-                inventoryString+=player.getInventory().get(i).getName();
-                inventoryString+= ", ";
-
-            };
-            System.out.println(inventoryString);
+            if(trading) {
+                System.out.println("that makes no sense");
+            }
+            else {
+                String inventoryString = "You have: ";
+                for (int i = 0; i < player.getInventory().size(); i++) {
+                    inventoryString += player.getInventory().get(i).getName();
+                    inventoryString += ", ";
+                };
+                System.out.println(inventoryString);
+            }
         }
         else if (commandWord == CommandWord.LOOK){
-            Look(command);
+            if(trading) {
+                System.out.println("that makes no sense");
+            }
+            else {
+                Look(command);
+            }
+        }
+        else if(commandWord == CommandWord.TALK){
+            if(trading) {
+                System.out.println("that makes no sense");
+            }
+            else {
+                Talk(command);
+            }
+        }
+        else if (commandWord == CommandWord.NO){
+            if(trading){
+                System.out.println("You decline the trade");
+                trading = false;
+            }
+            else{
+                System.out.println("That doesn't make sense");
+            }
+        }
+        else if (commandWord == CommandWord.YES){
+            if(trading){
+                System.out.println(currentTrader.getQuestItem().getName() + " is removed from inventory");
+                System.out.println(currentTrader.getReward().getName() + " is added to inventory");
+                player.removeItem(currentTrader.getQuestItem());
+                player.addItem(currentTrader.getReward());
+                trading = false;
+                currentTrader.setTrader(false);
+            }
+            else{
+                System.out.println("That doesn't make sense");
+            }
         }
         return wantToQuit;
     }
