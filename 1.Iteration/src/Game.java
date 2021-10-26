@@ -59,8 +59,7 @@ public class Game
 
     public void Look(Command command){
        for (int i = 0; i < currentRoom.getInanimateObjects().size(); i++) {
-            if (currentRoom.getInanimateObjects().get(i).getName() == command.getSecondWord())
-            {
+            if (currentRoom.getInanimateObjects().get(i).getName().equals(command.getSecondWord())){
                 currentRoom.getInanimateObjects().get(i).setIsChecked(true);
                 player.addItem(currentRoom.getInanimateObjects().get(i).getItem());
                 System.out.println(currentRoom.getInanimateObjects().get(i).getLongDescription());
@@ -69,8 +68,7 @@ public class Game
             }
         }
         for (int i = 0; i < currentRoom.getNPCs().size(); i++) {
-            if(currentRoom.getNPCs().get(i).getName() == command.getSecondWord())
-            {
+            if(currentRoom.getNPCs().get(i).getName().equals(command.getSecondWord())){
                 System.out.println(currentRoom.getNPCs().get(i).getLongDescription());
                 return;
             }
