@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class Game
@@ -87,6 +88,7 @@ public class Game
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
         System.out.println();
         System.out.println(currentRoom.getLongDescription());
+        System.out.println(currentRoom.getInteractablesString());
     }
 
     private boolean processCommand(Command command) 
@@ -140,7 +142,10 @@ public class Game
         }
         else {
             currentRoom = nextRoom;
+            System.out.println(" ");
             System.out.println(currentRoom.getLongDescription());
+            System.out.println(currentRoom.getInteractablesString());
+
         }
     }
 
