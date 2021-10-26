@@ -19,7 +19,7 @@ public class InanimateObjects extends Interactables {
         isChecked = checked;
     }
 
-    public void pickUpItem(){
-
+    public Item getItem(){
+        return foundItem;
     }
 }

@@ -4,7 +4,8 @@ public class Game
 {
     private Parser parser;
     private Room currentRoom;
-        
+    private Player player = new Player("Marvin",  new ArrayList<Item>());
+
 
     public Game() 
     {
@@ -16,12 +17,14 @@ public class Game
     private void createRooms()
     {
         Room outside, theatre, pub, lab, office;
-      
-        outside = new Room("outside the main entrance of the university", new ArrayList<Interactables>());
-        theatre = new Room("in a lecture theatre", new ArrayList<Interactables>());
-        pub = new Room("in the campus pub", new ArrayList<Interactables>());
-        lab = new Room("in a computing lab", new ArrayList<Interactables>());
-        office = new Room("in the computing admin office", new ArrayList<Interactables>());
+
+        outside = new Room("outside the main entrance of the university", new ArrayList<NPC>(), new ArrayList<InanimateObjects>());
+        theatre = new Room("in a lecture theatre", new ArrayList<NPC>(), new ArrayList<InanimateObjects>());
+        pub = new Room("in the campus pub", new ArrayList<NPC>(), new ArrayList<InanimateObjects>());
+        lab = new Room("in a computing lab", new ArrayList<NPC>(), new ArrayList<InanimateObjects>());
+        office = new Room("in the computing admin office", new ArrayList<NPC>(), new ArrayList<InanimateObjects>());
+
+
 
         outside.setExit("east", theatre);
         outside.setExit("south", lab);
@@ -52,6 +55,45 @@ public class Game
         System.out.println("Thank you for playing.  Good bye.");
     }
 
+    public void Eat(Command command){
+        for (int i = 0; i < player.getInventory().size(); i++) {
+            if (player.getInventory().get(i).getIsEatable() &
+            player.getInventory().get(i).getName() == command.getSecondWord()){
+                player.setEnergy(player.getInventory().get(i).getFoodEnergy());
+                player.getInventory().remove(i);
+                break;
+                //checks for name and isEatable, if those are true, it adds the energy to the player and
+                //removes the item
+            }
+        }{
+            
+        }
+
+    }
+
+    public void Look(Command command){
+        for (int i = 0; i < currentRoom.getInanimateObjects().size(); i++) {
+            if (currentRoom.getInanimateObjects().get(i).getName() == command.getSecondWord()
+            & currentRoom.getInanimateObjects().get(i).getClass().getName() == "InanimateObjects"){
+                currentRoom.getInanimateObjects().get(i).setIsChecked(true);
+                player.addItem(currentRoom.getInanimateObjects().get(i).getItem());
+                return;
+            }
+        }
+        for (int i = 0; i < currentRoom.getNPCs().size(); i++) {
+            if(currentRoom.getNPCs().get(i).getName() == command.getSecondWord()
+            & currentRoom.getNPCs().get(i).getClass().toString() == "NPC"){
+           //     currentRoom.getNPCs().get(i).getLongDescription();
+                return;
+            }
+
+        }
+    }
+
+
+
+
+
     private void printWelcome()
     {
         System.out.println();
@@ -81,6 +123,9 @@ public class Game
         }
         else if (commandWord == CommandWord.QUIT) {
             wantToQuit = quit(command);
+        }
+        else if (commandWord == CommandWord.EAT){
+            Eat(command);
         }
         return wantToQuit;
     }
