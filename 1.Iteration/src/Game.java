@@ -15,11 +15,11 @@ public class Game
 
 
     public void createLevels(){
-        Level dag_1 = new Level(1,null,null);
-        Level dag_2 = new Level(2,null,null);
-        Level dag_3 = new Level(3,null,null);
-        Level dag_4 = new Level(4,null,null);
-        Level dag_5 = new Level(5,null,null);
+        Level dag_1 = new Level(1,null);
+        Level dag_2 = new Level(2,null);
+        Level dag_3 = new Level(3,null);
+        Level dag_4 = new Level(4,null);
+        Level dag_5 = new Level(5,null);
 
 
 

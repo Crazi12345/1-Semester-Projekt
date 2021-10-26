@@ -7,7 +7,7 @@ public class Level {
     private ArrayList<Interactables> interactables;
     private ArrayList<Room> rooms;
 
-    public Level(int id, ArrayList<Item> items, ArrayList<Room> rooms) {
+    public Level(int id, ArrayList<Room> rooms) {
 
         this.id = id;
         this.items = items;
@@ -18,11 +18,11 @@ public class Level {
     {
         Room outside, theatre, pub, lab, office;
 
-        outside = new Room(1,"outside the main entrance of the university", new ArrayList<Interactables>());
-        theatre = new Room(2,"in a lecture theatre", new ArrayList<Interactables>());
-        pub = new Room(3,"in the campus pub", new ArrayList<Interactables>());
-        lab = new Room(4,"in a computing lab", new ArrayList<Interactables>());
-        office = new Room(5,"in the computing admin office", new ArrayList<Interactables>());
+        outside = new Room(1,"outside the main entrance of the university", new ArrayList<NPC>(),new ArrayList<InanimateObjects>());
+        theatre = new Room(2,"in a lecture theatre", new ArrayList<NPC>(),new ArrayList<InanimateObjects>());
+        pub = new Room(3,"in the campus pub", new ArrayList<NPC>(),new ArrayList<InanimateObjects>());
+        lab = new Room(4,"in a computing lab", new ArrayList<NPC>(),new ArrayList<InanimateObjects>());
+        office = new Room(5,"in the computing admin office", new ArrayList<NPC>(),new ArrayList<InanimateObjects>());
 
         outside.setExit("east", theatre);
         outside.setExit("south", lab);

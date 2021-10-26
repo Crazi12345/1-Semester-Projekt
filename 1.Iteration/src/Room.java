@@ -13,7 +13,7 @@ public class Room
     private ArrayList<NPC> NPCs;
     private ArrayList<InanimateObjects> inanimateObjects;
 
-    public Room(String description, ArrayList<NPC> NPCs, ArrayList<InanimateObjects> inanimateObjects)
+    public Room(int id,String description, ArrayList<NPC> NPCs, ArrayList<InanimateObjects> inanimateObjects)
     {
         this.id = id;
         this.description = description;
