@@ -7,6 +7,7 @@ public class Level {
     private ArrayList<Interactables> interactables;
     private ArrayList<Room> rooms;
 
+
     public Level(int id, ArrayList<Room> rooms) {
 
         this.id = id;
@@ -22,7 +23,14 @@ public class Level {
                 "His fingers are full of cheetoo dust and he smells fishy");
         ArrayList<NPC> npcs= new ArrayList<NPC>();
         npcs.add(Steve);
-        Village_center = new Room(1,"in the village center",npcs,new ArrayList<InanimateObjects>());
+
+        Item Poster = new Item("poster", 0, "Poster that shows food");
+        InanimateObjects poster = new InanimateObjects("Poster", "Poster that shows food",
+                "It was left here by the FoodAid Workers", Poster);
+        ArrayList<InanimateObjects> inanimateObjects = new ArrayList<InanimateObjects>();
+        inanimateObjects.add(poster);
+
+        Village_center = new Room(1,"in the village center",npcs,inanimateObjects);
         Farm = new Room(2,"at a farm", new ArrayList<NPC>(),new ArrayList<InanimateObjects>());
         Market = new Room(3,"at the market", new ArrayList<NPC>(),new ArrayList<InanimateObjects>());
         Home = new Room(4,"at your home", new ArrayList<NPC>(),new ArrayList<InanimateObjects>());
