@@ -10,15 +10,16 @@ public class Room
     private int id;
     private String description;
     private HashMap<String, Room> exits;
-    private ArrayList<Interactables> interactables;
+    private ArrayList<NPC> NPCs;
+    private ArrayList<InanimateObjects> inanimateObjects;
 
-
-    public Room(int id,String description, ArrayList interactables)
+    public Room(String description, ArrayList<NPC> NPCs, ArrayList<InanimateObjects> inanimateObjects)
     {
         this.id = id;
         this.description = description;
         exits = new HashMap<String, Room>();
-        this.interactables = interactables;
+        this.NPCs = NPCs;
+        this.inanimateObjects = inanimateObjects;
 
     }
 
@@ -37,14 +38,21 @@ public class Room
         return "You are " + description + ".\n" + getExitString();
     }
 
-    public ArrayList getInteractables(){
-        return this.interactables;
+    public ArrayList<NPC> getNPCs(){
+        return this.NPCs;
+    }
+    public ArrayList<InanimateObjects> getInanimateObjects(){
+        return this.inanimateObjects;
     }
 
     public String getInteractablesString(){
         String interactablesString = "You see: ";
-        for (int i = 0; i < interactables.size(); i++) {
-            interactablesString += interactables.get(i).getName();
+        for (int i = 0; i < NPCs.size(); i++) {
+            interactablesString += NPCs.get(i).getName();
+            interactablesString += ", ";
+        }
+        for (int i = 0; i < inanimateObjects.size(); i++) {
+            interactablesString += inanimateObjects.get(i).getName();
             interactablesString += ", ";
         }
         return interactablesString;

@@ -4,7 +4,8 @@ public class Game
 {
     private Parser parser;
     private Room currentRoom;
-        
+    private Player player = new Player("Marvin",  new ArrayList<Item>());
+
 
     public Game() 
     {
@@ -38,6 +39,45 @@ public class Game
         System.out.println("Thank you for playing.  Good bye.");
     }
 
+    public void Eat(Command command){
+        for (int i = 0; i < player.getInventory().size(); i++) {
+            if (player.getInventory().get(i).getIsEatable() &
+            player.getInventory().get(i).getName() == command.getSecondWord()){
+                player.setEnergy(player.getInventory().get(i).getFoodEnergy());
+                player.getInventory().remove(i);
+                break;
+                //checks for name and isEatable, if those are true, it adds the energy to the player and
+                //removes the item
+            }
+        }{
+            
+        }
+
+    }
+
+    public void Look(Command command){
+        for (int i = 0; i < currentRoom.getInanimateObjects().size(); i++) {
+            if (currentRoom.getInanimateObjects().get(i).getName() == command.getSecondWord()
+            & currentRoom.getInanimateObjects().get(i).getClass().getName() == "InanimateObjects"){
+                currentRoom.getInanimateObjects().get(i).setIsChecked(true);
+                player.addItem(currentRoom.getInanimateObjects().get(i).getItem());
+                return;
+            }
+        }
+        for (int i = 0; i < currentRoom.getNPCs().size(); i++) {
+            if(currentRoom.getNPCs().get(i).getName() == command.getSecondWord()
+            & currentRoom.getNPCs().get(i).getClass().toString() == "NPC"){
+           //     currentRoom.getNPCs().get(i).getLongDescription();
+                return;
+            }
+
+        }
+    }
+
+
+
+
+
     private void printWelcome()
     {
         System.out.println();
@@ -67,6 +107,9 @@ public class Game
         }
         else if (commandWord == CommandWord.QUIT) {
             wantToQuit = quit(command);
+        }
+        else if (commandWord == CommandWord.EAT){
+            Eat(command);
         }
         return wantToQuit;
     }

@@ -19,4 +19,7 @@ public abstract class Interactables {
     public String getShortDescription(){
         return this.shortDescription;
     };
+    public String getLongDescription(){
+        return this.longDescription;
+    }
 }

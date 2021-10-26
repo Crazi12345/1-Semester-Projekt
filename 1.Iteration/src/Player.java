@@ -6,7 +6,7 @@ public class Player {
     private String name;
     private ArrayList<Item> inventory;
 
-    public Player (String name, ArrayList<Item> inventory) {
+    public Player(String name, ArrayList<Item> inventory) {
         this.name = name;
         this.inventory = inventory;
     }
@@ -37,5 +37,9 @@ public class Player {
 
     public void removeItem(Item item) {
         this.inventory.remove(item);
+    }
+
+    public ArrayList<Item> getInventory(){
+        return inventory;
     }
 }
