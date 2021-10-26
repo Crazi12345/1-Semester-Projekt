@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public abstract class Interactables {
 
     private String name;
@@ -9,6 +11,7 @@ public abstract class Interactables {
         this.shortDescription = shortDescription;
         this.longDescription = longDescription;
     }
+
 
     public String getName(){
         return this.name;
