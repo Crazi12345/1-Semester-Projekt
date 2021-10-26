@@ -20,6 +20,7 @@ public class Game
         Level dag_3 = new Level(3,null);
         Level dag_4 = new Level(4,null);
         Level dag_5 = new Level(5,null);
+        currentRoom = dag_1.createRooms();
 
 
 

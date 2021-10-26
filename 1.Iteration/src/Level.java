@@ -14,7 +14,7 @@ public class Level {
         this.rooms = rooms;
 
     }
-    private Room createRooms()
+    public Room createRooms()
     {
         Room outside, theatre, pub, lab, office;
 
