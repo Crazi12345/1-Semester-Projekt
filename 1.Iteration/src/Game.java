@@ -1,4 +1,3 @@
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class Game
@@ -42,15 +41,17 @@ public class Game
     public void Eat(Command command){
         for (int i = 0; i < player.getInventory().size(); i++) {
             if (player.getInventory().get(i).getIsEatable() &
-            player.getInventory().get(i).getName() == command.getSecondWord()){
+            player.getInventory().get(i).getName().equals(command.getSecondWord())){
                 player.setEnergy(player.getInventory().get(i).getFoodEnergy());
                 player.getInventory().remove(i);
-                break;
+                System.out.println("You ate the " + player.getInventory().get(i).getName());
+                return;
                 //checks for name and isEatable, if those are true, it adds the energy to the player and
                 //removes the item
             }
         }{
         }
+        System.out.println("I don't know what you mean");
     }
 
     public void Look(Command command){
@@ -72,6 +73,8 @@ public class Game
                 return;
             }
         }
+        System.out.println("I don't know what you mean");
+
     }
 
 
@@ -94,6 +97,8 @@ public class Game
                     return;
                 }
             }
+            System.out.println("I don't know what you mean");
+
         }
         }
 
@@ -128,8 +133,11 @@ public class Game
         CommandWord commandWord = command.getCommandWord();
 // Calling other method in this class
         if(commandWord == CommandWord.UNKNOWN) {
+            if(trading) {
+                no();
+            }
             System.out.println("I don't know what you mean...");
-            return false;
+
         }
 
         if (commandWord == CommandWord.HELP) {
@@ -155,12 +163,7 @@ public class Game
             if(trading) {
                 no();
             }
-                String inventoryString = "You have: ";
-                for (int i = 0; i < player.getInventory().size(); i++) {
-                    inventoryString += player.getInventory().get(i).getName();
-                    inventoryString += ", ";
-                };
-                System.out.println(inventoryString);
+            inventory();
 
         }
         else if (commandWord == CommandWord.LOOK){
@@ -184,6 +187,22 @@ public class Game
             yes();
         }
         return wantToQuit;
+    }
+
+    private void inventory(){
+        if (player.getInventory().size() == 0){
+            System.out.println("Inventory is empty...");
+        }
+        else {
+            String inventoryString = "You have: ";
+            for (int i = 0; i < player.getInventory().size(); i++) {
+                inventoryString += player.getInventory().get(i).getName();
+                if (i != player.getInventory().size()-1){
+                    inventoryString += ", ";
+                }
+            }
+            System.out.println(inventoryString);
+        }
     }
 
     private void yes(){
