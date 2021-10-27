@@ -4,14 +4,13 @@ public class Level {
 
     private int id;
     private ArrayList<Item> items;
-    private ArrayList<Interactables> interactables;
     private ArrayList<Room> rooms;
 
 
     public Level(int id, ArrayList<Room> rooms) {
 
         this.id = id;
-        this.items = items;
+     //   this.items = items;
         this.rooms = rooms;
 
     }
