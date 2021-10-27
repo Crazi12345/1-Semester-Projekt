@@ -25,11 +25,11 @@ public class Game
         currentRoom = dag_1.createRooms();
     }
 
-    public void play() 
-    {            
+    public void play()
+    {
         printWelcome();
 
-                
+
         boolean finished = false;
         while (! finished) {
             Command command = parser.getCommand();
@@ -126,7 +126,7 @@ public class Game
         System.out.println(currentRoom.getInteractablesString());
     }
 
-    private boolean processCommand(Command command) 
+    private boolean processCommand(Command command)
     {
         boolean wantToQuit = false;
 
@@ -239,7 +239,7 @@ public class Game
         parser.showCommands();
     }
 
-    private void goRoom(Command command) 
+    private void goRoom(Command command)
     {
         if(!command.hasSecondWord()) {
             System.out.println("Go where?");
@@ -262,7 +262,7 @@ public class Game
         }
     }
 
-    private boolean quit(Command command) 
+    private boolean quit(Command command)
     {
         if(command.hasSecondWord()) {
             System.out.println("Quit what?");
