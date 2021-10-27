@@ -19,9 +19,9 @@ public class Level {
     {
         Room Village_center, Farm, Market, Home, Field;
         Item Fish = new Item("fish",69,"Smells like teen spirit");
-        NPC Steve = new NPC("Steve","Fat and looks like a nerd",Fish,
+        NPC Steve = new NPC("Steve","Fat and looks like a nerd", Fish,
                 "His fingers are full of cheetoo dust and he smells fishy");
-        ArrayList<NPC> npcs= new ArrayList<NPC>();
+        ArrayList<NPC> npcs= new ArrayList<>();
         npcs.add(Steve);
 
         Item Poster = new Item("poster", 0, "Poster that shows food");
@@ -30,7 +30,7 @@ public class Level {
         ArrayList<InanimateObjects> inanimateObjects = new ArrayList<InanimateObjects>();
         inanimateObjects.add(poster);
 
-        Village_center = new Room(1,"in the village center",npcs,inanimateObjects);
+        Village_center = new Room(1,"in the village center", npcs, inanimateObjects);
         Farm = new Room(2,"at a farm", new ArrayList<NPC>(),new ArrayList<InanimateObjects>());
         Market = new Room(3,"at the market", new ArrayList<NPC>(),new ArrayList<InanimateObjects>());
         Home = new Room(4,"at your home", new ArrayList<NPC>(),new ArrayList<InanimateObjects>());
