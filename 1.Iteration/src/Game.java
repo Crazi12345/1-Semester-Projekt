@@ -133,84 +133,82 @@ public class Game
         }
 
         if (commandWord == CommandWord.HELP) {
-            if(trading) {
-                System.out.println("Yes or no?");
-            }
-            else {
-                printHelp();
-            }
+            printHelp();
         }
         else if (commandWord == CommandWord.GO) {
             if(trading) {
-                System.out.println("that makes no sense");
+                no();
             }
-            else {
                 goRoom(command);
-            }
+
         }
         else if (commandWord == CommandWord.QUIT) {
             wantToQuit = quit(command);
         }
         else if (commandWord == CommandWord.EAT){
             if(trading) {
-                System.out.println("that makes no sense");
+                no();
             }
-            else {
                 Eat(command);
-            }
         }
         else if (commandWord == CommandWord.INVENTORY){
             if(trading) {
-                System.out.println("that makes no sense");
+                no();
             }
-            else {
                 String inventoryString = "You have: ";
                 for (int i = 0; i < player.getInventory().size(); i++) {
                     inventoryString += player.getInventory().get(i).getName();
                     inventoryString += ", ";
                 };
                 System.out.println(inventoryString);
-            }
+
         }
         else if (commandWord == CommandWord.LOOK){
             if(trading) {
-                System.out.println("that makes no sense");
+                no();
             }
-            else {
                 Look(command);
-            }
+
         }
         else if(commandWord == CommandWord.TALK){
             if(trading) {
-                System.out.println("that makes no sense");
+                no();
             }
-            else {
                 Talk(command);
-            }
+
         }
         else if (commandWord == CommandWord.NO){
-            if(trading){
-                System.out.println("You decline the trade");
-                trading = false;
-            }
-            else{
-                System.out.println("That doesn't make sense");
-            }
+            no();
         }
         else if (commandWord == CommandWord.YES){
-            if(trading){
-                System.out.println(currentTrader.getQuestItem().getName() + " is removed from inventory");
-                System.out.println(currentTrader.getReward().getName() + " is added to inventory");
-                player.removeItem(currentTrader.getQuestItem());
-                player.addItem(currentTrader.getReward());
-                trading = false;
-                currentTrader.setTrader(false);
-            }
-            else{
-                System.out.println("That doesn't make sense");
-            }
+            yes();
         }
         return wantToQuit;
+    }
+
+    private void yes(){
+
+        if(trading){
+            System.out.println(currentTrader.getQuestItem().getName() + " is removed from inventory");
+            System.out.println(currentTrader.getReward().getName() + " is added to inventory");
+            player.removeItem(currentTrader.getQuestItem());
+            player.addItem(currentTrader.getReward());
+            trading = false;
+            currentTrader.setTrader(false);
+        }
+        else{
+            System.out.println("That doesn't make sense");
+        }
+    }
+
+    private void no(){
+        if(trading){
+            System.out.println("You decline the trade");
+            trading = false;
+        }
+        else{
+            System.out.println("That doesn't make sense");
+        }
     }
 
     private void printHelp() 
