@@ -4,14 +4,17 @@ public class InanimateObjects extends Interactables {
     private Item foundItem;
     private boolean isChecked;
 
-    public InanimateObjects(String name, String shortDescription, String longDescription ,Item foundItem) {
-        super(name, shortDescription, longDescription);
+    public InanimateObjects(String name, String longDescription ,Item foundItem) {
+        super(name, longDescription);
         this.foundItem = foundItem;
+        this.isChecked = false;
     }
 
-    public String interact(String[] interactString){
+    /*public String interact(String[] interactString){
         return "";
     }
+
+     */
 
     public boolean getIsChecked(){
         return this.isChecked;

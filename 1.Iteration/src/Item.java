@@ -1,13 +1,13 @@
 public class Item{
     private String name;
     private int foodEnergy;
-    private String shortDescription;
+    private String longDescription;
     private boolean isEatable;
 
-    public Item(String name, int foodEnergy,String shortDescription){
+    public Item(String name, int foodEnergy,String longDescription){
         this.name = name;
         this.foodEnergy = foodEnergy;
-        this.shortDescription = shortDescription;
+        this.longDescription = longDescription;
         this.isEatable = foodEnergy > 0;
     }
 
@@ -19,12 +19,12 @@ public class Item{
         return this.foodEnergy;
     }
 
-    public String getShortDescription(){
-        return this.shortDescription;
-    }
-
     public boolean getIsEatable(){
         return this.isEatable;
+    }
+
+    public String getLongDescription(){
+        return this.longDescription;
     }
 
 
