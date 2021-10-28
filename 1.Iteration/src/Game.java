@@ -43,13 +43,12 @@ public class Game
             if (player.getInventory().get(i).getIsEatable() &
             player.getInventory().get(i).getName().equals(command.getSecondWord())){
                 player.setEnergy(player.getInventory().get(i).getFoodEnergy());
-                player.getInventory().remove(i);
                 System.out.println("You ate the " + player.getInventory().get(i).getName());
+                player.removeItem(player.getInventory().get(i));
                 return;
                 //checks for name and isEatable, if those are true, it adds the energy to the player and
                 //removes the item
             }
-        }{
         }
         System.out.println("I don't know what you mean");
     }
