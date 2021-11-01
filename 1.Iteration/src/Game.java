@@ -1,47 +1,69 @@
 import java.util.ArrayList;
 
-public class Game
-{
+public class Game {
     private boolean trading = false;
     private NPC currentTrader;
     private Parser parser;
     private Room currentRoom;
-    private Player player = new Player("Marvin",  new ArrayList<Item>());
+    private int currentLevel = 5;
+    private Player player = new Player("Marvin", new ArrayList<Item>());
 
 
-    public Game() 
-    {
-        createLevels();
+    public Game() {
+        startLevel();
         parser = new Parser();
     }
 
 
-    public void createLevels(){
-        Level dag_1 = new Level(1,null);
-        Level dag_2 = new Level(2,null);
-        Level dag_3 = new Level(3,null);
-        Level dag_4 = new Level(4,null);
-        Level dag_5 = new Level(5,null);
-        currentRoom = dag_1.createRooms();
+    public void startLevel() {
+        Level dag_1 = new Level(1);
+        Level dag_2 = new Level(2);
+        Level dag_3 = new Level(3);
+        Level dag_4 = new Level(4);
+        Level dag_5 = new Level(5);
+        switch (currentLevel) {
+            case 1:
+                currentRoom = dag_1.createRooms();
+                break;
+            case 2:
+                currentRoom = dag_2.createRooms();
+                break;
+            case 3:
+                currentRoom = dag_3.createRooms();
+                break;
+            case 4:
+                currentRoom = dag_4.createRooms();
+                break;
+            case 5:
+                currentRoom = dag_5.createRooms();
+                break;
+            default:
+                System.out.println("You are done, please type finished to end the game");
+        }
     }
 
-    public void play()
-    {
+    public void endLevel() {   // needs a end level Command
+        currentLevel++;
+        // Maybe add the family stuff here
+        startLevel();
+    }
+
+    public void play() {
         printWelcome();
 
 
         boolean finished = false;
-        while (! finished) {
+        while (!finished) {
             Command command = parser.getCommand();
             finished = processCommand(command);
         }
         System.out.println("Thank you for playing.  Good bye.");
     }
 
-    public void Eat(Command command){
+    public void Eat(Command command) {
         for (int i = 0; i < player.getInventory().size(); i++) {
             if (player.getInventory().get(i).getIsEatable() &
-            player.getInventory().get(i).getName().equals(command.getSecondWord())){
+                    player.getInventory().get(i).getName().equals(command.getSecondWord())) {
                 player.setEnergy(player.getInventory().get(i).getFoodEnergy());
                 System.out.println("You ate the " + player.getInventory().get(i).getName());
                 player.removeItem(player.getInventory().get(i));
@@ -53,21 +75,21 @@ public class Game
         System.out.println("I don't know what you mean");
     }
 
-    public void Look(Command command){
-       for (int i = 0; i < currentRoom.getInanimateObjects().size(); i++) {
-            if (currentRoom.getInanimateObjects().get(i).getName().equals(command.getSecondWord())){
-                    System.out.println(currentRoom.getInanimateObjects().get(i).getLongDescription());
-                    if (currentRoom.getInanimateObjects().get(i).getIsChecked() == false){
-                        currentRoom.getInanimateObjects().get(i).setIsChecked(true);
-                        player.addItem(currentRoom.getInanimateObjects().get(i).getItem());
-                        System.out.println(currentRoom.getInanimateObjects().get(i).getItem().getName() + " is added to inventory");
-                        currentRoom.getInanimateObjects().get(i).setIsChecked(true);
-                    }
-                    return;
+    public void Look(Command command) {
+        for (int i = 0; i < currentRoom.getInanimateObjects().size(); i++) {
+            if (currentRoom.getInanimateObjects().get(i).getName().equals(command.getSecondWord())) {
+                System.out.println(currentRoom.getInanimateObjects().get(i).getLongDescription());
+                if (currentRoom.getInanimateObjects().get(i).getIsChecked() == false) {
+                    currentRoom.getInanimateObjects().get(i).setIsChecked(true);
+                    player.addItem(currentRoom.getInanimateObjects().get(i).getItem());
+                    System.out.println(currentRoom.getInanimateObjects().get(i).getItem().getName() + " is added to inventory");
+                    currentRoom.getInanimateObjects().get(i).setIsChecked(true);
+                }
+                return;
             }
         }
         for (int i = 0; i < currentRoom.getNPCs().size(); i++) {
-            if(currentRoom.getNPCs().get(i).getName().equals(command.getSecondWord())){
+            if (currentRoom.getNPCs().get(i).getName().equals(command.getSecondWord())) {
                 System.out.println(currentRoom.getNPCs().get(i).getLongDescription());
                 return;
             }
@@ -77,21 +99,19 @@ public class Game
     }
 
 
-
-    public void Talk(Command command){
+    public void Talk(Command command) {
         for (int i = 0; i < currentRoom.getInanimateObjects().size(); i++) {
-            if (currentRoom.getInanimateObjects().get(i).getName().equals(command.getSecondWord())){
+            if (currentRoom.getInanimateObjects().get(i).getName().equals(command.getSecondWord())) {
                 System.out.println("Doesn't seem very talkative...");
                 return;
             }
         }
         for (int i = 0; i < currentRoom.getNPCs().size(); i++) {
-            if(currentRoom.getNPCs().get(i).getName().equals(command.getSecondWord())){
+            if (currentRoom.getNPCs().get(i).getName().equals(command.getSecondWord())) {
                 if (currentRoom.getNPCs().get(i).getTrader() == true) {
                     dialogue(currentRoom.getNPCs().get(i));
                     return;
-                }
-                else{
+                } else {
                     System.out.println("Pleasure doing business with you");
                     return;
                 }
@@ -99,12 +119,12 @@ public class Game
             System.out.println("I don't know what you mean");
 
         }
-        }
+    }
 
-    public void dialogue(NPC npc){
+    public void dialogue(NPC npc) {
         System.out.println(npc.getQuest());
         for (int i = 0; i < player.getInventory().size(); i++) {
-            if (player.getInventory().get(i).getName() == npc.getQuestItem().getName()){
+            if (player.getInventory().get(i).getName() == npc.getQuestItem().getName()) {
                 System.out.println(npc.getQuestComplete());
                 System.out.println("Do you want to give " + npc.getName() + " the " + npc.getQuestItem().getName() + "?");
                 trading = true;
@@ -114,8 +134,7 @@ public class Game
         }
     }
 
-    private void printWelcome()
-    {
+    private void printWelcome() {
         System.out.println();
         System.out.println("Welcome to The Adventures of Marvin!");
         System.out.println("Your job is to help Marvin get food for him and his family");
@@ -125,14 +144,13 @@ public class Game
         System.out.println(currentRoom.getInteractablesString());
     }
 
-    private boolean processCommand(Command command)
-    {
+    private boolean processCommand(Command command) {
         boolean wantToQuit = false;
 
         CommandWord commandWord = command.getCommandWord();
 // Calling other method in this class
-        if(commandWord == CommandWord.UNKNOWN) {
-            if(trading) {
+        if (commandWord == CommandWord.UNKNOWN) {
+            if (trading) {
                 no();
             }
             System.out.println("I don't know what you mean...");
@@ -141,62 +159,53 @@ public class Game
 
         if (commandWord == CommandWord.HELP) {
             printHelp();
-        }
-        else if (commandWord == CommandWord.GO) {
-            if(trading) {
+        } else if (commandWord == CommandWord.GO) {
+            if (trading) {
                 no();
             }
-                goRoom(command);
+            goRoom(command);
 
-        }
-        else if (commandWord == CommandWord.QUIT) {
+        } else if (commandWord == CommandWord.QUIT) {
             wantToQuit = quit(command);
-        }
-        else if (commandWord == CommandWord.EAT){
-            if(trading) {
+        } else if (commandWord == CommandWord.EAT) {
+            if (trading) {
                 no();
             }
-                Eat(command);
-        }
-        else if (commandWord == CommandWord.INVENTORY){
-            if(trading) {
+            Eat(command);
+        } else if (commandWord == CommandWord.INVENTORY) {
+            if (trading) {
                 no();
             }
             inventory();
 
-        }
-        else if (commandWord == CommandWord.LOOK){
-            if(trading) {
+        } else if (commandWord == CommandWord.LOOK) {
+            if (trading) {
                 no();
             }
-                Look(command);
+            Look(command);
 
-        }
-        else if(commandWord == CommandWord.TALK){
-            if(trading) {
+        } else if (commandWord == CommandWord.TALK) {
+            if (trading) {
                 no();
             }
-                Talk(command);
+            Talk(command);
 
-        }
-        else if (commandWord == CommandWord.NO){
+        } else if (commandWord == CommandWord.NO) {
             no();
-        }
-        else if (commandWord == CommandWord.YES){
+        } else if (commandWord == CommandWord.YES) {
             yes();
         }
         return wantToQuit;
     }
 
-    private void inventory(){
-        if (player.getInventory().size() == 0){
+    private void inventory() {
+        if (player.getInventory().size() == 0) {
             System.out.println("Inventory is empty...");
-        }
-        else {
+        } else {
             String inventoryString = "You have: ";
             for (int i = 0; i < player.getInventory().size(); i++) {
                 inventoryString += player.getInventory().get(i).getName();
-                if (i != player.getInventory().size()-1){
+                if (i != player.getInventory().size() - 1) {
                     inventoryString += ", ";
                 }
             }
@@ -204,33 +213,30 @@ public class Game
         }
     }
 
-    private void yes(){
+    private void yes() {
 
-        if(trading){
+        if (trading) {
             System.out.println(currentTrader.getQuestItem().getName() + " is removed from inventory");
             System.out.println(currentTrader.getReward().getName() + " is added to inventory");
             player.removeItem(currentTrader.getQuestItem());
             player.addItem(currentTrader.getReward());
             trading = false;
             currentTrader.setTrader(false);
-        }
-        else{
+        } else {
             System.out.println("That doesn't make sense");
         }
     }
 
-    private void no(){
-        if(trading){
+    private void no() {
+        if (trading) {
             System.out.println("You decline the trade");
             trading = false;
-        }
-        else{
+        } else {
             System.out.println("That doesn't make sense");
         }
     }
 
-    private void printHelp() 
-    {
+    private void printHelp() {
         System.out.println("You Should help Marvin by getting some food");
         System.out.println("Maybe some people will help you");
         System.out.println();
@@ -238,9 +244,8 @@ public class Game
         parser.showCommands();
     }
 
-    private void goRoom(Command command)
-    {
-        if(!command.hasSecondWord()) {
+    private void goRoom(Command command) {
+        if (!command.hasSecondWord()) {
             System.out.println("Go where?");
             return;
         }
@@ -251,8 +256,7 @@ public class Game
 
         if (nextRoom == null) {
             System.out.println("There is no door!");
-        }
-        else {
+        } else {
             currentRoom = nextRoom;
             System.out.println(" ");
             System.out.println(currentRoom.getLongDescription());
@@ -261,13 +265,11 @@ public class Game
         }
     }
 
-    private boolean quit(Command command)
-    {
-        if(command.hasSecondWord()) {
+    private boolean quit(Command command) {
+        if (command.hasSecondWord()) {
             System.out.println("Quit what?");
             return false;
-        }
-        else {
+        } else {
             return true;
         }
     }
