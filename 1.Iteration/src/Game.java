@@ -23,18 +23,23 @@ public class Game {
         Level dag_5 = new Level(5);
         switch (currentLevel) {
             case 1:
+                player.levelStartEnergy();
                 currentRoom = dag_1.createRooms();
                 break;
             case 2:
+                player.levelStartEnergy();
                 currentRoom = dag_2.createRooms();
                 break;
             case 3:
+                player.levelStartEnergy();
                 currentRoom = dag_3.createRooms();
                 break;
             case 4:
+                player.levelStartEnergy();
                 currentRoom = dag_4.createRooms();
                 break;
             case 5:
+                player.levelStartEnergy();
                 currentRoom = dag_5.createRooms();
                 break;
             default:
@@ -65,8 +70,10 @@ public class Game {
             if (player.getInventory().get(i).getIsEatable() &
                     player.getInventory().get(i).getName().equals(command.getSecondWord())) {
                 player.setEnergy(player.getInventory().get(i).getFoodEnergy());
+
                 System.out.println("You ate the " + player.getInventory().get(i).getName());
                 player.removeItem(player.getInventory().get(i));
+
                 return;
                 //checks for name and isEatable, if those are true, it adds the energy to the player and
                 //removes the item
@@ -110,11 +117,13 @@ public class Game {
             if (currentRoom.getNPCs().get(i).getName().equals(command.getSecondWord())) {
                 if (currentRoom.getNPCs().get(i).getTrader() == true) {
                     dialogue(currentRoom.getNPCs().get(i));
+                    player.setEnergy(-5);
                     return;
                 } else {
                     System.out.println("Pleasure doing business with you");
                     return;
                 }
+
             }
             System.out.println("I don't know what you mean");
 
@@ -157,14 +166,23 @@ public class Game {
 
         }
 
-        if (commandWord == CommandWord.HELP) {
-            printHelp();
+        if (player.getEnergy() == 0) {
+            System.out.println("You need to eat!");
+        } else if (player.getFamilyEnergy() == 0) {
+            System.out.println("Your family needs to eat!");
         } else if (commandWord == CommandWord.GO) {
             if (trading) {
                 no();
             }
             goRoom(command);
-
+        } else if (commandWord == CommandWord.TALK) {
+            if (trading) {
+                no();
+            }
+            Talk(command);
+        }
+        if (commandWord == CommandWord.HELP) {
+            printHelp();
         } else if (commandWord == CommandWord.QUIT) {
             wantToQuit = quit(command);
         } else if (commandWord == CommandWord.EAT) {
@@ -183,12 +201,6 @@ public class Game {
                 no();
             }
             Look(command);
-
-        } else if (commandWord == CommandWord.TALK) {
-            if (trading) {
-                no();
-            }
-            Talk(command);
 
         } else if (commandWord == CommandWord.NO) {
             no();
@@ -257,6 +269,7 @@ public class Game {
         if (nextRoom == null) {
             System.out.println("There is no door!");
         } else {
+            player.setEnergy(-10);
             currentRoom = nextRoom;
             System.out.println(" ");
             System.out.println(currentRoom.getLongDescription());
