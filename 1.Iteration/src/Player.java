@@ -9,6 +9,13 @@ public class Player {
     public Player(String name, ArrayList<Item> inventory) {
         this.name = name;
         this.inventory = inventory;
+        this.energy = 0;
+        this.familyEnergy = 0;
+    }
+
+    public void levelStartEnergy() {
+        setEnergy(100);
+        setFamilyEnergy(100);
     }
 
     public String getName() {
@@ -21,6 +28,8 @@ public class Player {
 
     public void setEnergy(int energyDiff){
         energy += energyDiff;
+        if (energy>100) energy = 100;
+        if (energy<0) energy = 0;
     }
 
     public int getFamilyEnergy() {
@@ -29,6 +38,8 @@ public class Player {
 
     public void setFamilyEnergy(int energyDiff) {
         familyEnergy += energyDiff;
+        if (familyEnergy>100) familyEnergy = 100;
+        if (familyEnergy<0) familyEnergy = 0;
     }
 
     public void addItem(Item item) {

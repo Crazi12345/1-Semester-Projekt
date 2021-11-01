@@ -32,7 +32,7 @@ public class Level {
 
 
 
-        Item Fish = new Item("fish", 69, "Smells like teen spirit");
+        Item Fish = new Item("fish", 50, "Smells like teen spirit");
         Item Poster = new Item("poster", 0, "Poster that shows food");
         NPC Steve = new NPC("Steve", Fish,
                 "His fingers are full of cheetoo dust and he smells fishy", "i want poster", "that is a nice poster",
