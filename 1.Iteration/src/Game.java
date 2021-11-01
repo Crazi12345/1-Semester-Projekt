@@ -1,3 +1,5 @@
+import com.sun.security.jgss.GSSUtil;
+
 import java.util.ArrayList;
 
 public class Game {
@@ -68,6 +70,16 @@ public class Game {
     public void Eat(Command command) {
         for (int i = 0; i < player.getInventory().size(); i++) {
             if (player.getInventory().get(i).getIsEatable() &
+                    player.getInventory().get(i).getName().equals(command.getSecondWord()) &
+                    currentRoom.getId()==4){
+                player.setEnergy(player.getInventory().get(i).getFoodEnergy()/2);
+                player.setFamilyEnergy(player.getInventory().get(i).getFoodEnergy()/2);
+
+                System.out.println("You and your family ate the " + player.getInventory().get(i).getName());
+                //checks if you are at home, for item name and if item isEatable, you then split the energy
+                //from the item between you and your family
+            }
+            else if (player.getInventory().get(i).getIsEatable() &
                     player.getInventory().get(i).getName().equals(command.getSecondWord())) {
                 player.setEnergy(player.getInventory().get(i).getFoodEnergy());
 
