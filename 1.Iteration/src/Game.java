@@ -78,6 +78,7 @@ public class Game {
                 System.out.println("You and your family ate the " + player.getInventory().get(i).getName());
                 //checks if you are at home, for item name and if item isEatable, you then split the energy
                 //from the item between you and your family
+                return;
             }
             else if (player.getInventory().get(i).getIsEatable() &
                     player.getInventory().get(i).getName().equals(command.getSecondWord())) {
