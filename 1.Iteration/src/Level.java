@@ -24,7 +24,7 @@ public class Level {
         Market = new Room(3, "at the market", new ArrayList<NPC>(), new ArrayList<InanimateObjects>());
         Home = new Room(4, "at your home", new ArrayList<NPC>(), new ArrayList<InanimateObjects>());
         Field = new Room(5, "in an empty field", new ArrayList<NPC>(), new ArrayList<InanimateObjects>());
-        Abandoned_House = new Room(6, "at abadoned house", new ArrayList<NPC>(), new ArrayList<InanimateObjects>());
+        Abandoned_House = new Room(6, "at abandoned house", new ArrayList<NPC>(), new ArrayList<InanimateObjects>());
         Trash_pile = new Room(7, "at trash pile",new ArrayList<NPC>(),new ArrayList<InanimateObjects>());
         Alley = new Room(8, "at in an Alley",new ArrayList<NPC>(),new ArrayList<InanimateObjects>());
         Well = new Room(9, "at the good old well",new ArrayList<NPC>(),new ArrayList<InanimateObjects>());

@@ -10,12 +10,6 @@ public class InanimateObjects extends Interactables {
         this.isChecked = false;
     }
 
-    /*public String interact(String[] interactString){
-        return "";
-    }
-
-     */
-
     public boolean getIsChecked(){
         return this.isChecked;
     }
