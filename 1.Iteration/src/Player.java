@@ -26,10 +26,10 @@ public class Player {
         return energy;
     }
 
-    public void setEnergy(int energyDiff){
+    public void setEnergy(int energyDiff) {
         energy += energyDiff;
-        if (energy>100) energy = 100;
-        if (energy<0) energy = 0;
+        if (energy > 100) energy = 100;
+        if (energy < 0) energy = 0;
     }
 
     public int getFamilyEnergy() {
@@ -38,8 +38,8 @@ public class Player {
 
     public void setFamilyEnergy(int energyDiff) {
         familyEnergy += energyDiff;
-        if (familyEnergy>100) familyEnergy = 100;
-        if (familyEnergy<0) familyEnergy = 0;
+        if (familyEnergy > 100) familyEnergy = 100;
+        if (familyEnergy < 0) familyEnergy = 0;
     }
 
     public void addItem(Item item) {
@@ -50,7 +50,7 @@ public class Player {
         this.inventory.remove(item);
     }
 
-    public ArrayList<Item> getInventory(){
+    public ArrayList<Item> getInventory() {
         return inventory;
     }
 }
