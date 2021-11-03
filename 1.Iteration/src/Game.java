@@ -1,3 +1,5 @@
+import com.sun.security.jgss.GSSUtil;
+
 import java.util.ArrayList;
 
 public class Game {
@@ -29,28 +31,40 @@ public class Game {
             case 2:
                 player.levelStartEnergy();
                 currentRoom = dag_2.createRooms();
+                System.out.println("Welcome to day 2");
                 break;
             case 3:
                 player.levelStartEnergy();
                 currentRoom = dag_3.createRooms();
+                System.out.println("Welcome to day 3");
                 break;
             case 4:
                 player.levelStartEnergy();
                 currentRoom = dag_4.createRooms();
+                System.out.println("Welcome to day 4");
                 break;
             case 5:
                 player.levelStartEnergy();
                 currentRoom = dag_5.createRooms();
+                System.out.println("Welcome to day 5");
                 break;
             default:
-                System.out.println("You are done, please type finished to end the game");
+                System.out.println("You have completed the game, congratulations! Type 'quit' to end the game");
         }
     }
 
-    public void endLevel() {   // needs a end level Command
-        currentLevel++;
-        // Maybe add the family stuff here
-        startLevel();
+    public void endLevel() {
+        if (currentRoom.getId() == 4) {
+            currentLevel++;
+            family();
+            startLevel();
+        } else {
+            System.out.println("Sleeping here would surely get you robbed");
+        }
+    }
+
+    public void family() {
+        System.out.println("your family has " + player.getFamilyEnergy() + " energy");
     }
 
     public void play() {
@@ -62,12 +76,22 @@ public class Game {
             Command command = parser.getCommand();
             finished = processCommand(command);
         }
-        System.out.println("Thank you for playing.  Good bye.");
+        System.out.println("Thank you for playing. Good bye.");
     }
 
     public void Eat(Command command) {
         for (int i = 0; i < player.getInventory().size(); i++) {
             if (player.getInventory().get(i).getIsEatable() &
+                    player.getInventory().get(i).getName().equals(command.getSecondWord()) &
+                    currentRoom.getId() == 4) {
+                player.setEnergy(player.getInventory().get(i).getFoodEnergy() / 2);
+                player.setFamilyEnergy(player.getInventory().get(i).getFoodEnergy() / 2);
+
+                System.out.println("You and your family ate the " + player.getInventory().get(i).getName());
+                //checks if you are at home, for item name and if item isEatable, you then split the energy
+                //from the item between you and your family
+                return;
+            } else if (player.getInventory().get(i).getIsEatable() &
                     player.getInventory().get(i).getName().equals(command.getSecondWord())) {
                 player.setEnergy(player.getInventory().get(i).getFoodEnergy());
 
@@ -91,6 +115,7 @@ public class Game {
                     player.addItem(currentRoom.getInanimateObjects().get(i).getItem());
                     System.out.println(currentRoom.getInanimateObjects().get(i).getItem().getName() + " is added to inventory");
                     currentRoom.getInanimateObjects().get(i).setIsChecked(true);
+                    currentRoom.getInanimateObjects().remove(i);
                 }
                 return;
             }
@@ -164,17 +189,23 @@ public class Game {
             }
             System.out.println("I don't know what you mean...");
 
-        }
-
-        if (player.getEnergy() == 0) {
-            System.out.println("You need to eat!");
-        } else if (player.getFamilyEnergy() == 0) {
-            System.out.println("Your family needs to eat!");
         } else if (commandWord == CommandWord.GO) {
             if (trading) {
                 no();
+            } else if (player.getEnergy() == 0) {
+                System.out.println("You need to eat!");
+            } else {
+                goRoom(command);
+                if (currentRoom.getId() == 4) {
+                    System.out.println("Eating here will give food to your family");
+                    System.out.println("You can sleep to get to the next day");
+                    player.setFamilyEnergy(-2);
+                    if (player.getFamilyEnergy() <= 0) {
+                        System.out.println("Your family, unfortunately, died. They were just too hungry");
+                        wantToQuit = true;
+                    }
+                }
             }
-            goRoom(command);
         } else if (commandWord == CommandWord.TALK) {
             if (trading) {
                 no();
@@ -206,8 +237,17 @@ public class Game {
             no();
         } else if (commandWord == CommandWord.YES) {
             yes();
+        } else if (commandWord == CommandWord.ENERGY) {
+            energy();
+        } else if (commandWord == CommandWord.SLEEP) {
+            endLevel();
         }
         return wantToQuit;
+    }
+
+    private void energy() {
+        System.out.println("You have " + player.getEnergy() + " energy left");
+        System.out.println("Your family has " + player.getFamilyEnergy() + " energy left");
     }
 
     private void inventory() {
@@ -267,7 +307,7 @@ public class Game {
         Room nextRoom = currentRoom.getExit(direction);
 
         if (nextRoom == null) {
-            System.out.println("There is no door!");
+            System.out.println("Can't go that way");
         } else {
             player.setEnergy(-10);
             currentRoom = nextRoom;
