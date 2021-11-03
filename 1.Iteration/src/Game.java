@@ -110,13 +110,17 @@ public class Game {
         for (int i = 0; i < currentRoom.getInanimateObjects().size(); i++) {
             if (currentRoom.getInanimateObjects().get(i).getName().equals(command.getSecondWord())) {
                 System.out.println(currentRoom.getInanimateObjects().get(i).getLongDescription());
-                if (currentRoom.getInanimateObjects().get(i).getIsChecked() == false) {
-                    currentRoom.getInanimateObjects().get(i).setIsChecked(true);
-                    player.addItem(currentRoom.getInanimateObjects().get(i).getItem());
-                    System.out.println(currentRoom.getInanimateObjects().get(i).getItem().getName() + " is added to inventory");
-                    currentRoom.getInanimateObjects().get(i).setIsChecked(true);
-                    currentRoom.getInanimateObjects().remove(i);
-                }
+               try {
+                   if (currentRoom.getInanimateObjects().get(i).getIsChecked() == false) {
+                       currentRoom.getInanimateObjects().get(i).setIsChecked(true);
+                       player.addItem(currentRoom.getInanimateObjects().get(i).getItem());
+                       System.out.println(currentRoom.getInanimateObjects().get(i).getItem().getName() + " is added to inventory");
+                       currentRoom.getInanimateObjects().get(i).setIsChecked(true);
+                   }
+               }
+               catch (NullPointerException e){
+
+               }
                 return;
             }
         }
