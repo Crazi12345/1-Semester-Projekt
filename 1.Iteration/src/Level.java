@@ -115,13 +115,17 @@ public class Level {
                 case 3:
                     Village_center.setExit("north",Well);
                     Village_center.setExit("west", Home);
+                    Village_center.setExit("east",Farm);
                     break;
                 case 4:
-                    Village_center.setExit("north",Well);
+
                     Village_center.setExit("east", Farm);
                     Village_center.setExit("south", Market);
+                    Village_center.setExit("west",Home);
+                    Home.setExit("north",Abandoned_House);
                     break;
                 case 5:
+                    Home.setExit("north",Abandoned_House);
                     Village_center.setExit("west", Home);
                     Village_center.setExit("north",Well);
                     Village_center.setExit("east", Farm);
@@ -133,7 +137,9 @@ public class Level {
         Home.setExit("east", Village_center);
         Well.setExit("south", Village_center);
         Market.setExit("north", Village_center);
-
+        Abandoned_House.setExit("west",Trash_pile);
+        Abandoned_House.setExit("south",Home);
+        Trash_pile.setExit("east",Abandoned_House);
         Farm.setExit("east", Field);
         Field.setExit("west", Farm);
 

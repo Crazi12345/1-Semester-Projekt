@@ -7,7 +7,7 @@ public class Game {
     private NPC currentTrader;
     private Parser parser;
     private Room currentRoom;
-    private int currentLevel = 5;
+    private int currentLevel = 1;
     private Player player = new Player("Marvin", new ArrayList<Item>());
 
 
@@ -32,21 +32,25 @@ public class Game {
                 player.levelStartEnergy();
                 currentRoom = dag_2.createRooms();
                 System.out.println("Welcome to day 2");
+                System.out.println(currentRoom.getLongDescription());
                 break;
             case 3:
                 player.levelStartEnergy();
                 currentRoom = dag_3.createRooms();
                 System.out.println("Welcome to day 3");
+                System.out.println(currentRoom.getLongDescription());
                 break;
             case 4:
                 player.levelStartEnergy();
                 currentRoom = dag_4.createRooms();
                 System.out.println("Welcome to day 4");
+                System.out.println(currentRoom.getLongDescription());
                 break;
             case 5:
                 player.levelStartEnergy();
                 currentRoom = dag_5.createRooms();
                 System.out.println("Welcome to day 5");
+                System.out.println(currentRoom.getLongDescription());
                 break;
             default:
                 System.out.println("You have completed the game, congratulations! Type 'quit' to end the game");
