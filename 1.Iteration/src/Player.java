@@ -13,8 +13,11 @@ public class Player {
         this.familyEnergy = 0;
     }
 
-    public void levelStartEnergy() {
+    public void levelStartEnergyPlayer() {
         setEnergy(100);
+    }
+
+    public void levelStartEnergyFamily() {
         setFamilyEnergy(100);
     }
 
