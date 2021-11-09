@@ -25,29 +25,26 @@ public class Game {
         Level dag_5 = new Level(5);
         switch (currentLevel) {
             case 1:
-                player.levelStartEnergy();
+                player.levelStartEnergyPlayer();
+                player.levelStartEnergyFamily();
                 currentRoom = dag_1.createRooms();
                 break;
             case 2:
-                player.levelStartEnergy();
                 currentRoom = dag_2.createRooms();
                 System.out.println("Welcome to day 2");
                 System.out.println(currentRoom.getLongDescription());
                 break;
             case 3:
-                player.levelStartEnergy();
                 currentRoom = dag_3.createRooms();
                 System.out.println("Welcome to day 3");
                 System.out.println(currentRoom.getLongDescription());
                 break;
             case 4:
-                player.levelStartEnergy();
                 currentRoom = dag_4.createRooms();
                 System.out.println("Welcome to day 4");
                 System.out.println(currentRoom.getLongDescription());
                 break;
             case 5:
-                player.levelStartEnergy();
                 currentRoom = dag_5.createRooms();
                 System.out.println("Welcome to day 5");
                 System.out.println(currentRoom.getLongDescription());
