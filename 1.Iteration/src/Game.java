@@ -90,8 +90,9 @@ public class Game {
                     currentRoom.getId() == 4) {
                 player.setEnergy(player.getInventory().get(i).getFoodEnergy() / 2);
                 player.setFamilyEnergy(player.getInventory().get(i).getFoodEnergy() / 2);
-
                 System.out.println("You and your family ate the " + player.getInventory().get(i).getName());
+                player.removeItem(player.getInventory().get(i));
+
                 //checks if you are at home, for item name and if item isEatable, you then split the energy
                 //from the item between you and your family
                 return;
@@ -156,7 +157,6 @@ public class Game {
                     System.out.println("Pleasure doing business with you");
                     return;
                 }
-
             }
             System.out.println("I don't know what you mean");
 
