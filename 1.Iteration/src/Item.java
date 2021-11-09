@@ -3,12 +3,14 @@ public class Item {
     private int foodEnergy;
     private String longDescription;
     private boolean isEatable;
+    private boolean isAvailable;
 
-    public Item(String name, int foodEnergy, String longDescription) {
+    public Item(String name, int foodEnergy, String longDescription,boolean isAvailable) {
         this.name = name;
         this.foodEnergy = foodEnergy;
         this.longDescription = longDescription;
         this.isEatable = foodEnergy > 0;
+        this.isAvailable=isAvailable;
     }
 
     public String getName() {

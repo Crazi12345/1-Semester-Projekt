@@ -44,18 +44,18 @@ public class Level {
 
 
 
-        Item Fish = new Item("fish", 50, "Smells like teen spirit");
-        Item Poster = new Item("poster", 0, "Poster that shows food");
-        Item Dog = new Item("dog",80,"It looks very cute");
-        Item Stick = new Item("stick",0,"If you are crazy enough it could be a wand");
-        Item Flour = new Item("flour",5,"This could be useful");
-        Item Scarecrow = new Item("scarecrow",0,"It is full of holes");
-        Item Chalk = new Item("chalk",1,"The white stuff the teacher uses on the board");
-        Item Mushrooms = new Item("mushrooms",1000,"I wouldnt eat that if i were you");
-        Item Football = new Item("football",0,"An old beaten football, that needs a bit air");
-        Item Apple = new Item("apple",25,"A good red and round juicy apple");
-        Item Rice = new Item("rice",50,"a bag of boring but tasty rice");
-        Item Bread = new Item("bread",60,"A big loaf of day old bread");
+        Item Fish = new Item("fish", 50, "Smells like teen spirit",true);
+        Item Poster = new Item("poster", 0, "Poster that shows food",true);
+        Item Dog = new Item("dog",80,"It looks very cute",true);
+        Item Stick = new Item("stick",0,"If you are crazy enough it could be a wand",true);
+        Item Flour = new Item("flour",5,"This could be useful",true);
+        Item Scarecrow = new Item("scarecrow",0,"It is full of holes",true);
+        Item Chalk = new Item("chalk",1,"The white stuff the teacher uses on the board",true);
+        Item Mushrooms = new Item("mushrooms",1000,"I wouldnt eat that if i were you",true);
+        Item Football = new Item("football",0,"An old beaten football, that needs a bit air",true);
+        Item Apple = new Item("apple",25,"A good red and round juicy apple",true);
+        Item Rice = new Item("rice",50,"a bag of boring but tasty rice",true);
+        Item Bread = new Item("bread",60,"A big loaf of day old bread",true);
         NPC Steve = new NPC("steve", Fish,
                 "His fingers are full of cheetoo dust and he smells fishy", "I miss my football", "Thank you for finding my football",
                 Football);
@@ -89,7 +89,19 @@ public class Level {
         iO_Well.add(bucket);
         iO_VC.add(barrel);
 
+        Village_center = new Room(0,null,null,null);
+        Farm = new Room(0,null,null,null);
+        Market = new Room(0,null,null,null);
+        Home = new Room(0,null,null,null);
+        Field = new Room(0,null,null,null);
+        Abandoned_House = new Room(0,null,null,null);
+        Trash_pile = new Room(0,null,null,null);
+        Alley = new Room(0,null,null,null);
+        Well = new Room(0,null,null,null);
+        School = new Room(0,null,null,null);
 
+
+        if(Village_center.getShortDescription()==null){
         Village_center = new Room(1, "in the village center", npcs_VC, iO_VC);
         Farm = new Room(2, "at a farm",npcs_Farm ,  iO_Farm);
         Market = new Room(3, "at the market", npcs_Market, iO_Market);
@@ -100,6 +112,7 @@ public class Level {
         Alley = new Room(8, "at in an Alley",npcs_Alley, iO_Alley);
         Well = new Room(9, "at the good old well",npcs_Well, iO_Well);
         School = new Room(10, "at your school",npcs_School, iO_School);
+        }
             // These are the Exist that are dependent on the levels we are on.
 
             switch (id){
@@ -133,21 +146,22 @@ public class Level {
 
         }
         // These are the exits that are not dependent on which level we are on
-        Farm.setExit("west", Village_center);
-        Home.setExit("east", Village_center);
-        Well.setExit("south", Village_center);
-        Market.setExit("north", Village_center);
-        Abandoned_House.setExit("west",Trash_pile);
-        Abandoned_House.setExit("south",Home);
-        Trash_pile.setExit("east",Abandoned_House);
-        Farm.setExit("east", Field);
-        Field.setExit("west", Farm);
 
-        Home.setExit("south", Alley);
-        Alley.setExit("north", Home);
+            Farm.setExit("west", Village_center);
+            Home.setExit("east", Village_center);
+            Well.setExit("south", Village_center);
+            Market.setExit("north", Village_center);
+            Abandoned_House.setExit("west", Trash_pile);
+            Abandoned_House.setExit("south", Home);
+            Trash_pile.setExit("east", Abandoned_House);
+            Farm.setExit("east", Field);
+            Field.setExit("west", Farm);
 
-        Market.setExit("east", School);
-        School.setExit("west", Market);
+            Home.setExit("south", Alley);
+            Alley.setExit("north", Home);
+
+            Market.setExit("east", School);
+            School.setExit("west", Market);
 
 
         return Village_center;
