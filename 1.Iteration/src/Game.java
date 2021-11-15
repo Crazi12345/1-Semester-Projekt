@@ -130,7 +130,7 @@ public class Game {
                 return;
             }
         }
-        System.out.println("I don't know what you mean");
+            System.out.println("I don't know what you mean");
 
     }
 
@@ -146,16 +146,15 @@ public class Game {
             if (currentRoom.getNPCsName(i).equals(command.getSecondWord())) {
                 if (currentRoom.getNPCsTrader(i) == true) {
                     dialogue(currentRoom.getNPCs().get(i));
-                    player.setEnergy(i);
+                    player.setEnergy(-5);
                     return;
                 } else {
                     System.out.println("Pleasure doing business with you");
                     return;
                 }
             }
-            System.out.println("I don't know what you mean");
-
         }
+        System.out.println("I don't know what you mean");
     }
 
     public void dialogue(NPC npc) {
