@@ -82,23 +82,22 @@ public class Game {
 
     public void Eat(Command command) {
         for (int i = 0; i < player.getInventory().size(); i++) {
-            if (player.getInventory().get(i).getIsEatable() &
-                    player.getInventory().get(i).getName().equals(command.getSecondWord()) &
+            if (player.getItem(i).getIsEatable() &
+                    player.getItemName(i).equals(command.getSecondWord()) &
                     currentRoom.getId() == 4) {
-                player.setEnergy(player.getInventory().get(i).getFoodEnergy() / 2);
-                player.setFamilyEnergy(player.getInventory().get(i).getFoodEnergy() / 2);
-                System.out.println("You and your family ate the " + player.getInventory().get(i).getName());
-                player.removeItem(player.getInventory().get(i));
+                player.setEnergyFromItem(i);
+                player.setFamilyEnergyFromItem(i);
+                System.out.println(player.familyEatString(i));
+                player.removeItem(player.getItem(i));
 
                 //checks if you are at home, for item name and if item isEatable, you then split the energy
                 //from the item between you and your family
                 return;
-            } else if (player.getInventory().get(i).getIsEatable() &
-                    player.getInventory().get(i).getName().equals(command.getSecondWord())) {
-                player.setEnergy(player.getInventory().get(i).getFoodEnergy());
-
-                System.out.println("You ate the " + player.getInventory().get(i).getName());
-                player.removeItem(player.getInventory().get(i));
+            } else if (player.getItem(i).getIsEatable() &
+                    player.getItemName(i).equals(command.getSecondWord())) {
+                player.setEnergyFromItem(i);
+                System.out.println(player.eatString(i));
+                player.removeItem(player.getItem(i));
 
                 return;
                 //checks for name and isEatable, if those are true, it adds the energy to the player and
@@ -110,14 +109,13 @@ public class Game {
 
     public void Look(Command command) {
         for (int i = 0; i < currentRoom.getInanimateObjects().size(); i++) {
-            if (currentRoom.getInanimateObjects().get(i).getName().equals(command.getSecondWord())) {
-                System.out.println(currentRoom.getInanimateObjects().get(i).getLongDescription());
-               try {
-                   if (currentRoom.getInanimateObjects().get(i).getIsChecked() == false) {
-                       currentRoom.getInanimateObjects().get(i).setIsChecked(true);
-                       player.addItem(currentRoom.getInanimateObjects().get(i).getItem());
-                       System.out.println(currentRoom.getInanimateObjects().get(i).getItem().getName() + " is added to inventory");
-                       currentRoom.getInanimateObjects().get(i).setIsChecked(true);
+            if (currentRoom.getInanimateObjectsName(i).equals(command.getSecondWord())) {
+                System.out.println(currentRoom.getInanimateObjectsLongDescription(i));
+                try {
+                   if (currentRoom.getInanimateObjectsIsChecked(i) == false) {
+                       currentRoom.setInanimateObjectsIsChecked(i,true);
+                       player.addItem(currentRoom.getInanimateObjectsItem(i));
+                       System.out.println(currentRoom.getInanimateObjectsString(i));
                    }
                }
                catch (NullPointerException e){
@@ -127,8 +125,8 @@ public class Game {
             }
         }
         for (int i = 0; i < currentRoom.getNPCs().size(); i++) {
-            if (currentRoom.getNPCs().get(i).getName().equals(command.getSecondWord())) {
-                System.out.println(currentRoom.getNPCs().get(i).getLongDescription());
+            if (currentRoom.getNPCsName(i).equals(command.getSecondWord())) {
+                System.out.println(currentRoom.getNPCsLongDescription(i));
                 return;
             }
         }
@@ -139,16 +137,16 @@ public class Game {
 
     public void Talk(Command command) {
         for (int i = 0; i < currentRoom.getInanimateObjects().size(); i++) {
-            if (currentRoom.getInanimateObjects().get(i).getName().equals(command.getSecondWord())) {
+            if (currentRoom.getInanimateObjectsName(i).equals(command.getSecondWord())) {
                 System.out.println("Doesn't seem very talkative...");
                 return;
             }
         }
         for (int i = 0; i < currentRoom.getNPCs().size(); i++) {
-            if (currentRoom.getNPCs().get(i).getName().equals(command.getSecondWord())) {
-                if (currentRoom.getNPCs().get(i).getTrader() == true) {
+            if (currentRoom.getNPCsName(i).equals(command.getSecondWord())) {
+                if (currentRoom.getNPCsTrader(i) == true) {
                     dialogue(currentRoom.getNPCs().get(i));
-                    player.setEnergy(-5);
+                    player.setEnergy(i);
                     return;
                 } else {
                     System.out.println("Pleasure doing business with you");
@@ -163,9 +161,9 @@ public class Game {
     public void dialogue(NPC npc) {
         System.out.println(npc.getQuest());
         for (int i = 0; i < player.getInventory().size(); i++) {
-            if (player.getInventory().get(i).getName() == npc.getQuestItem().getName()) {
+            if (player.getItemName(i) == npc.getQuestItemName()) {
                 System.out.println(npc.getQuestComplete());
-                System.out.println("Do you want to give " + npc.getName() + " the " + npc.getQuestItem().getName() + "?");
+                System.out.println(npc.answerQuest());
                 trading = true;
                 currentTrader = npc;
                 break;
@@ -261,7 +259,7 @@ public class Game {
         } else {
             String inventoryString = "You have: ";
             for (int i = 0; i < player.getInventory().size(); i++) {
-                inventoryString += player.getInventory().get(i).getName();
+                inventoryString += player.getItemEnergy(i);
                 if (i != player.getInventory().size() - 1) {
                     inventoryString += ", ";
                 }
@@ -273,8 +271,8 @@ public class Game {
     private void yes() {
 
         if (trading) {
-            System.out.println(currentTrader.getQuestItem().getName() + " is removed from inventory");
-            System.out.println(currentTrader.getReward().getName() + " is added to inventory");
+            System.out.println(currentTrader.getQuestItemName() + " is removed from inventory");
+            System.out.println(currentTrader.getRewardName() + " is added to inventory");
             player.removeItem(currentTrader.getQuestItem());
             player.addItem(currentTrader.getReward());
             trading = false;

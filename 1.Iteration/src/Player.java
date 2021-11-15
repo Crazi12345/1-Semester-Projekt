@@ -29,8 +29,14 @@ public class Player {
         return energy;
     }
 
-    public void setEnergy(int energyDiff) {
-        energy += energyDiff;
+    public void setEnergyFromItem(int i){
+        energy += getItemEnergy(i);
+        if (energy > 100) energy = 100;
+        if (energy < 0) energy = 0;
+    }
+
+    public void setEnergy(int i){
+        energy += i;
         if (energy > 100) energy = 100;
         if (energy < 0) energy = 0;
     }
@@ -39,8 +45,15 @@ public class Player {
         return familyEnergy;
     }
 
-    public void setFamilyEnergy(int energyDiff) {
-        familyEnergy += energyDiff;
+    public void setFamilyEnergyFromItem(int i) {
+        familyEnergy += getItemEnergy(i)/2;
+        setEnergy(getItemEnergy(i)/2);
+        if (familyEnergy > 100) familyEnergy = 100;
+        if (familyEnergy < 0) familyEnergy = 0;
+    }
+
+    public void setFamilyEnergy(int i){
+        familyEnergy += i;
         if (familyEnergy > 100) familyEnergy = 100;
         if (familyEnergy < 0) familyEnergy = 0;
     }
@@ -56,4 +69,25 @@ public class Player {
     public ArrayList<Item> getInventory() {
         return inventory;
     }
+
+    public Item getItem(int i){
+        return this.inventory.get(i);
+    }
+
+    public String getItemName(int i){
+        return getItem(i).getName();
+    }
+
+    public int getItemEnergy(int i){
+        return getItem(i).getFoodEnergy();
+    }
+
+    public String familyEatString(int i){
+        return "You and your family ate the " + getItemName(i);
+    }
+
+    public String eatString(int i){
+        return "You ate the " + getItemName(i);
+    }
+
 }
