@@ -21,4 +21,6 @@ public class InanimateObjects extends Interactables {
     public Item getItem() {
         return foundItem;
     }
+
+
 }

@@ -70,5 +70,43 @@ public class Room {
     public int getId() {
         return id;
     }
+
+    public String getInanimateObjectsName(int i){
+        return inanimateObjects.get(i).getName();
+    }
+
+    public String getInanimateObjectsLongDescription(int i){
+        return inanimateObjects.get(i).getLongDescription();
+    }
+
+    public Boolean getInanimateObjectsIsChecked(int i){
+        return inanimateObjects.get(i).getIsChecked();
+    }
+
+    public void setInanimateObjectsIsChecked(int i, boolean checked){
+        inanimateObjects.get(i).setIsChecked(checked);
+    }
+
+    public Item getInanimateObjectsItem(int i){
+        return inanimateObjects.get(i).getItem();
+    }
+
+    public String getInanimateObjectsString(int i){
+        return getInanimateObjectsName(i) + " is added to inventory";
+    }
+
+    public String getNPCsLongDescription(int i){
+        return NPCs.get(i).getLongDescription();
+    }
+
+    public String getNPCsName(int i){
+        return NPCs.get(i).getName();
+    }
+
+    public boolean getNPCsTrader(int i){
+        return NPCs.get(i).getTrader();
+    }
+
+
 }
 
