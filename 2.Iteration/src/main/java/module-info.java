@@ -1,12 +1,12 @@
-module game.adventures {
+module presentation {
     requires javafx.controls;
     requires javafx.fxml;
-
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
     requires org.kordamp.bootstrapfx.core;
     requires javafx.graphics;
-
-    opens game.adventures to javafx.fxml;
-    exports game.adventures;
+    exports presentation;
+    opens presentation to javafx.fxml;
+    exports domain;
+    opens domain to javafx.fxml;
 }

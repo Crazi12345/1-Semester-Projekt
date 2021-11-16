@@ -1,9 +1,9 @@
-package game.adventures;
+package presentation;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class TestController {
+public class Controller {
     @FXML
     private Label welcomeText;
 
