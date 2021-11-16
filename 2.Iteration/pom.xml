@@ -80,7 +80,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>game.adventures/game.adventures.TestApplication</mainClass>
+                            <mainClass>game.adventures/game.adventures.Main</mainClass>
                         </configuration>
                     </execution>
                 </executions>
