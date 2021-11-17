@@ -1,14 +1,14 @@
-package game.adventures;
+package presentation;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class TestController {
+public class Controller {
     @FXML
     private Label welcomeText;
 
     @FXML
     protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+        welcomeText.setText("You just saved Africa");
     }
 }

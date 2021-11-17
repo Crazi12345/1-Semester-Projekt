@@ -46,6 +46,7 @@ public class Level {
 
 
 
+
         Item Fish = new Item("fish", 50, "Smells like teen spirit");
         Item Poster = new Item("poster", 0, "Poster that shows food");
         Item Dog = new Item("dog",80,"It looks very cute");
@@ -104,36 +105,17 @@ public class Level {
         School = new Room(10, "at your school",npcs_School, iO_School);
             // These are the Exist that are dependent on the levels we are on.
 
-            switch (id){
-                case 1:
+        rooms.add(Village_center);
+        rooms.add(Home);
+        rooms.add(Farm);
+        rooms.add(Field);
+        rooms.add(Market);
+        rooms.add(Abandoned_House);
+        rooms.add(Trash_pile);
+        rooms.add(Well);
+        rooms.add(Alley);
+        rooms.add(School);
 
-                    Village_center.setExit("west",Home);
-
-                    break;
-                case 2:
-                    Village_center.setExit("south", Market);
-                    Village_center.setExit("west", Home);
-                    break;
-                case 3:
-                    Village_center.setExit("north",Well);
-                    Village_center.setExit("west", Home);
-                    Village_center.setExit("east",Farm);
-                    break;
-                case 4:
-
-                    Village_center.setExit("north", Well);
-                    Village_center.setExit("south", Market);
-                    Village_center.setExit("west",Home);
-                    Home.setExit("north",Abandoned_House);
-                    break;
-                case 5:
-                    Home.setExit("north",Abandoned_House);
-                    Village_center.setExit("west", Home);
-                    Village_center.setExit("north",Well);
-                    Village_center.setExit("east", Farm);
-                    Village_center.setExit("south", Market);
-
-        }
         // These are the exits that are not dependent on which level we are on
         Farm.setExit("west", Village_center);
         Home.setExit("east", Village_center);
@@ -154,6 +136,46 @@ public class Level {
 
         return Village_center;
     }
+public void setExits(int currentLevel){
+        clearCenterExits();
+    switch (currentLevel){
+        case 1:
 
+            rooms.get(0).setExit("west",rooms.get(1));
+
+            break;
+        case 2:
+              rooms.get(0).setExit("south", rooms.get(4));
+            rooms.get(0).setExit("west", rooms.get(1));
+            break;
+        case 3:
+            rooms.get(0).setExit("north",rooms.get(7));
+            rooms.get(0).setExit("west", rooms.get(1));
+            rooms.get(0).setExit("east",rooms.get(2));
+            break;
+        case 4:
+
+            rooms.get(0).setExit("north", rooms.get(7));
+            rooms.get(0).setExit("south", rooms.get(4));
+            rooms.get(0).setExit("west",rooms.get(1));
+            rooms.get(1).setExit("north",rooms.get(5));
+            break;
+        case 5:
+            rooms.get(1).setExit("north",rooms.get(5));
+            rooms.get(0).setExit("west", rooms.get(1));
+            rooms.get(0).setExit("north",rooms.get(7));
+            rooms.get(0).setExit("east", rooms.get(2));
+            rooms.get(0).setExit("south", rooms.get(4));
+
+    }
+
+}
+private void clearCenterExits(){
+
+        rooms.get(0).setExit("west",null);
+        rooms.get(0).setExit("east",null);
+        rooms.get(0).setExit("north",null);
+        rooms.get(0).setExit("south",null);
+}
 
 }
