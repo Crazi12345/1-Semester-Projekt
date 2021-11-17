@@ -26,6 +26,7 @@ public class Room {
         exits.put(direction, neighbor);
     }
 
+
     public String getShortDescription() {
         return description;
     }
@@ -67,6 +68,7 @@ public class Room {
     public Room getExit(String direction) {
         return exits.get(direction);
     }
+
 
     public int getId() {
         return id;

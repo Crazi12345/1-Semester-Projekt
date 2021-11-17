@@ -8,6 +8,7 @@ public class Game {
     private Room currentRoom;
     private int currentLevel = 1;
     private Player player = new Player("Marvin", new ArrayList<Item>());
+    private Level levels = new Level(1);
 
 
     public Game() {
@@ -17,36 +18,34 @@ public class Game {
 
 
     public void startLevel() {
-        Level dag_1 = new Level(1);
-        Level dag_2 = new Level(2);
-        Level dag_3 = new Level(3);
-        Level dag_4 = new Level(4);
-        Level dag_5 = new Level(5);
+
+
         switch (currentLevel) {
             case 1:
                 player.levelStartEnergyPlayer();
                 player.levelStartEnergyFamily();
-                currentRoom = dag_1.createRooms();
+                currentRoom = levels.createRooms();
+                levels.setExits(currentLevel);
                 break;
             case 2:
-                currentRoom = dag_2.createRooms();
                 System.out.println("Welcome to day 2");
                 System.out.println(currentRoom.getLongDescription());
+                levels.setExits(currentLevel);
                 break;
             case 3:
-                currentRoom = dag_3.createRooms();
                 System.out.println("Welcome to day 3");
                 System.out.println(currentRoom.getLongDescription());
+                levels.setExits(currentLevel);
                 break;
             case 4:
-                currentRoom = dag_4.createRooms();
                 System.out.println("Welcome to day 4");
                 System.out.println(currentRoom.getLongDescription());
+                levels.setExits(currentLevel);
                 break;
             case 5:
-                currentRoom = dag_5.createRooms();
                 System.out.println("Welcome to day 5");
                 System.out.println(currentRoom.getLongDescription());
+                levels.setExits(currentLevel);
                 break;
             default:
                 System.out.println("You have completed the game, congratulations! Type 'quit' to end the game");
