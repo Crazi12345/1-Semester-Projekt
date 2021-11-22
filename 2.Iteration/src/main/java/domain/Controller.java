@@ -3,8 +3,8 @@ package domain;
 import javafx.fxml.FXML;
 
 public abstract class Controller {
-    /*
-    public Game game = new Game();
+    public static Game game = new Game();
+
 
     @FXML
     public void goNorth(){
@@ -23,5 +23,5 @@ public abstract class Controller {
         game.goRoom("west");
     }
 
-     */
+
 }
