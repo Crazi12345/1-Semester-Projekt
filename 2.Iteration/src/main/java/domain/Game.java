@@ -66,17 +66,6 @@ public class Game {
         System.out.println("your family has " + player.getFamilyEnergy() + " energy");
     }
 
-    public void play() {
-        printWelcome();
-
-
-        boolean finished = false;
-        while (!finished) {
-            Command command = parser.getCommand();
-            finished = processCommand(command);
-        }
-        System.out.println("Thank you for playing. Good bye.");
-    }
 
     public void Eat(Command command) {
         for (int i = 0; i < player.getInventory().size(); i++) {
@@ -178,72 +167,6 @@ public class Game {
         System.out.println(currentRoom.getInteractablesString());
     }
 
-    private boolean processCommand(Command command) {
-        boolean wantToQuit = false;
-
-        CommandWord commandWord = command.getCommandWord();
-// Calling other method in this class
-        if (commandWord == CommandWord.UNKNOWN) {
-            if (trading) {
-                no();
-            }
-            System.out.println("I don't know what you mean...");
-
-        } else if (commandWord == CommandWord.GO) {
-            if (trading) {
-                no();
-            } else if (player.getEnergy() == 0) {
-                System.out.println("You need to eat!");
-            } else {
-                goRoom(command);
-                if (currentRoom.getId() == 4) {
-                    System.out.println("Eating here will give food to your family");
-                    System.out.println("You can sleep to get to the next day");
-                    player.setFamilyEnergy(-2);
-                    if (player.getFamilyEnergy() <= 0) {
-                        System.out.println("Your family, unfortunately, died. They were just too hungry");
-                        wantToQuit = true;
-                    }
-                }
-            }
-        } else if (commandWord == CommandWord.TALK) {
-            if (trading) {
-                no();
-            }
-            Talk(command);
-        }
-        if (commandWord == CommandWord.HELP) {
-            printHelp();
-        } else if (commandWord == CommandWord.QUIT) {
-            wantToQuit = quit(command);
-        } else if (commandWord == CommandWord.EAT) {
-            if (trading) {
-                no();
-            }
-            Eat(command);
-        } else if (commandWord == CommandWord.INVENTORY) {
-            if (trading) {
-                no();
-            }
-            inventory();
-
-        } else if (commandWord == CommandWord.LOOK) {
-            if (trading) {
-                no();
-            }
-            Look(command);
-
-        } else if (commandWord == CommandWord.NO) {
-            no();
-        } else if (commandWord == CommandWord.YES) {
-            yes();
-        } else if (commandWord == CommandWord.ENERGY) {
-            energy();
-        } else if (commandWord == CommandWord.SLEEP) {
-            endLevel();
-        }
-        return wantToQuit;
-    }
 
     private void energy() {
         System.out.println("You have " + player.getEnergy() + " energy left");
@@ -296,14 +219,7 @@ public class Game {
         parser.showCommands();
     }
 
-    private void goRoom(Command command) {
-        if (!command.hasSecondWord()) {
-            System.out.println("Go where?");
-            return;
-        }
-
-        String direction = command.getSecondWord();
-
+    public void goRoom(String direction) {
         Room nextRoom = currentRoom.getExit(direction);
 
         if (nextRoom == null) {
