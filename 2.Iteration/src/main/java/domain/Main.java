@@ -21,7 +21,7 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch();
-       // Game g = new Game();
-     //   g.play();
+      /*  Game g = new Game();
+        g.play();*/
     }
 }
