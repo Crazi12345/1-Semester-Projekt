@@ -1,4 +1,13 @@
 package domain;
+import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Game {
@@ -9,7 +18,6 @@ public class Game {
     private int currentLevel = 1;
     private Player player = new Player("Marvin", new ArrayList<Item>());
     private Level levels = new Level(1);
-
 
     public Game() {
         startLevel();
@@ -219,19 +227,10 @@ public class Game {
         parser.showCommands();
     }
 
-    public void goRoom(String direction) {
+    public void goRoom(String direction) throws IOException {
         Room nextRoom = currentRoom.getExit(direction);
-
-        if (nextRoom == null) {
-            System.out.println("Can't go that way");
-        } else {
-            player.setEnergy(-10);
-            currentRoom = nextRoom;
-            System.out.println(" ");
-            System.out.println(currentRoom.getLongDescription());
-            System.out.println(currentRoom.getInteractablesString());
-
-        }
+        player.setEnergy(-10);
+        currentRoom = nextRoom;
     }
 
     private boolean quit(Command command) {

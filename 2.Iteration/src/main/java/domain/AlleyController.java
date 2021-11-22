@@ -11,6 +11,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class VillageCenterController extends Controller {
+public class AlleyController extends Controller {
 
 }
