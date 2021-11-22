@@ -219,6 +219,10 @@ public class Game {
         parser.showCommands();
     }
 
+    public Room getCurrentRoom() {
+        return currentRoom;
+    }
+
     public void goRoom(String direction) {
         Room nextRoom = currentRoom.getExit(direction);
 
@@ -228,6 +232,7 @@ public class Game {
             player.setEnergy(-10);
             currentRoom = nextRoom;
             System.out.println(" ");
+
             System.out.println(currentRoom.getLongDescription());
             System.out.println(currentRoom.getInteractablesString());
 
