@@ -52,4 +52,61 @@ public class SceneController extends Application {
         stage.setScene(scene);
         stage.show();
     }
+    @FXML
+    public void setSceneAbandonedHouse(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("abandonedHouse.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
+    public void setScenefarmhouse(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("farmhouse.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
+    public void setScenefield(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("field.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
+    public void setSceneHome(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("home.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
+    public void setSceneTrashpile(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("trashpile.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
+    public void setSceneWell(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("well.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
+    public void setSceneMarket(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("market.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
 }

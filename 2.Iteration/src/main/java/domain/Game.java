@@ -107,15 +107,14 @@ public class Game {
             if (currentRoom.getInanimateObjectsName(i).equals(command.getSecondWord())) {
                 System.out.println(currentRoom.getInanimateObjectsLongDescription(i));
                 try {
-                   if (currentRoom.getInanimateObjectsIsChecked(i) == false) {
-                       currentRoom.setInanimateObjectsIsChecked(i,true);
-                       player.addItem(currentRoom.getInanimateObjectsItem(i));
-                       System.out.println(currentRoom.getInanimateObjectsString(i));
-                   }
-               }
-               catch (NullPointerException e){
+                    if (currentRoom.getInanimateObjectsIsChecked(i) == false) {
+                        currentRoom.setInanimateObjectsIsChecked(i, true);
+                        player.addItem(currentRoom.getInanimateObjectsItem(i));
+                        System.out.println(currentRoom.getInanimateObjectsString(i));
+                    }
+                } catch (NullPointerException e) {
 
-               }
+                }
                 return;
             }
         }
@@ -125,7 +124,7 @@ public class Game {
                 return;
             }
         }
-            System.out.println("I don't know what you mean");
+        System.out.println("I don't know what you mean");
 
     }
 
@@ -232,27 +231,18 @@ public class Game {
     }
 
     public void goRoom(String direction) {
-    public void goRoom(String direction) throws IOException {
-        Room nextRoom = currentRoom.getExit(direction);
 
-        if (nextRoom == null) {
-            System.out.println("Can't go that way");
-        } else {
+            Room nextRoom = currentRoom.getExit(direction);
+
+            if (nextRoom == null) {
+                System.out.println("Can't go that way");
+            } else {
+                player.setEnergy(-10);
+                currentRoom = nextRoom;
+
+
+            }
             player.setEnergy(-10);
             currentRoom = nextRoom;
-
-
         }
-        player.setEnergy(-10);
-        currentRoom = nextRoom;
-    }
-
-    private boolean quit(Command command) {
-        if (command.hasSecondWord()) {
-            System.out.println("Quit what?");
-            return false;
-        } else {
-            return true;
-        }
-    }
 }

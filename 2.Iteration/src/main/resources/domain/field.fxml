@@ -11,10 +11,10 @@
     <children>
         <ImageView fitHeight="387.0" fitWidth="610.0" layoutX="-3.0" layoutY="-50.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../files/alley.png" />
+                <Image url="@../files/field.png" />
             </image>
         </ImageView>
-        <Button layoutX="273.0" layoutY="14.0" mnemonicParsing="false" onAction="#setSceneHome" text="North" />
+        <Button layoutX="14.0" layoutY="143.0" mnemonicParsing="false" onAction="#setScenefarmhouse" text="West" />
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="106.0" layoutX="-21.0" layoutY="303.0" stroke="BLACK" strokeType="INSIDE" width="636.0" />
         <Text layoutX="241.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="this is alley" />
     </children>

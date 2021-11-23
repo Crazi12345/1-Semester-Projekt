@@ -18,10 +18,10 @@
             <Image url="@../files/villagecenter.png" />
          </image>
       </ImageView>
-        <Button layoutX="14.0" layoutY="143.0" mnemonicParsing="false" onAction="#setSceneVillageCenter" text="West" />
-        <Button layoutX="273.0" layoutY="14.0" mnemonicParsing="false" onAction="#setSceneAlley" text="North" />
-        <Button layoutX="545.0" layoutY="143.0" mnemonicParsing="false" onAction="#setSceneAlley" text="East" />
-        <Button layoutX="272.0" layoutY="270.0" mnemonicParsing="false" onAction="#setSceneSchool" text="South" />
+        <Button layoutX="14.0" layoutY="143.0" mnemonicParsing="false" onAction="#setSceneHome" text="West" />
+        <Button layoutX="273.0" layoutY="14.0" mnemonicParsing="false" onAction="#setSceneWell" text="North" />
+        <Button layoutX="545.0" layoutY="143.0" mnemonicParsing="false" onAction="#setScenefarmhouse" text="East" />
+        <Button layoutX="272.0" layoutY="270.0" mnemonicParsing="false" onAction="#setSceneMarket" text="South" />
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="106.0" layoutX="-21.0" layoutY="303.0" stroke="BLACK" strokeType="INSIDE" width="636.0" />
         <Text layoutX="241.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="placeholder player ui" />
 
