@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="domain.WellController">
+    <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9fa7ae" height="339.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
+        <ImageView fitHeight="270.0" fitWidth="318.0" layoutX="165.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../files/well.png" />
+         </image></ImageView>
+        <Button layoutX="272.0" layoutY="270.0" mnemonicParsing="false" onAction="#setSceneVillageCenter" text="South" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="106.0" layoutX="-21.0" layoutY="303.0" stroke="BLACK" strokeType="INSIDE" width="636.0" />
+    </children>
+</AnchorPane>
