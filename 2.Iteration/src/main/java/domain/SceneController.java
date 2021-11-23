@@ -119,5 +119,7 @@ public class SceneController extends Application {
         stage.setScene(scene);
         stage.show();
     }
-
+    public void talk(NPC npc){
+        game.talk(npc);
+    }
 }

@@ -100,26 +100,15 @@ public class Game {
         System.out.println("I don't know what you mean");
     }
 
-    public void Talk(Command command) {
-        for (int i = 0; i < currentRoom.getInanimateObjects().size(); i++) {
-            if (currentRoom.getInanimateObjectsName(i).equals(command.getSecondWord())) {
-                System.out.println("Doesn't seem very talkative...");
-                return;
-            }
-        }
-        for (int i = 0; i < currentRoom.getNPCs().size(); i++) {
-            if (currentRoom.getNPCsName(i).equals(command.getSecondWord())) {
-                if (currentRoom.getNPCsTrader(i) == true) {
-                    dialogue(currentRoom.getNPCs().get(i));
+    public void talk(NPC npc) {
+                if (npc.getTrader() == true) {
+                    dialogue(npc);
                     player.setEnergy(-5);
                     return;
                 } else {
                     System.out.println("Pleasure doing business with you");
                     return;
                 }
-            }
-        }
-        System.out.println("I don't know what you mean");
     }
 
     public void dialogue(NPC npc) {
