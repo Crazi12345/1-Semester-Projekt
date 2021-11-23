@@ -12,7 +12,7 @@ import javafx.scene.control.Label;
 
 import java.io.IOException;
 
-public class VillageCenterController extends Controller {
+public class VillageCenterController extends SceneController {
 
 @FXML
     private Label textb = new Label();

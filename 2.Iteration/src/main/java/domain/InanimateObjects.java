@@ -5,9 +5,10 @@ import java.util.ArrayList;
 public class InanimateObjects extends Interactables {
     private Item foundItem;
     private boolean isChecked;
+    private String fileName;
 
-    public InanimateObjects(String name, String longDescription ,Item foundItem,boolean isChecked) {
-        super(name, longDescription);
+    public InanimateObjects(String name, Item foundItem,boolean isChecked, String fileName) {
+        super(name,fileName);
         this.foundItem = foundItem;
         this.isChecked = isChecked;
     }
@@ -22,6 +23,10 @@ public class InanimateObjects extends Interactables {
 
     public Item getItem() {
         return foundItem;
+    }
+
+    public String getFileName(){
+        return this.fileName;
     }
 
 

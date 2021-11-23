@@ -26,7 +26,6 @@ public class Room {
         exits.put(direction, neighbor);
     }
 
-
     public String getShortDescription() {
         return description;
     }
@@ -78,10 +77,6 @@ public class Room {
         return inanimateObjects.get(i).getName();
     }
 
-    public String getInanimateObjectsLongDescription(int i){
-        return inanimateObjects.get(i).getLongDescription();
-    }
-
     public Boolean getInanimateObjectsIsChecked(int i){
         return inanimateObjects.get(i).getIsChecked();
     }
@@ -96,10 +91,6 @@ public class Room {
 
     public String getInanimateObjectsString(int i){
         return getInanimateObjectsName(i) + " is added to inventory";
-    }
-
-    public String getNPCsLongDescription(int i){
-        return NPCs.get(i).getLongDescription();
     }
 
     public String getNPCsName(int i){

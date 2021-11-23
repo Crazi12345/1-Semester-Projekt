@@ -4,13 +4,13 @@ package domain;
 public class Item {
     private String name;
     private int foodEnergy;
-    private String longDescription;
+    private String fileName;
     private boolean isEatable;
 
-    public Item(String name, int foodEnergy, String longDescription) {
+    public Item(String name, int foodEnergy, String fileName) {
         this.name = name;
         this.foodEnergy = foodEnergy;
-        this.longDescription = longDescription;
+        this.fileName = fileName;
         this.isEatable = foodEnergy > 0;
     }
 
@@ -26,8 +26,8 @@ public class Item {
         return this.isEatable;
     }
 
-    public String getLongDescription() {
-        return this.longDescription;
+    public String getFileName() {
+        return this.fileName;
     }
 
 

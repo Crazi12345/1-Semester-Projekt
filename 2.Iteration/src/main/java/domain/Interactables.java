@@ -3,11 +3,11 @@ package domain;
 public abstract class Interactables {
 
     private String name;
-    private String longDescription;
+    private String fileName;
 
-    public Interactables(String name, String longDescription) {
+    public Interactables(String name, String fileName) {
         this.name = name;
-        this.longDescription = longDescription;
+        this.fileName = fileName;
     }
 
 
@@ -15,9 +15,7 @@ public abstract class Interactables {
         return this.name;
     }
 
-    ;
-
-    public String getLongDescription() {
-        return this.longDescription;
+    public String getFileName(){
+        return this.fileName;
     }
 }

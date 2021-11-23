@@ -6,8 +6,8 @@ public class NPC extends Interactables{
     private String questComplete;
     private boolean trader = true;
 
-    public NPC(String name, Item reward, String longDescription, String quest, String questComplete, Item questItem){
-        super(name, longDescription);
+    public NPC(String name, Item reward, String fileName, String quest, String questComplete, Item questItem){
+        super(name, fileName);
         this.reward = reward;
         this.questItem = questItem;
         this.quest = quest;

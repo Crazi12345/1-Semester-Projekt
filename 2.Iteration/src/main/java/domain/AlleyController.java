@@ -11,6 +11,5 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class AlleyController extends Controller {
-
+public class AlleyController extends SceneController {
 }

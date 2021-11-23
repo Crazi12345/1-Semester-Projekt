@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="domain.SceneController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="domain.WellController">
     <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9fa7ae" height="339.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
         <ImageView fitHeight="270.0" fitWidth="318.0" layoutX="165.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">

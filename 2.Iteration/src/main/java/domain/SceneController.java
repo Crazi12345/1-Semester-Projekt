@@ -15,6 +15,7 @@ public class SceneController extends Application {
     Stage stage;
     Scene scene;
     Parent root;
+    public static Game game = new Game();
 
     public static void main(String[] args) {
         launch();
@@ -22,14 +23,15 @@ public class SceneController extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+        game.goRoom(1);
         Parent root = FXMLLoader.load(getClass().getResource("VillageCenter.fxml"));
         Scene villageCenter = new Scene(root);
         stage.setScene(villageCenter);
         stage.show();
     }
-
     @FXML
     public void setSceneVillageCenter(ActionEvent event) throws IOException {
+        game.goRoom(1);
         root = FXMLLoader.load(getClass().getResource("VillageCenter.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -38,6 +40,7 @@ public class SceneController extends Application {
     }
     @FXML
     public void setSceneAlley(ActionEvent event) throws IOException {
+        game.goRoom(8);
         root = FXMLLoader.load(getClass().getResource("alley.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -46,6 +49,7 @@ public class SceneController extends Application {
     }
     @FXML
     public void setSceneSchool(ActionEvent event) throws IOException {
+        game.goRoom(10);
         root = FXMLLoader.load(getClass().getResource("school.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -54,6 +58,7 @@ public class SceneController extends Application {
     }
     @FXML
     public void setSceneAbandonedHouse(ActionEvent event) throws IOException {
+        game.goRoom(6);
         root = FXMLLoader.load(getClass().getResource("abandonedHouse.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -62,6 +67,7 @@ public class SceneController extends Application {
     }
     @FXML
     public void setScenefarmhouse(ActionEvent event) throws IOException {
+        game.goRoom(2);
         root = FXMLLoader.load(getClass().getResource("farmhouse.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -70,6 +76,7 @@ public class SceneController extends Application {
     }
     @FXML
     public void setScenefield(ActionEvent event) throws IOException {
+        game.goRoom(5);
         root = FXMLLoader.load(getClass().getResource("field.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -78,6 +85,7 @@ public class SceneController extends Application {
     }
     @FXML
     public void setSceneHome(ActionEvent event) throws IOException {
+        game.goRoom(4);
         root = FXMLLoader.load(getClass().getResource("home.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -86,6 +94,7 @@ public class SceneController extends Application {
     }
     @FXML
     public void setSceneTrashpile(ActionEvent event) throws IOException {
+        game.goRoom(7);
         root = FXMLLoader.load(getClass().getResource("trashpile.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -94,6 +103,7 @@ public class SceneController extends Application {
     }
     @FXML
     public void setSceneWell(ActionEvent event) throws IOException {
+        game.goRoom(9);
         root = FXMLLoader.load(getClass().getResource("well.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -102,6 +112,7 @@ public class SceneController extends Application {
     }
     @FXML
     public void setSceneMarket(ActionEvent event) throws IOException {
+        game.goRoom(3);
         root = FXMLLoader.load(getClass().getResource("market.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
