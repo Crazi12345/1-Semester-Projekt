@@ -26,8 +26,6 @@ public class Game {
 
 
     public void startLevel() {
-
-
         switch (currentLevel) {
             case 1:
                 player.levelStartEnergyPlayer();
@@ -102,53 +100,15 @@ public class Game {
         System.out.println("I don't know what you mean");
     }
 
-    public void Look(Command command) {
-        for (int i = 0; i < currentRoom.getInanimateObjects().size(); i++) {
-            if (currentRoom.getInanimateObjectsName(i).equals(command.getSecondWord())) {
-                System.out.println(currentRoom.getInanimateObjectsLongDescription(i));
-                try {
-                    if (currentRoom.getInanimateObjectsIsChecked(i) == false) {
-                        currentRoom.setInanimateObjectsIsChecked(i, true);
-                        player.addItem(currentRoom.getInanimateObjectsItem(i));
-                        System.out.println(currentRoom.getInanimateObjectsString(i));
-                    }
-                } catch (NullPointerException e) {
-
-                }
-                return;
-            }
-        }
-        for (int i = 0; i < currentRoom.getNPCs().size(); i++) {
-            if (currentRoom.getNPCsName(i).equals(command.getSecondWord())) {
-                System.out.println(currentRoom.getNPCsLongDescription(i));
-                return;
-            }
-        }
-        System.out.println("I don't know what you mean");
-
-    }
-
-
-    public void Talk(Command command) {
-        for (int i = 0; i < currentRoom.getInanimateObjects().size(); i++) {
-            if (currentRoom.getInanimateObjectsName(i).equals(command.getSecondWord())) {
-                System.out.println("Doesn't seem very talkative...");
-                return;
-            }
-        }
-        for (int i = 0; i < currentRoom.getNPCs().size(); i++) {
-            if (currentRoom.getNPCsName(i).equals(command.getSecondWord())) {
-                if (currentRoom.getNPCsTrader(i) == true) {
-                    dialogue(currentRoom.getNPCs().get(i));
+    public void talk(NPC npc) {
+                if (npc.getTrader() == true) {
+                    dialogue(npc);
                     player.setEnergy(-5);
                     return;
                 } else {
                     System.out.println("Pleasure doing business with you");
                     return;
                 }
-            }
-        }
-        System.out.println("I don't know what you mean");
     }
 
     public void dialogue(NPC npc) {
@@ -196,7 +156,6 @@ public class Game {
     }
 
     private void yes() {
-
         if (trading) {
             System.out.println(currentTrader.getQuestItemName() + " is removed from inventory");
             System.out.println(currentTrader.getRewardName() + " is added to inventory");
@@ -230,19 +189,22 @@ public class Game {
         return currentRoom;
     }
 
-    public void goRoom(String direction) {
+    public ArrayList<Room> getRooms(){
+        return levels.getRooms();
+    }
 
-            Room nextRoom = currentRoom.getExit(direction);
-
-            if (nextRoom == null) {
-                System.out.println("Can't go that way");
-            } else {
-                player.setEnergy(-10);
-                currentRoom = nextRoom;
-
-
+    public Room getRoomByID(int id){
+        for (int i = 0; i < getRooms().size(); i++) {
+            if(id == getRooms().get(i).getId()){
+                return getRooms().get(i);
             }
-            player.setEnergy(-10);
-            currentRoom = nextRoom;
+        }
+        return null;
+    }
+
+    public void goRoom(int id) {
+        player.setEnergy(-10);
+        currentRoom = getRoomByID(id);
+        System.out.println(currentRoom.getLongDescription());
         }
 }
