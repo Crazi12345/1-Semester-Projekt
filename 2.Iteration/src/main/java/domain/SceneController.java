@@ -119,7 +119,20 @@ public class SceneController extends Application {
         stage.setScene(scene);
         stage.show();
     }
-    public void talk(NPC npc){
-        game.talk(npc);
+    @FXML
+    public void talk(String name){
+        for (int i = 0; i < game.getCurrentRoom().getNPCs().size(); i++) {
+            if(game.getCurrentRoom().getNPCsName(i)==name){
+                game.talk(game.getNPCi(i));
+            }
+        }
+    }
+    @FXML
+    public void look(String name){
+        for (int i = 0; i < game.getCurrentRoom().getInanimateObjects().size(); i++) {
+            if(game.getCurrentRoom().getInanimateObjectsName(i)==name){
+                game.look(game.getInanimateObjectsI(i));
+            }
+        }
     }
 }

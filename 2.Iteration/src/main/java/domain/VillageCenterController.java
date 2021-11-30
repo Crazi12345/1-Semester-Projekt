@@ -15,14 +15,15 @@ import javafx.scene.control.Label;
 import java.io.IOException;
 
 public class VillageCenterController extends SceneController {
-
-public void talkSteve(){
-    for (int i = 0; i < game.getCurrentRoom().getNPCs().size(); i++) {
-        if(game.getCurrentRoom().getNPCsName(i)=="steve"){
-            talk(game.getCurrentRoom().getNPCs().get(i));
-        }
+    public void talkSteve(){
+        talk("steve");
     }
-}
 
+    public void lookBarrel(){
+        look("barrel");
+    }
 
+    public void lookPoster(){
+        look("poster");
+    }
 }
