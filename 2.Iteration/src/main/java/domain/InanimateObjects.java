@@ -7,8 +7,8 @@ public class InanimateObjects extends Interactables {
     private boolean isChecked;
     private String fileName;
 
-    public InanimateObjects(String name, Item foundItem,boolean isChecked, String fileName) {
-        super(name,fileName);
+    public InanimateObjects(String name, Item foundItem, boolean isChecked, String fileName) {
+        super(name, fileName);
         this.foundItem = foundItem;
         this.isChecked = isChecked;
     }
@@ -25,7 +25,7 @@ public class InanimateObjects extends Interactables {
         return foundItem;
     }
 
-    public String getFileName(){
+    public String getFileName() {
         return this.fileName;
     }
 

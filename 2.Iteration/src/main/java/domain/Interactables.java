@@ -15,7 +15,7 @@ public abstract class Interactables {
         return this.name;
     }
 
-    public String getFileName(){
+    public String getFileName() {
         return this.fileName;
     }
 }

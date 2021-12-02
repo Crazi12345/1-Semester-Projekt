@@ -15,8 +15,8 @@ public class Game {
     private NPC currentTrader;
     private Parser parser;
     private Room currentRoom;
-    private int currentLevel = 1;
-    private Player player = new Player("Marvin", new ArrayList<Item>());
+    private  int currentLevel = 1;
+    private static Player player = new Player("Marvin", new ArrayList<Item>());
     private Level levels = new Level(1);
 
     public Game() {
@@ -217,10 +217,16 @@ public class Game {
         }
         return null;
     }
-
+    public void incrementCurrentLevel(){
+        currentLevel++;
+    }
     public void goRoom(int id) {
-        player.setEnergy(-10);
+        player.setEnergy(-100);
         currentRoom = getRoomByID(id);
         System.out.println(currentRoom.getLongDescription());
         }
+
+    public Level getLevels(){
+        return  levels;
+    }
 }
