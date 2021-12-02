@@ -7,14 +7,18 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.security.spec.ECField;
+import java.util.HashMap;
 
 public class SceneController extends Application {
     Stage stage;
     Scene scene;
     Parent root;
+
     public static Game game = new Game();
 
     public static void main(String[] args) {
@@ -27,7 +31,9 @@ public class SceneController extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("VillageCenter.fxml"));
         Scene villageCenter = new Scene(root);
         stage.setScene(villageCenter);
+
         stage.show();
+
     }
     @FXML
     public void setSceneVillageCenter(ActionEvent event) throws IOException {
@@ -35,8 +41,13 @@ public class SceneController extends Application {
         root = FXMLLoader.load(getClass().getResource("VillageCenter.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+
         stage.setScene(scene);
+
         stage.show();
+
+
+
     }
     @FXML
     public void setSceneAlley(ActionEvent event) throws IOException {
@@ -109,6 +120,7 @@ public class SceneController extends Application {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+
     }
     @FXML
     public void setSceneMarket(ActionEvent event) throws IOException {
@@ -119,7 +131,22 @@ public class SceneController extends Application {
         stage.setScene(scene);
         stage.show();
     }
-    public void talk(NPC npc){
-        game.talk(npc);
+    @FXML
+    public void talk(String name){
+        for (int i = 0; i < game.getCurrentRoom().getNPCs().size(); i++) {
+            if(game.getCurrentRoom().getNPCsName(i)==name){
+                game.talk(game.getNPCi(i));
+            }
+        }
     }
+    @FXML
+    public void look(String name){
+        for (int i = 0; i < game.getCurrentRoom().getInanimateObjects().size(); i++) {
+            if(game.getCurrentRoom().getInanimateObjectsName(i)==name){
+                game.look(game.getInanimateObjectsI(i));
+            }
+        }
+    }
+
+
 }

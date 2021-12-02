@@ -25,6 +25,9 @@ public class Room {
     public void setExit(String direction, Room neighbor) {
         exits.put(direction, neighbor);
     }
+    public HashMap<String,Room> getExits(){
+        return exits;
+    }
 
     public String getShortDescription() {
         return description;

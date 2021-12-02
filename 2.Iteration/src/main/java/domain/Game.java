@@ -15,8 +15,8 @@ public class Game {
     private NPC currentTrader;
     private Parser parser;
     private Room currentRoom;
-    private int currentLevel = 1;
-    private Player player = new Player("Marvin", new ArrayList<Item>());
+    private  int currentLevel = 1;
+    private static Player player = new Player("Marvin", new ArrayList<Item>());
     private Level levels = new Level(1);
 
     public Game() {
@@ -100,6 +100,13 @@ public class Game {
         System.out.println("I don't know what you mean");
     }
 
+    public NPC getNPCi(int i){
+        return getCurrentRoom().getNPCs().get(i);
+    }
+    public InanimateObjects getInanimateObjectsI(int i){
+        return getCurrentRoom().getInanimateObjects().get(i);
+    }
+
     public void talk(NPC npc) {
                 if (npc.getTrader() == true) {
                     dialogue(npc);
@@ -110,6 +117,15 @@ public class Game {
                     return;
                 }
     }
+    public void look(InanimateObjects object){
+        if(object.getIsChecked()==false){
+            player.addItem(object.getItem());
+            object.setIsChecked(true);
+            System.out.println(player.getInventory().toString());
+        }
+
+    }
+
 
     public void dialogue(NPC npc) {
         System.out.println(npc.getQuest());
@@ -201,10 +217,16 @@ public class Game {
         }
         return null;
     }
-
+    public void incrementCurrentLevel(){
+        currentLevel++;
+    }
     public void goRoom(int id) {
-        player.setEnergy(-10);
+        player.setEnergy(-100);
         currentRoom = getRoomByID(id);
         System.out.println(currentRoom.getLongDescription());
         }
+
+    public Level getLevels(){
+        return  levels;
+    }
 }
