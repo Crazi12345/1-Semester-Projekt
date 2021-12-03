@@ -7,7 +7,10 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
+
+<?import javafx.scene.layout.HBox?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="domain.VillageCenterController">
+
     <children>
       <ImageView fitHeight="387.0" fitWidth="610.0" layoutX="-3.0" layoutY="-50.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -18,8 +21,10 @@
         <Button layoutX="273.0" layoutY="14.0" mnemonicParsing="false" onAction="#setSceneWell" text="North" />
         <Button layoutX="545.0" layoutY="143.0" mnemonicParsing="false" onAction="#setScenefarmhouse" text="East" />
         <Button layoutX="272.0" layoutY="270.0" mnemonicParsing="false" onAction="#setSceneMarket" text="South" />
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="106.0" layoutX="-21.0" layoutY="303.0" stroke="BLACK" strokeType="INSIDE" width="636.0" />
-        <Text layoutX="241.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="placeholder player ui" />
+<!--        <HBox>-->
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="106.0" layoutX="-21.0" layoutY="303.0" stroke="BLACK" strokeType="INSIDE" width="636.0" />
+            <Text layoutX="241.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="placeholder player ui" />
+<!--        </HBox>-->
         <ImageView fitHeight="106.0" fitWidth="195.0" layoutX="312.0" layoutY="189.0" onMouseClicked="#talkSteve" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../files/sprites/steve.png" />
@@ -35,5 +40,13 @@
             <Image url="@../files/sprites/poster.png" />
          </image>
       </ImageView>
+<!-->
+        <HBox fx:id="inventoryContainer">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="106.0" layoutX="-21.0" layoutY="303.0" stroke="BLACK" strokeType="INSIDE" width="636.0" />
+            <Text layoutX="241.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="placeholder player ui" />
+
+        </HBox>
+</!-->
+
     </children>
 </AnchorPane>

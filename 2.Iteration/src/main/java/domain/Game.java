@@ -217,6 +217,9 @@ public class Game {
         }
         return null;
     }
+    public Player getPlayer(){
+        return player;
+    }
 
     public void goRoom(int id) {
         player.setEnergy(-10);
