@@ -107,15 +107,13 @@ public class Game {
         return getCurrentRoom().getInanimateObjects().get(i);
     }
 
-    public void talk(NPC npc) {
-                if (npc.getTrader() == true) {
-                    dialogue(npc);
-                    player.setEnergy(-5);
-                    return;
-                } else {
-                    System.out.println("Pleasure doing business with you");
-                    return;
-                }
+    public boolean questComplete(NPC npc) {
+        for (int i = 0; i < player.getInventory().size(); i++) {
+            if(player.getItem(i)== npc.getQuestItem()){
+                return true;
+            }
+        }
+        return false;
     }
     public void look(InanimateObjects object){
         if(object.getIsChecked()==false){
@@ -126,19 +124,39 @@ public class Game {
 
     }
 
+    public ArrayList<Item> getInventory(){
+        return player.getInventory();
+    }
 
+    public void addToInventory(Item item){
+        player.addItem(item);
+    }
+
+    public void removeFromInventory(Item item){
+            player.removeItem(item);
+        }
+
+
+    public void setCurrentTrader(NPC currentTrader) {
+        this.currentTrader = currentTrader;
+    }
+
+    public NPC getCurrentTrader() {
+        return currentTrader;
+    }
+
+    /*
     public void dialogue(NPC npc) {
         System.out.println(npc.getQuest());
         for (int i = 0; i < player.getInventory().size(); i++) {
             if (player.getItemName(i) == npc.getQuestItemName()) {
-                System.out.println(npc.getQuestComplete());
-                System.out.println(npc.answerQuest());
                 trading = true;
-                currentTrader = npc;
                 break;
             }
         }
     }
+
+ */
 
     private void printWelcome() {
         System.out.println();
@@ -171,26 +189,14 @@ public class Game {
         }
     }
 
-    private void yes() {
-        if (trading) {
-            System.out.println(currentTrader.getQuestItemName() + " is removed from inventory");
-            System.out.println(currentTrader.getRewardName() + " is added to inventory");
-            player.removeItem(currentTrader.getQuestItem());
-            player.addItem(currentTrader.getReward());
-            trading = false;
-            currentTrader.setTrader(false);
-        } else {
-            System.out.println("That doesn't make sense");
-        }
+    public void yes() {
+        player.removeItem(currentTrader.getQuestItem());
+        player.addItem(currentTrader.getReward());
+        currentTrader.setTrader(false);
     }
 
-    private void no() {
-        if (trading) {
-            System.out.println("You decline the trade");
-            trading = false;
-        } else {
-            System.out.println("That doesn't make sense");
-        }
+    public void no() {
+        currentTrader.setTrader(false);
     }
 
     private void printHelp() {

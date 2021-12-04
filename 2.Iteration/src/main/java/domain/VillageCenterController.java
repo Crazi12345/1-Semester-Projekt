@@ -11,12 +11,12 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
-
 import java.io.IOException;
 
 public class VillageCenterController extends SceneController {
     public void talkSteve(){
         talk("steve");
+        dialogueSteve();
     }
 
     public void lookBarrel(){
@@ -25,5 +25,10 @@ public class VillageCenterController extends SceneController {
 
     public void lookPoster(){
         look("poster");
+    }
+
+    @FXML
+    public void dialogueSteve(){
+        showDialogue("steve");
     }
 }
