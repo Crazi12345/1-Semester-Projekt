@@ -14,13 +14,7 @@ import javafx.scene.control.Label;
 import java.io.IOException;
 
 public class VillageCenterController extends SceneController {
-    public void talkSteve(){
-        talk("steve");
-        dialogueSteve();
-    }
 
-    public void lookBarrel(){
-        look("barrel");
     @FXML
     private Button north;
     @FXML
@@ -30,46 +24,53 @@ public class VillageCenterController extends SceneController {
     @FXML
     private Button south;
 
-    public void initialize() {
-        if(game.getCurrentRoom().getExit("north")==null){
-            north.setVisible(false);
-        }
-        else{
-            north.setVisible(true);
-        }
-        if(game.getCurrentRoom().getExit("east")==null){
-            east.setVisible(false);
-        }
-        else{
-            east.setVisible(true);
-        }
-        if(game.getCurrentRoom().getExit("west")==null){
-            west.setVisible(false);
-        }
-        else{
-            west.setVisible(true);
-        }
-        if(game.getCurrentRoom().getExit("south")==null){
-            south.setVisible(false);
-        }
-        else{
-            south.setVisible(true);
-        }
-    }
-public void talkSteve(){
-
-    for (int i = 0; i < game.getCurrentRoom().getNPCs().size(); i++) {
-        if(game.getCurrentRoom().getNPCsName(i)=="steve"){
-            talk(game.getCurrentRoom().getNPCs().get(i).getName());
-        }
+    public void talkSteve(){
+        talk("steve");
+        dialogueSteve();
     }
 
-    public void lookPoster(){
-        look("poster");
-    }
+    public void lookBarrel() {
+        look("barrel");
 
-    @FXML
-    public void dialogueSteve(){
-        showDialogue("steve");
     }
-}
+        public void initialize () {
+            if (game.getCurrentRoom().getExit("north") == null) {
+                north.setVisible(false);
+            } else {
+                north.setVisible(true);
+            }
+            if (game.getCurrentRoom().getExit("east") == null) {
+                east.setVisible(false);
+            } else {
+                east.setVisible(true);
+            }
+            if (game.getCurrentRoom().getExit("west") == null) {
+                west.setVisible(false);
+            } else {
+                west.setVisible(true);
+            }
+            if (game.getCurrentRoom().getExit("south") == null) {
+                south.setVisible(false);
+            } else {
+                south.setVisible(true);
+            }
+        }
+
+     /*   public void talkSteve () {
+
+            for (int i = 0; i < game.getCurrentRoom().getNPCs().size(); i++) {
+                if (game.getCurrentRoom().getNPCsName(i) == "steve") {
+                    talk(game.getCurrentRoom().getNPCs().get(i).getName());
+                }
+            }
+        }*/
+            public void lookPoster() {
+                look("poster");
+            }
+
+            @FXML
+            public void dialogueSteve() {
+                showDialogue("steve");
+            }
+
+    }
