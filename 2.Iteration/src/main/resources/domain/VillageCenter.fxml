@@ -6,9 +6,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-
-<?import javafx.scene.layout.HBox?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="domain.VillageCenterController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="domain.VillageCenterController">
 
     <children>
       <ImageView fitHeight="387.0" fitWidth="610.0" layoutX="-3.0" layoutY="-50.0" pickOnBounds="true" preserveRatio="true">
@@ -17,7 +15,7 @@
          </image>
       </ImageView>
         <Button fx:id="west" layoutX="14.0" layoutY="143.0" mnemonicParsing="false" onAction="#setSceneHome" text="West" />
-        <Button fx:id="north" layoutX="272.0" layoutY="14.0"  onAction="#setSceneWell" text="North" />
+        <Button fx:id="north" layoutX="272.0" layoutY="14.0" onAction="#setSceneWell" text="North" />
         <Button fx:id="east" layoutX="545.0" layoutY="143.0" mnemonicParsing="false" onAction="#setScenefarmhouse" text="East" />
         <Button fx:id="south" layoutX="272.0" layoutY="270.0" mnemonicParsing="false" onAction="#setSceneMarket" text="South" />
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="106.0" layoutX="-21.0" layoutY="303.0" stroke="BLACK" strokeType="INSIDE" width="636.0" />
@@ -38,7 +36,8 @@
             <Image url="@../files/sprites/poster.png" />
          </image>
       </ImageView>
-      <Button fx:id="yes" disable="true" layoutX="234.0" layoutY="356.0" mnemonicParsing="false" opacity="0.0" text="Yes" onAction="#yes"/>
-      <Button fx:id="no" disable="true" layoutX="322.0" layoutY="356.0" mnemonicParsing="false" opacity="0.0" text="No" onAction="#no"/>
+      <Button fx:id="yes" disable="true" layoutX="234.0" layoutY="356.0" mnemonicParsing="false" onAction="#yes" opacity="0.0" text="Yes" />
+      <Button fx:id="no" disable="true" layoutX="322.0" layoutY="356.0" mnemonicParsing="false" onAction="#no" opacity="0.0" text="No" />
+      <Button fx:id="help" onAction="#rulesAlert" mnemonicParsing="false" text="Help" />
     </children>
 </AnchorPane>
