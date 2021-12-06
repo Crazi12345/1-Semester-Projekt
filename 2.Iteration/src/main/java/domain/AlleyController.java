@@ -12,4 +12,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class AlleyController extends SceneController {
+    public void lookFootball(){
+        look("football");
+}
+
 }

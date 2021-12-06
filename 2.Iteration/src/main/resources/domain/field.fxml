@@ -17,5 +17,10 @@
         <Button layoutX="14.0" layoutY="143.0" mnemonicParsing="false" onAction="#setScenefarmhouse" text="West" />
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="106.0" layoutX="-21.0" layoutY="303.0" stroke="BLACK" strokeType="INSIDE" width="636.0" />
         <Text layoutX="241.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="this is alley" />
+      <ImageView fitHeight="132.0" fitWidth="114.0" layoutX="393.0" layoutY="132.0" onMouseClicked="#lookStackofsticks" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../files/sprites/stackofsticks.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>
