@@ -10,8 +10,8 @@ public class Player {
     public Player(String name, ArrayList<Item> inventory) {
         this.name = name;
         this.inventory = inventory;
-        this.energy = 0;
-        this.familyEnergy = 0;
+        this.energy = 100;
+        this.familyEnergy = 100;
     }
 
     public void levelStartEnergyPlayer() {

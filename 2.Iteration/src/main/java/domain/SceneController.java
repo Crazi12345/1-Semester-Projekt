@@ -25,7 +25,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -54,6 +53,7 @@ public class SceneController extends Application {
     }
 
     private String getBatteryName(int energy) {
+
         String filename = "target/classes/files/battery";
         if (energy > 75) {
             filename += "4";

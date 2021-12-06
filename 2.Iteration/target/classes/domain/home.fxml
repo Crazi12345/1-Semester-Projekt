@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="domain.HomeController">
+    <children>
+        <ImageView fitHeight="387.0" fitWidth="610.0" layoutX="-3.0" layoutY="-50.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../files/home.png" />
+            </image>
+        </ImageView>
+        <Button fx:id="north" layoutX="273.0" layoutY="14.0" mnemonicParsing="false" onAction="#setSceneAbandonedHouse" text="North" />
+        <Button layoutX="545.0" layoutY="143.0" mnemonicParsing="false" onAction="#setSceneVillageCenter" text="East" />
+        <Button layoutX="272.0" layoutY="270.0" mnemonicParsing="false" onAction="#setSceneAlley" text="South" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="106.0" layoutX="-21.0" layoutY="303.0" stroke="BLACK" strokeType="INSIDE" width="636.0" />
+        <Text layoutX="241.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="this is alley" />
+      <Button fx:id="sleep" layoutX="257.0" layoutY="118.0" mnemonicParsing="false" onAction="#onSleepClick" prefHeight="38.0" prefWidth="87.0" text="Sleep">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+    </children>
+</AnchorPane>
