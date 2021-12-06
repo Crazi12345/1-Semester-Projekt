@@ -13,6 +13,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class AlleyController extends SceneController {
+    public AlleyController() throws FileNotFoundException {
+    }
+
     public void lookFootball() throws FileNotFoundException {
         look("football");
 }

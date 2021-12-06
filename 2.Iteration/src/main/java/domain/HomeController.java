@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import org.controlsfx.control.action.Action;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class HomeController extends SceneController {
@@ -13,6 +14,9 @@ public class HomeController extends SceneController {
     private Button sleep;
     @FXML
     private Button north;
+
+    public HomeController() throws FileNotFoundException {
+    }
 
     public void initialize() {
         if (game.getCurrentRoom().getExit("north") == null) {

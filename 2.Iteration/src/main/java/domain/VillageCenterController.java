@@ -26,6 +26,9 @@ public class VillageCenterController extends SceneController {
     @FXML
     private Button south;
 
+    public VillageCenterController() throws FileNotFoundException {
+    }
+
     public void talkSteve(){
         talk("steve");
         dialogueSteve();
