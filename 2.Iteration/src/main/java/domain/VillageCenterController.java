@@ -9,6 +9,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
 import java.io.IOException;
@@ -64,6 +66,26 @@ public class VillageCenterController extends SceneController {
                 }
             }
         }*/
+            public void rulesAlert(){
+                Stage rulesWindow = new Stage();
+                rulesWindow.initModality(Modality.APPLICATION_MODAL);
+                rulesWindow.setTitle("Rules");
+
+                Label rules = new Label();
+                rules.setText("The Rules are simple, help marvin get food\n"+
+                        "You can do that by collecting food or help people\n"+
+                        "You can eat food by clicking on it in your inventory\n" +
+                        "You gain energy by eating and lose it by walking                                           \n\r\r\r\r");
+
+                VBox layout = new VBox(10);
+                layout.getChildren().addAll(rules);
+
+                Scene scene = new Scene(layout);
+                rulesWindow.setScene(scene);
+                rulesWindow.show();
+
+            }
+
             public void lookPoster() {
                 look("poster");
             }
