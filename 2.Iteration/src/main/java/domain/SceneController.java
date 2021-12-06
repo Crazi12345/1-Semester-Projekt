@@ -351,23 +351,29 @@ public class SceneController extends Application {
             }
         }
 
-    public void eatSlot1(){
+    public void eatSlot1() throws FileNotFoundException {
         game.eat(0);
+        loadInventory();
     }
-    public void eatSlot2(){
+    public void eatSlot2() throws FileNotFoundException {
         game.eat(1);
+        loadInventory();
     }
-    public void eatSlot3(){
+    public void eatSlot3() throws FileNotFoundException {
         game.eat(2);
+        loadInventory();
     }
-    public void eatSlot4(){
+    public void eatSlot4() throws FileNotFoundException {
         game.eat(3);
+        loadInventory();
     }
-    public void eatSlot5(){
+    public void eatSlot5() throws FileNotFoundException {
         game.eat(4);
+        loadInventory();
     }
-    public void eatSlot6(){
+    public void eatSlot6() throws FileNotFoundException {
         game.eat(5);
+        loadInventory();
     }
 
     }

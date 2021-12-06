@@ -38,32 +38,32 @@
       </ImageView>
       <Button fx:id="yes" disable="true" layoutX="234.0" layoutY="356.0" mnemonicParsing="false" onAction="#yes" opacity="0.0" text="Yes" />
       <Button fx:id="no" disable="true" layoutX="322.0" layoutY="356.0" mnemonicParsing="false" onAction="#no" opacity="0.0" text="No" />
-      <ImageView fx:id="slot1" fitHeight="30.0" fitWidth="30.0" layoutX="488.0" layoutY="313.0" pickOnBounds="true">
+      <ImageView fx:id="slot1" fitHeight="30.0" fitWidth="30.0" layoutX="488.0" layoutY="313.0" pickOnBounds="true" onMouseClicked="#eatSlot1">
          <image>
             <Image url="@../files/grey.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="slot2" fitHeight="30.0" fitWidth="30.0" layoutX="530.0" layoutY="313.0" pickOnBounds="true">
+      <ImageView fx:id="slot2" fitHeight="30.0" fitWidth="30.0" layoutX="530.0" layoutY="313.0" pickOnBounds="true" onMouseClicked="#eatSlot2">
          <image>
             <Image url="@../files/grey.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="slot3" fitHeight="30.0" fitWidth="30.0" layoutX="568.0" layoutY="313.0" pickOnBounds="true">
+      <ImageView fx:id="slot3" fitHeight="30.0" fitWidth="30.0" layoutX="568.0" layoutY="313.0" pickOnBounds="true" onMouseClicked="#eatSlot3">
          <image>
             <Image url="@../files/grey.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="slot4" fitHeight="30.0" fitWidth="30.0" layoutX="488.0" layoutY="354.0" pickOnBounds="true">
+      <ImageView fx:id="slot4" fitHeight="30.0" fitWidth="30.0" layoutX="488.0" layoutY="354.0" pickOnBounds="true" onMouseClicked="#eatSlot4">
          <image>
             <Image url="@../files/grey.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="slot5" fitHeight="30.0" fitWidth="30.0" layoutX="530.0" layoutY="354.0" pickOnBounds="true">
+      <ImageView fx:id="slot5" fitHeight="30.0" fitWidth="30.0" layoutX="530.0" layoutY="354.0" pickOnBounds="true" onMouseClicked="#eatSlot5">
          <image>
             <Image url="@../files/grey.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="slot6" fitHeight="30.0" fitWidth="30.0" layoutX="568.0" layoutY="354.0" pickOnBounds="true">
+      <ImageView fx:id="slot6" fitHeight="30.0" fitWidth="30.0" layoutX="568.0" layoutY="354.0" pickOnBounds="true" onMouseClicked="#eatSlot6">
          <image>
             <Image url="@../files/grey.png" />
          </image>

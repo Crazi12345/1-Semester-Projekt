@@ -82,7 +82,6 @@ public class Game {
             else if(player.getInventory().get(i).getIsEatable()){
                 player.setEnergyFromItem(i);
                 player.removeItem(player.getItem(i));
-
             }
         }
 
