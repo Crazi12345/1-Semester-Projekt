@@ -15,5 +15,15 @@
          </image></ImageView>
         <Button fx:id="south" layoutX="272.0" layoutY="270.0" mnemonicParsing="false" onAction="#setSceneVillageCenter" text="South" />
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="106.0" layoutX="-21.0" layoutY="303.0" stroke="BLACK" strokeType="INSIDE" width="636.0" />
+      <ImageView fitHeight="115.0" fitWidth="83.0" layoutX="262.0" layoutY="155.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../files/sprites/scarecrow.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="81.0" fitWidth="85.0" layoutX="125.0" layoutY="222.0" onMouseClicked="#lookBucket" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../files/sprites/bucket.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>
