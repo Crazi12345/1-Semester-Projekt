@@ -6,14 +6,28 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Border;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.security.spec.ECField;
 import java.util.HashMap;
@@ -21,7 +35,7 @@ import java.util.HashMap;
 public class SceneController extends Application {
     Stage stage;
     Scene scene;
-    Parent root;
+    AnchorPane root;
     @FXML
     Text dialogueBox;
     @FXML
@@ -38,10 +52,73 @@ public class SceneController extends Application {
     public static void main(String[] args) {
         launch();
     }
+    private String getBatteryName(int energy){
+        String filename = "target/classes/files/battery";
+        if(energy>75){
+        }
+            filename+="4";
+        else if (energy>50){
+        }
+            filename+="3";
+        else if (energy>25){
+        }
+        else if (energy>0){
+            filename+="2";
+            filename+="1";
+        }
+            filename+="0";
+        else if (energy==0){
+        }
+        filename+=".png";
+    }
+        return(filename);
+
+    public void addInventoryMenu(AnchorPane root) {
+        ImageView imageViewMarvin = new ImageView();
+        HBox inventorybox = new HBox();
+        ImageView imageViewFamily = new ImageView();
+        int marvinEnergy = game.getPlayer().getEnergy();
+        System.out.println(game.getPlayer().getEnergy());
+        int familyEnergy = game.getPlayer().getFamilyEnergy();
+
+            Image image = new Image(new FileInputStream(getBatteryName(marvinEnergy)));
+        try {
+        }
+            imageViewMarvin = new ImageView(image);
+        catch (FileNotFoundException e) {
+        try {
+            System.out.println("not found");
+        }
+            Image image = new Image(new FileInputStream(getBatteryName(familyEnergy)));
+            imageViewFamily = new ImageView(image);
+        catch (FileNotFoundException e) {
+        }
+            System.out.println("not found");
+        }
+
+
+        inventorybox.setStyle("-fx-border-style: solid inside;" +
+                "-fx-border-width: 2;");
+        inventorybox.setMinHeight(100.0);
+        root.setBottomAnchor(inventorybox, 0.0);
+        root.setLeftAnchor(inventorybox,0.0);
+        root.setRightAnchor(inventorybox,0.0);
+        inventorybox.getChildren().addAll(imageViewMarvin,imageViewFamily);
+        root.getChildren().add(inventorybox);
+    }
     @Override
     public void start(Stage stage) throws Exception {
+
         game.goRoom(1);
-        Parent root = FXMLLoader.load(getClass().getResource("VillageCenter.fxml"));
+        root = FXMLLoader.<AnchorPane>load(getClass().getResource("VillageCenter.fxml"));
+        addInventoryMenu(root);
+        //Parent root = FXMLLoader.load(getClass().getResource("VillageCenter.fxml"));
+        Text text = new Text();
+        text.setText("ur mum");
+        text.setX(50.0);
+        text.setY(50.0);
+        root.getChildren().add(text);
+
         Scene villageCenter = new Scene(root);
         stage.setScene(villageCenter);
 
@@ -57,9 +134,21 @@ public class SceneController extends Application {
         resetDialogue();
     }
     @FXML
+    AnchorPane windowpane;
+    @FXML
+    Text texti = new Text();
+
+    @FXML
+    public void initialize(){
+        texti.setText("does this work?");
+
+    }
+
+    @FXML
     public void setSceneVillageCenter(ActionEvent event) throws IOException {
         game.goRoom(1);
         root = FXMLLoader.load(getClass().getResource("VillageCenter.fxml"));
+        addInventoryMenu(root);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
 
@@ -70,10 +159,13 @@ public class SceneController extends Application {
 
 
     }
+
+
     @FXML
     public void setSceneAlley(ActionEvent event) throws IOException {
         game.goRoom(8);
         root = FXMLLoader.load(getClass().getResource("alley.fxml"));
+        addInventoryMenu(root);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -83,6 +175,7 @@ public class SceneController extends Application {
     public void setSceneSchool(ActionEvent event) throws IOException {
         game.goRoom(10);
         root = FXMLLoader.load(getClass().getResource("school.fxml"));
+        addInventoryMenu(root);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -92,6 +185,7 @@ public class SceneController extends Application {
     public void setSceneAbandonedHouse(ActionEvent event) throws IOException {
         game.goRoom(6);
         root = FXMLLoader.load(getClass().getResource("abandonedHouse.fxml"));
+        addInventoryMenu(root);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -101,6 +195,7 @@ public class SceneController extends Application {
     public void setScenefarmhouse(ActionEvent event) throws IOException {
         game.goRoom(2);
         root = FXMLLoader.load(getClass().getResource("farmhouse.fxml"));
+        addInventoryMenu(root);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -110,6 +205,7 @@ public class SceneController extends Application {
     public void setScenefield(ActionEvent event) throws IOException {
         game.goRoom(5);
         root = FXMLLoader.load(getClass().getResource("field.fxml"));
+        addInventoryMenu(root);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -119,6 +215,7 @@ public class SceneController extends Application {
     public void setSceneHome(ActionEvent event) throws IOException {
         game.goRoom(4);
         root = FXMLLoader.load(getClass().getResource("home.fxml"));
+        addInventoryMenu(root);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -128,6 +225,7 @@ public class SceneController extends Application {
     public void setSceneTrashpile(ActionEvent event) throws IOException {
         game.goRoom(7);
         root = FXMLLoader.load(getClass().getResource("trashpile.fxml"));
+        addInventoryMenu(root);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -137,6 +235,7 @@ public class SceneController extends Application {
     public void setSceneWell(ActionEvent event) throws IOException {
         game.goRoom(9);
         root = FXMLLoader.load(getClass().getResource("well.fxml"));
+        addInventoryMenu(root);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -147,6 +246,7 @@ public class SceneController extends Application {
     public void setSceneMarket(ActionEvent event) throws IOException {
         game.goRoom(3);
         root = FXMLLoader.load(getClass().getResource("market.fxml"));
+        addInventoryMenu(root);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

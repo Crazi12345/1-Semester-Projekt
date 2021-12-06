@@ -223,6 +223,10 @@ public class Game {
         }
         return null;
     }
+    public Player getPlayer(){
+        return player;
+    }
+
     public void incrementCurrentLevel(){
         currentLevel++;
     }
