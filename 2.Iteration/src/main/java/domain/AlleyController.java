@@ -9,10 +9,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class AlleyController extends SceneController {
-    public void lookFootball(){
+    public void lookFootball() throws FileNotFoundException {
         look("football");
 }
 

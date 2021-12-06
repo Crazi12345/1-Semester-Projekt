@@ -30,6 +30,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.security.spec.ECField;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class SceneController extends Application {
@@ -45,6 +46,14 @@ public class SceneController extends Application {
     @FXML
     Button no = new Button();
     public static Game game = new Game();
+    @FXML
+    ImageView slot1, slot2, slot3, slot4, slot5, slot6;
+    @FXML
+    ImageView[] inventorySlots = {slot1, slot2, slot3, slot4, slot5, slot6};
+    @FXML
+    Image currentImage;
+
+    String currentImageURL;
 
     public SceneController() {
     }
@@ -270,13 +279,14 @@ public class SceneController extends Application {
     }
 
     @FXML
-    public void look(String name) {
+    public void look(String name) throws FileNotFoundException {
         for (int i = 0; i < game.getCurrentRoom().getInanimateObjects().size(); i++) {
             if (game.getCurrentRoom().getInanimateObjectsName(i) == name) {
                 game.look(game.getInanimateObjectsI(i));
-                return;
+                break;
             }
         }
+        loadInventory();
     }
 
     @FXML
@@ -311,5 +321,34 @@ public class SceneController extends Application {
         no.setOpacity(0);
     }
 
+    @FXML
+    public void loadInventory() throws FileNotFoundException {
+        ImageView currentImageView;
+        slot1.setImage(new Image(new FileInputStream("src/main/resources/files/grey.png")));
+        slot2.setImage(new Image(new FileInputStream("src/main/resources/files/grey.png")));
+        slot3.setImage(new Image(new FileInputStream("src/main/resources/files/grey.png")));
+        slot4.setImage(new Image(new FileInputStream("src/main/resources/files/grey.png")));
+        slot5.setImage(new Image(new FileInputStream("src/main/resources/files/grey.png")));
+        slot6.setImage(new Image(new FileInputStream("src/main/resources/files/grey.png")));
+        for (int i = 0; i < game.getInventory().size(); i++) {
+            currentImageURL = game.getInventory().get(i).getFileName();
+            currentImage = new Image((new FileInputStream(currentImageURL)));
+            switch (i){
+                case 0: slot1.setImage(currentImage);
+                    break;
+                case 1: slot2.setImage(currentImage);
+                    break;
+                case 2: slot3.setImage(currentImage);
+                    break;
+                case 3: slot4.setImage(currentImage);
+                    break;
+                case 4: slot5.setImage(currentImage);
+                    break;
+                case 5: slot6.setImage(currentImage);
+                    break;
+            }
+        }
+        }
+    }
 
-}
+

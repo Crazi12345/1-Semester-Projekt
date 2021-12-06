@@ -11,6 +11,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
+
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class VillageCenterController extends SceneController {
@@ -29,7 +31,7 @@ public class VillageCenterController extends SceneController {
         dialogueSteve();
     }
 
-    public void lookBarrel() {
+    public void lookBarrel() throws FileNotFoundException {
         look("barrel");
 
     }
@@ -64,7 +66,7 @@ public class VillageCenterController extends SceneController {
                 }
             }
         }*/
-            public void lookPoster() {
+            public void lookPoster() throws FileNotFoundException {
                 look("poster");
             }
 
