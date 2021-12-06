@@ -30,6 +30,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.security.spec.ECField;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class SceneController extends Application {
@@ -45,8 +46,17 @@ public class SceneController extends Application {
     @FXML
     Button no = new Button();
     public static Game game = new Game();
+    @FXML
+    ImageView slot1, slot2, slot3, slot4, slot5, slot6;
 
-    public SceneController() {
+    @FXML
+    Image currentImage;
+
+    String currentImageURL;
+
+    Image placeholder = new Image(new FileInputStream("src/main/resources/files/grey.png"));
+
+    public SceneController() throws FileNotFoundException {
     }
 
     public static void main(String[] args) {
@@ -271,13 +281,14 @@ public class SceneController extends Application {
     }
 
     @FXML
-    public void look(String name) {
+    public void look(String name) throws FileNotFoundException {
         for (int i = 0; i < game.getCurrentRoom().getInanimateObjects().size(); i++) {
             if (game.getCurrentRoom().getInanimateObjectsName(i) == name) {
                 game.look(game.getInanimateObjectsI(i));
-                return;
+                break;
             }
         }
+        loadInventory();
     }
 
     @FXML
@@ -312,7 +323,65 @@ public class SceneController extends Application {
         no.setOpacity(0);
     }
 
+    @FXML
+    public void loadInventory() throws FileNotFoundException {
 
+        slot1.setImage(placeholder);
+        slot2.setImage(placeholder);
+        slot3.setImage(placeholder);
+        slot4.setImage(placeholder);
+        slot5.setImage(placeholder);
+        slot6.setImage(placeholder);
+        for (int i = 0; i < game.getInventory().size(); i++) {
+            currentImageURL = game.getInventory().get(i).getFileName();
+            currentImage = new Image((new FileInputStream(currentImageURL)));
+                switch (i){
+                    case 0: slot1.setImage(currentImage);
+                        break;
+                    case 1: slot2.setImage(currentImage);
+                        break;
+                    case 2: slot3.setImage(currentImage);
+                        break;
+                    case 3: slot4.setImage(currentImage);
+                        break;
+                    case 4: slot5.setImage(currentImage);
+                        break;
+                    case 5: slot6.setImage(currentImage);
+                        break;
+                }
+            }
+        }
     public void lookBucket(MouseEvent mouseEvent) {
     }
 }
+
+    public void eatSlot1() throws FileNotFoundException {
+        game.eat(0);
+        loadInventory();
+    }
+    public void eatSlot2() throws FileNotFoundException {
+        game.eat(1);
+        loadInventory();
+    }
+    public void eatSlot3() throws FileNotFoundException {
+        game.eat(2);
+        loadInventory();
+    }
+    public void eatSlot4() throws FileNotFoundException {
+        game.eat(3);
+        loadInventory();
+    }
+    public void eatSlot5() throws FileNotFoundException {
+        game.eat(4);
+        loadInventory();
+    }
+    public void eatSlot6() throws FileNotFoundException {
+        game.eat(5);
+        loadInventory();
+    }
+
+    }
+
+
+
+

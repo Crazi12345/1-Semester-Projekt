@@ -73,32 +73,17 @@ public class Game {
     }
 
 
-    public void Eat(Command command) {
-        for (int i = 0; i < player.getInventory().size(); i++) {
-            if (player.getItem(i).getIsEatable() &
-                    player.getItemName(i).equals(command.getSecondWord()) &
-                    currentRoom.getId() == 4) {
+    public void eat(int i) {
+            if (currentRoom.getId() == 4 && player.getInventory().get(i).getIsEatable()) {
                 player.setEnergyFromItem(i);
                 player.setFamilyEnergyFromItem(i);
-                System.out.println(player.familyEatString(i));
                 player.removeItem(player.getItem(i));
-
-                //checks if you are at home, for item name and if item isEatable, you then split the energy
-                //from the item between you and your family
-                return;
-            } else if (player.getItem(i).getIsEatable() &
-                    player.getItemName(i).equals(command.getSecondWord())) {
+            }
+            else if(player.getInventory().get(i).getIsEatable()){
                 player.setEnergyFromItem(i);
-                System.out.println(player.eatString(i));
                 player.removeItem(player.getItem(i));
-
-                return;
-                //checks for name and isEatable, if those are true, it adds the energy to the player and
-                //removes the item
             }
         }
-        System.out.println("I don't know what you mean");
-    }
 
     public NPC getNPCi(int i){
         return getCurrentRoom().getNPCs().get(i);

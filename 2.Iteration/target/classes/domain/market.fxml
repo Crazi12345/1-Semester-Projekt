@@ -23,10 +23,5 @@
             <Image url="@../files/sprites/baker.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="93.0" fitWidth="93.0" layoutX="333.0" layoutY="188.0" onMouseClicked="#talkShopper" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../files/sprites/shopper.png" />
-         </image>
-      </ImageView>
     </children>
 </AnchorPane>

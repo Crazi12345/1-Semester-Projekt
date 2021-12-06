@@ -42,18 +42,18 @@ public class Level {
     public Room createRooms() {
         Room Village_center, Farm, Market, Home, Field, Abandoned_House, Trash_pile, Alley, Well, School;
 
-        Item Fish = new Item("fish", 50, "fish.png");
-        Item Poster = new Item("poster", 0, "poster.png");
-        Item Dog = new Item("dog", 80, "dog.png");
-        Item Stick = new Item("stick", 0, "wand.png");
-        Item Flour = new Item("flour", 5, "flour.png");
-        Item Scarecrow = new Item("scarecrow", 0, "scarecrow.png");
-        Item Chalk = new Item("chalk", 1, "chalk.png");
-        Item Mushrooms = new Item("mushrooms", 1000, "mushrooms.png");
-        Item Football = new Item("football", 0, "football.pmg");
-        Item Apple = new Item("apple", 25, "apple.png");
-        Item Rice = new Item("rice", 50, "rice.png");
-        Item Bread = new Item("bread", 60, "bread.png");
+        Item Fish = new Item("fish", 50, "src/main/resources/files/sprites/fish.png");
+        Item Poster = new Item("poster", 0, "src/main/resources/files/sprites/poster.png");
+        Item Dog = new Item("dog", 80, "src/main/resources/files/sprites/dog.png");
+        Item Stick = new Item("stick", 0, "src/main/resources/files/sprites/wand.png");
+        Item Flour = new Item("flour", 5, "src/main/resources/files/sprites/flour.png");
+        Item Scarecrow = new Item("scarecrow", 0, "src/main/resources/files/sprites/scarecrow.png");
+        Item Chalk = new Item("chalk", 1, "src/main/resources/files/sprites/chalk.png");
+        Item Mushrooms = new Item("mushrooms", 1000, "src/main/resources/files/sprites/mushrooms.png");
+        Item Football = new Item("football", 0, "src/main/resources/files/sprites/football.pmg");
+        Item Apple = new Item("apple", 25, "src/main/resources/files/sprites/apple.png");
+        Item Rice = new Item("rice", 50, "src/main/resources/files/sprites/rice.png");
+        Item Bread = new Item("bread", 60, "src/main/resources/files/sprites/bread.png");
         NPC Steve = new NPC("steve", Fish, "steve.png", "I miss my football", "Thank you for finding my football", Football);
         NPC Homeless_man = new NPC("homeless-man", Mushrooms, "homelessman.png", "Have you seen my wand, i need it for my spells", "Finally my beloved wand, now i can become the most powerful wizard in the whole land", Stick);
         NPC Farmer = new NPC("farmer", Flour, "flour.png", "I lost my scarecrow, i think the birds hid it from me ", "There it was", Scarecrow);
@@ -69,13 +69,13 @@ public class Level {
         npcs_Farm.add(Farmer);
         npcs_Well.add(Abena);
 
-        InanimateObjects stack_of_sticks = new InanimateObjects("stack-of-sticks", Stick, false, "stackofsticks.png");
-        InanimateObjects poster = new InanimateObjects("poster", Poster, false, "poster.png");
-        InanimateObjects football = new InanimateObjects("football", Football, false, "football.png");
-        InanimateObjects dog = new InanimateObjects("dog", Dog, false, "dog.png");
-        InanimateObjects well = new InanimateObjects("well", Scarecrow, false, "scarecrow.png");
-        InanimateObjects bucket = new InanimateObjects("bucket", null, true, "bucket.png");
-        InanimateObjects barrel = new InanimateObjects("barrel", null, true, "barrel.png");
+        InanimateObjects stack_of_sticks = new InanimateObjects("stack-of-sticks", Stick, false, "src/main/resources/files/sprites/stackofsticks.png");
+        InanimateObjects poster = new InanimateObjects("poster", Poster, false, "src/main/resources/files/sprites/poster.png");
+        InanimateObjects football = new InanimateObjects("football", Football, false, "src/main/resources/files/sprites/football.png");
+        InanimateObjects dog = new InanimateObjects("dog", Dog, false, "src/main/resources/files/sprites/dog.png");
+        InanimateObjects well = new InanimateObjects("well", Scarecrow, false, "src/main/resources/files/sprites/scarecrow.png");
+        InanimateObjects bucket = new InanimateObjects("bucket", null, true, "src/main/resources/files/sprites/bucket.png");
+        InanimateObjects barrel = new InanimateObjects("barrel", null, true, "src/main/resources/files/sprites/barrel.png");
 
         iO_VC.add(poster);
         iO_Field.add(stack_of_sticks);

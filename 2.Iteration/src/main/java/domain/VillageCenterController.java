@@ -13,6 +13,8 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
+
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class VillageCenterController extends SceneController {
@@ -26,12 +28,15 @@ public class VillageCenterController extends SceneController {
     @FXML
     private Button south;
 
+    public VillageCenterController() throws FileNotFoundException {
+    }
+
     public void talkSteve(){
         talk("steve");
         dialogueSteve();
     }
 
-    public void lookBarrel() {
+    public void lookBarrel() throws FileNotFoundException {
         look("barrel");
 
     }
@@ -86,7 +91,7 @@ public class VillageCenterController extends SceneController {
 
             }
 
-            public void lookPoster() {
+            public void lookPoster() throws FileNotFoundException {
                 look("poster");
             }
 

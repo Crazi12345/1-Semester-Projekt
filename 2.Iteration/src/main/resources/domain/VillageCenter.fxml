@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="domain.VillageCenterController">
-
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="domain.VillageCenterController">
     <children>
       <ImageView fitHeight="387.0" fitWidth="610.0" layoutX="-3.0" layoutY="-50.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -38,6 +38,36 @@
       </ImageView>
       <Button fx:id="yes" disable="true" layoutX="234.0" layoutY="356.0" mnemonicParsing="false" onAction="#yes" opacity="0.0" text="Yes" />
       <Button fx:id="no" disable="true" layoutX="322.0" layoutY="356.0" mnemonicParsing="false" onAction="#no" opacity="0.0" text="No" />
+      <ImageView fx:id="slot1" fitHeight="30.0" fitWidth="30.0" layoutX="488.0" layoutY="313.0" pickOnBounds="true" onMouseClicked="#eatSlot1">
+         <image>
+            <Image url="@../files/grey.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="slot2" fitHeight="30.0" fitWidth="30.0" layoutX="530.0" layoutY="313.0" pickOnBounds="true" onMouseClicked="#eatSlot2">
+         <image>
+            <Image url="@../files/grey.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="slot3" fitHeight="30.0" fitWidth="30.0" layoutX="568.0" layoutY="313.0" pickOnBounds="true" onMouseClicked="#eatSlot3">
+         <image>
+            <Image url="@../files/grey.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="slot4" fitHeight="30.0" fitWidth="30.0" layoutX="488.0" layoutY="354.0" pickOnBounds="true" onMouseClicked="#eatSlot4">
+         <image>
+            <Image url="@../files/grey.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="slot5" fitHeight="30.0" fitWidth="30.0" layoutX="530.0" layoutY="354.0" pickOnBounds="true" onMouseClicked="#eatSlot5">
+         <image>
+            <Image url="@../files/grey.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="slot6" fitHeight="30.0" fitWidth="30.0" layoutX="568.0" layoutY="354.0" pickOnBounds="true" onMouseClicked="#eatSlot6">
+         <image>
+            <Image url="@../files/grey.png" />
+         </image>
+      </ImageView>
       <Button fx:id="help" onAction="#rulesAlert" mnemonicParsing="false" text="Help" />
     </children>
 </AnchorPane>
