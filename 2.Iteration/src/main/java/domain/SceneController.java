@@ -6,6 +6,9 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.HPos;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -13,10 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Border;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
@@ -25,6 +25,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -85,11 +86,21 @@ public class SceneController extends Application {
 
     public void addInventoryMenu(AnchorPane root) {
         ImageView imageViewMarvin = new ImageView();
-        HBox inventorybox = new HBox();
+        Label marvinLabel = new Label();
+        marvinLabel.setTextAlignment(TextAlignment.CENTER);
+
+        GridPane.setHalignment(marvinLabel, HPos.CENTER);
+        GridPane.setHalignment(marvinLabel, HPos.CENTER);
+        GridPane energyBox = new GridPane();
+
         ImageView imageViewFamily = new ImageView();
+        Label familyLabel = new Label();
+        familyLabel.setTextAlignment(TextAlignment.CENTER);
         int marvinEnergy = game.getPlayer().getEnergy();
+        marvinLabel.setText("%d%%".formatted(marvinEnergy));
         System.out.println(game.getPlayer().getEnergy());
         int familyEnergy = game.getPlayer().getFamilyEnergy();
+        familyLabel.setText("%d%%".formatted(familyEnergy));
 
 
         try {
@@ -106,15 +117,27 @@ public class SceneController extends Application {
             System.out.println("not found");
         }
 
+        energyBox.setHgap(10);
+        energyBox.setVgap(10);
+        energyBox.setPadding(new Insets(10, 10, 10, 10));
 
-        inventorybox.setStyle("-fx-border-style: solid inside;" +
+        energyBox.setStyle("-fx-border-style: solid inside;" +
                 "-fx-border-width: 2;");
-        inventorybox.setMinHeight(100.0);
-        root.setBottomAnchor(inventorybox, 0.0);
-        root.setLeftAnchor(inventorybox, 0.0);
-        root.setRightAnchor(inventorybox, 0.0);
-        inventorybox.getChildren().addAll(imageViewMarvin, imageViewFamily);
-        root.getChildren().add(inventorybox);
+        energyBox.setMinHeight(100.0);
+
+        root.setBottomAnchor(energyBox, 0.0);
+        root.setLeftAnchor(energyBox, 0.0);
+        root.setRightAnchor(energyBox, 0.0);
+
+
+
+        energyBox.add(imageViewMarvin, 0,0);
+        energyBox.add(imageViewFamily, 1,0);
+        energyBox.add(marvinLabel,0,1);
+        energyBox.add(familyLabel,1,1);
+
+        //inventorybox.getChildren().addAll(imageViewMarvin, marvinLabel, imageViewFamily, familyLabel);
+        root.getChildren().add(energyBox);
     }
 
     @Override
