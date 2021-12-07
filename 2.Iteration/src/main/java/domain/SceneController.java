@@ -379,9 +379,7 @@ public class SceneController extends Application {
         game.eat(5);
         loadInventory();
     }
-
-    }
-
+}
 
 
 
