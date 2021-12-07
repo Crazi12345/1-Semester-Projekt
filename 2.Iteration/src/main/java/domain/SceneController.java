@@ -353,7 +353,7 @@ public class SceneController extends Application {
         }
     public void lookBucket(MouseEvent mouseEvent) {
     }
-}
+
 
     public void eatSlot1() throws FileNotFoundException {
         game.eat(0);
@@ -379,9 +379,7 @@ public class SceneController extends Application {
         game.eat(5);
         loadInventory();
     }
-
-    }
-
+}
 
 
 
