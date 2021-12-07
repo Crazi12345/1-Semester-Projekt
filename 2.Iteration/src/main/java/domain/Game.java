@@ -216,6 +216,7 @@ public class Game {
         currentLevel++;
     }
     public void goRoom(int id) {
+        player.setFamilyEnergy(-2);
         player.setEnergy(-10);
         currentRoom = getRoomByID(id);
         System.out.println(currentRoom.getLongDescription());

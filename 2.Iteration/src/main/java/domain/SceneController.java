@@ -92,7 +92,7 @@ public class SceneController extends Application {
         GridPane.setHalignment(marvinLabel, HPos.CENTER);
         GridPane.setHalignment(marvinLabel, HPos.CENTER);
         GridPane energyBox = new GridPane();
-        energyBox.setGridLinesVisible(true);
+
         ImageView imageViewFamily = new ImageView();
         Label familyLabel = new Label();
         familyLabel.setTextAlignment(TextAlignment.CENTER);
