@@ -108,12 +108,10 @@ public class SceneController extends Application {
         }
 
 
-        inventorybox.setStyle("-fx-border-style: solid inside;" +
-                "-fx-border-width: 2;");
+
         inventorybox.setMinHeight(100.0);
         root.setBottomAnchor(inventorybox, 0.0);
         root.setLeftAnchor(inventorybox, 0.0);
-        root.setRightAnchor(inventorybox, 0.0);
         inventorybox.getChildren().addAll(imageViewMarvin, imageViewFamily);
         root.getChildren().add(inventorybox);
     }
