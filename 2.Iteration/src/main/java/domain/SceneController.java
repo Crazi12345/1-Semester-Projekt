@@ -120,14 +120,14 @@ public class SceneController extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
-        game.goRoom(1);
-        root = FXMLLoader.<AnchorPane>load(getClass().getResource("VillageCenter.fxml"));
-        addInventoryMenu(root);
+      //  game.goRoom(1);
+        root = FXMLLoader.<AnchorPane>load(getClass().getResource("startScreen.fxml"));
+       // addInventoryMenu(root);
         //Parent root = FXMLLoader.load(getClass().getResource("VillageCenter.fxml"));
-
+        stage.setResizable(false);
+        stage.getIcons().add(new Image("file:bread.png"));
         Scene villageCenter = new Scene(root);
         stage.setScene(villageCenter);
-
         stage.show();
 
     }
@@ -353,7 +353,7 @@ public class SceneController extends Application {
         }
     public void lookBucket(MouseEvent mouseEvent) {
     }
-}
+
 
     public void eatSlot1() throws FileNotFoundException {
         game.eat(0);

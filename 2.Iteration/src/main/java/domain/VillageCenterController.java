@@ -80,7 +80,8 @@ public class VillageCenterController extends SceneController {
                 rules.setText("The Rules are simple, help marvin get food\n"+
                         "You can do that by collecting food or help people\n"+
                         "You can eat food by clicking on it in your inventory\n" +
-                        "You gain energy by eating and lose it by walking                                           \n\r\r\r\r");
+                        "You gain energy by eating and lose it by walking                            " +
+                        "               \n\r\r\r\r");
 
                 VBox layout = new VBox(10);
                 layout.getChildren().addAll(rules);
