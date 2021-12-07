@@ -20,7 +20,7 @@
         <Button layoutX="272.0" layoutY="270.0" mnemonicParsing="false" onAction="#setSceneAlley" text="South" />
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="106.0" layoutX="-21.0" layoutY="303.0" stroke="BLACK" strokeType="INSIDE" width="636.0" />
         <Text layoutX="241.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="this is alley" />
-      <Button fx:id="sleep" layoutX="56.0" layoutY="134.0" mnemonicParsing="false" onAction="#onSleepClick" prefHeight="38.0" prefWidth="87.0" text="Sleep">
+      <Button fx:id="sleep" layoutX="56.0" layoutY="112.0" mnemonicParsing="false" onAction="#onSleepClick" prefHeight="38.0" prefWidth="87.0" text="Sleep">
          <font>
             <Font size="20.0" />
          </font>
@@ -30,5 +30,35 @@
             <Image url="@../files/sprites/bed.png" />
          </image>
       </ImageView>
+        <ImageView fx:id="slot1" fitHeight="30.0" fitWidth="30.0" layoutX="463.0" layoutY="316.0" onMouseClicked="#eatSlot1" pickOnBounds="true">
+            <image>
+                <Image url="@../files/grey.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="slot2" fitHeight="30.0" fitWidth="30.0" layoutX="513.0" layoutY="366.0" onMouseClicked="#eatSlot2" pickOnBounds="true">
+            <image>
+                <Image url="@../files/grey.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="slot3" fitHeight="30.0" fitWidth="30.0" layoutX="563.0" layoutY="316.0" onMouseClicked="#eatSlot3" pickOnBounds="true">
+            <image>
+                <Image url="@../files/grey.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="slot4" fitHeight="30.0" fitWidth="30.0" layoutX="463.0" layoutY="366.0" onMouseClicked="#eatSlot4" pickOnBounds="true">
+            <image>
+                <Image url="@../files/grey.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="slot5" fitHeight="30.0" fitWidth="30.0" layoutX="513.0" layoutY="316.0" onMouseClicked="#eatSlot5" pickOnBounds="true">
+            <image>
+                <Image url="@../files/grey.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="slot6" fitHeight="30.0" fitWidth="30.0" layoutX="563.0" layoutY="366.0" onMouseClicked="#eatSlot6" pickOnBounds="true">
+            <image>
+                <Image url="@../files/grey.png" />
+            </image>
+        </ImageView>
     </children>
 </AnchorPane>

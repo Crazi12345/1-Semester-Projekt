@@ -31,9 +31,8 @@ public class VillageCenterController extends SceneController {
     public VillageCenterController() throws FileNotFoundException {
     }
 
-    public void talkSteve(){
+    public void talkSteve() throws FileNotFoundException {
         talk("steve");
-        dialogueSteve();
     }
 
     public void lookBarrel() throws FileNotFoundException {
@@ -97,8 +96,8 @@ public class VillageCenterController extends SceneController {
             }
 
             @FXML
-            public void dialogueSteve() {
-                showDialogue("steve");
+            public void dialogueSteve() throws FileNotFoundException {
+                talk("steve");
             }
 
     }

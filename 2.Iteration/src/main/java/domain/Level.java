@@ -50,7 +50,7 @@ public class Level {
         Item Scarecrow = new Item("scarecrow", 0, "src/main/resources/files/sprites/scarecrow.png");
         Item Chalk = new Item("chalk", 1, "src/main/resources/files/sprites/chalk.png");
         Item Mushrooms = new Item("mushrooms", 1000, "src/main/resources/files/sprites/mushrooms.png");
-        Item Football = new Item("football", 0, "src/main/resources/files/sprites/football.pmg");
+        Item Football = new Item("football", 0, "src/main/resources/files/sprites/football.png");
         Item Apple = new Item("apple", 25, "src/main/resources/files/sprites/apple.png");
         Item Rice = new Item("rice", 50, "src/main/resources/files/sprites/rice.png");
         Item Bread = new Item("bread", 60, "src/main/resources/files/sprites/bread.png");

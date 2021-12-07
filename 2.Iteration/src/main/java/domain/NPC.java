@@ -43,10 +43,6 @@ public class NPC extends Interactables {
         return this.reward;
     }
 
-    public String answerQuest() {
-        return "Do you want to give " + getName() + " the " + getQuestItemName() + "?";
-    }
-
     public String getRewardName() {
         return reward.getName();
     }
