@@ -26,7 +26,6 @@ public class VillageCenterController extends SceneController {
     }
 
 
-
     public void talkSteve() throws FileNotFoundException {
         talk("steve");
     }
@@ -35,77 +34,79 @@ public class VillageCenterController extends SceneController {
         look("barrel");
 
     }
-        public void initialize () {
-            if (game.getCurrentRoom().getExit("north") == null) {
-                north.setVisible(false);
-            } else {
-                north.setVisible(true);
-            }
-            if (game.getCurrentRoom().getExit("east") == null) {
-                east.setVisible(false);
-            } else {
-                east.setVisible(true);
-            }
-            if (game.getCurrentRoom().getExit("west") == null) {
-                west.setVisible(false);
-            } else {
-                west.setVisible(true);
-            }
-            if (game.getCurrentRoom().getExit("south") == null) {
-                south.setVisible(false);
-            } else {
-                south.setVisible(true);
-            }
 
-                if(game.getPlayer().getEnergy()==0){
-                    disableButtons();
-                }
-
+    public void initialize() throws FileNotFoundException {
+        loadInventory();
+        if (game.getCurrentRoom().getExit("north") == null) {
+            north.setVisible(false);
+        } else {
+            north.setVisible(true);
+        }
+        if (game.getCurrentRoom().getExit("east") == null) {
+            east.setVisible(false);
+        } else {
+            east.setVisible(true);
+        }
+        if (game.getCurrentRoom().getExit("west") == null) {
+            west.setVisible(false);
+        } else {
+            west.setVisible(true);
+        }
+        if (game.getCurrentRoom().getExit("south") == null) {
+            south.setVisible(false);
+        } else {
+            south.setVisible(true);
         }
 
-     /*   public void talkSteve () {
+        if (game.getPlayer().getEnergy() == 0) {
+            disableButtons();
+        }
 
-            for (int i = 0; i < game.getCurrentRoom().getNPCs().size(); i++) {
-                if (game.getCurrentRoom().getNPCsName(i) == "steve") {
-                    talk(game.getCurrentRoom().getNPCs().get(i).getName());
-                }
-            }
-        }*/
-            public void rulesAlert(){
-                Stage rulesWindow = new Stage();
-                rulesWindow.initModality(Modality.APPLICATION_MODAL);
-                rulesWindow.setTitle("Rules");
+    }
 
-                Label rules = new Label();
-                rules.setText("The Rules are simple, help marvin get food\n"+
-                        "You can do that by collecting food or help people\n"+
-                        "You can eat food by clicking on it in your inventory\n" +
-                        "You gain energy by eating and lose it by walking                            " +
-                        "               \n\r\r\r\r");
+    /*   public void talkSteve () {
 
-                VBox layout = new VBox(10);
-                layout.getChildren().addAll(rules);
+           for (int i = 0; i < game.getCurrentRoom().getNPCs().size(); i++) {
+               if (game.getCurrentRoom().getNPCsName(i) == "steve") {
+                   talk(game.getCurrentRoom().getNPCs().get(i).getName());
+               }
+           }
+       }*/
+    public void rulesAlert() {
+        Stage rulesWindow = new Stage();
+        rulesWindow.initModality(Modality.APPLICATION_MODAL);
+        rulesWindow.setTitle("Rules");
 
-                Scene scene = new Scene(layout);
-                rulesWindow.setScene(scene);
-                rulesWindow.show();
+        Label rules = new Label();
+        rules.setText("The Rules are simple, help marvin get food\n" +
+                "You can do that by collecting food or help people\n" +
+                "You can eat food by clicking on it in your inventory\n" +
+                "You gain energy by eating and lose it by walking                            " +
+                "               \n\r\r\r\r");
 
-            }
+        VBox layout = new VBox(10);
+        layout.getChildren().addAll(rules);
 
-            public void lookPoster() throws FileNotFoundException {
-                look("poster");
-            }
+        Scene scene = new Scene(layout);
+        rulesWindow.setScene(scene);
+        rulesWindow.show();
 
-            @FXML
-            public void dialogueSteve() throws FileNotFoundException {
-                talk("steve");
-            }
+    }
 
-    public void disableButtons(){
+    public void lookPoster() throws FileNotFoundException {
+        look("poster");
+    }
+
+    @FXML
+    public void dialogueSteve() throws FileNotFoundException {
+        talk("steve");
+    }
+
+    public void disableButtons() {
         north.setDisable(true);
         east.setDisable(true);
         west.setDisable(true);
         south.setDisable(true);
     }
 
-    }
+}

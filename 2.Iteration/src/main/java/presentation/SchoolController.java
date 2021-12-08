@@ -12,11 +12,13 @@ public class SchoolController extends SceneController {
     @FXML
     private Button west;
 
-    public void initialize(){
-        if(game.getPlayer().getEnergy()==0){
+    public void initialize() throws FileNotFoundException {
+        loadInventory();
+        if (game.getPlayer().getEnergy() == 0) {
             disableButtons();
         }
     }
+
     public SchoolController() throws FileNotFoundException {
     }
 
@@ -24,7 +26,7 @@ public class SchoolController extends SceneController {
         look("teacher");
     }
 
-    public void disableButtons(){
+    public void disableButtons() {
 
         west.setDisable(true);
 

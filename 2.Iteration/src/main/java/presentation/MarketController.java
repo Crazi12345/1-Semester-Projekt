@@ -12,8 +12,10 @@ public class MarketController extends SceneController {
     private Button north;
     @FXML
     private Button east;
-    public void initialize(){
-        if(game.getPlayer().getEnergy()==0){
+
+    public void initialize() throws FileNotFoundException {
+        loadInventory();
+        if (game.getPlayer().getEnergy() == 0) {
             disableButtons();
         }
     }
@@ -25,16 +27,17 @@ public class MarketController extends SceneController {
         talk("baker");
 
 
-        }
-        public void talkShopper() throws FileNotFoundException {
-        talk("shopper");
-        }
+    }
 
-    public void disableButtons(){
+    public void talkShopper() throws FileNotFoundException {
+        talk("shopper");
+    }
+
+    public void disableButtons() {
         north.setDisable(true);
         east.setDisable(true);
 
     }
-    }
+}
 
 

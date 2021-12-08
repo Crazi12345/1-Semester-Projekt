@@ -12,6 +12,9 @@ public class TrashpileController extends SceneController {
     @FXML
     private Button east;
 
+    public void initialize() throws FileNotFoundException {
+        loadInventory();
+    }
 
     public TrashpileController() throws FileNotFoundException {
     }
@@ -20,7 +23,8 @@ public class TrashpileController extends SceneController {
         talk("homelessman");
 
     }
-    public void disableButtons(){
+
+    public void disableButtons() {
 
         east.setDisable(true);
 

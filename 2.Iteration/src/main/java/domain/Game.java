@@ -1,4 +1,5 @@
 package domain;
+
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +16,7 @@ public class Game {
     private NPC currentTrader;
     private Parser parser;
     private Room currentRoom;
-    private  int currentLevel = 1;
+    private int currentLevel = 1;
     private static Player player = new Player("Marvin", new ArrayList<Item>());
     private Level levels = new Level(1);
 
@@ -74,34 +75,35 @@ public class Game {
 
 
     public void eat(int i) {
-            if (currentRoom.getId() == 4 && player.getInventory().get(i).getIsEatable()) {
-                player.setEnergyFromItem(i);
-                player.setFamilyEnergyFromItem(i);
-                player.removeItem(player.getItem(i));
-            }
-            else if(player.getInventory().get(i).getIsEatable()){
-                player.setEnergyFromItem(i);
-                player.removeItem(player.getItem(i));
-            }
+        if (currentRoom.getId() == 4 && player.getInventory().get(i).getIsEatable()) {
+            player.setEnergyFromItem(i);
+            player.setFamilyEnergyFromItem(i);
+            player.removeItem(player.getItem(i));
+        } else if (player.getInventory().get(i).getIsEatable()) {
+            player.setEnergyFromItem(i);
+            player.removeItem(player.getItem(i));
         }
+    }
 
-    public NPC getNPCi(int i){
+    public NPC getNPCi(int i) {
         return getCurrentRoom().getNPCs().get(i);
     }
-    public InanimateObjects getInanimateObjectsI(int i){
+
+    public InanimateObjects getInanimateObjectsI(int i) {
         return getCurrentRoom().getInanimateObjects().get(i);
     }
 
     public boolean questComplete(NPC npc) {
         for (int i = 0; i < player.getInventory().size(); i++) {
-            if(player.getItem(i)== npc.getQuestItem()){
+            if (player.getItem(i) == npc.getQuestItem()) {
                 return true;
             }
         }
         return false;
     }
-    public void look(InanimateObjects object){
-        if(object.getIsChecked()==false){
+
+    public void look(InanimateObjects object) {
+        if (object.getIsChecked() == false) {
             player.addItem(object.getItem());
             object.setIsChecked(true);
             System.out.println(player.getInventory().toString());
@@ -109,17 +111,17 @@ public class Game {
 
     }
 
-    public ArrayList<Item> getInventory(){
+    public ArrayList<Item> getInventory() {
         return player.getInventory();
     }
 
-    public void addToInventory(Item item){
+    public void addToInventory(Item item) {
         player.addItem(item);
     }
 
-    public void removeFromInventory(Item item){
-            player.removeItem(item);
-        }
+    public void removeFromInventory(Item item) {
+        player.removeItem(item);
+    }
 
 
     public void setCurrentTrader(NPC currentTrader) {
@@ -130,18 +132,7 @@ public class Game {
         return currentTrader;
     }
 
-    /*
-    public void dialogue(NPC npc) {
-        System.out.println(npc.getQuest());
-        for (int i = 0; i < player.getInventory().size(); i++) {
-            if (player.getItemName(i) == npc.getQuestItemName()) {
-                trading = true;
-                break;
-            }
-        }
-    }
 
- */
 
     private void printWelcome() {
         System.out.println();
@@ -195,37 +186,40 @@ public class Game {
     public Room getCurrentRoom() {
         return currentRoom;
     }
-    public int getCurrentLevel(){
+
+    public int getCurrentLevel() {
         return currentLevel;
     }
 
-    public ArrayList<Room> getRooms(){
+    public ArrayList<Room> getRooms() {
         return levels.getRooms();
     }
 
-    public Room getRoomByID(int id){
+    public Room getRoomByID(int id) {
         for (int i = 0; i < getRooms().size(); i++) {
-            if(id == getRooms().get(i).getId()){
+            if (id == getRooms().get(i).getId()) {
                 return getRooms().get(i);
             }
         }
         return null;
     }
-    public Player getPlayer(){
+
+    public Player getPlayer() {
         return player;
     }
 
-    public void incrementCurrentLevel(){
+    public void incrementCurrentLevel() {
         currentLevel++;
     }
+
     public void goRoom(int id) {
         player.setFamilyEnergy(-2);
         player.setEnergy(-2);
         currentRoom = getRoomByID(id);
         System.out.println(currentRoom.getLongDescription());
-        }
+    }
 
-    public Level getLevels(){
-        return  levels;
+    public Level getLevels() {
+        return levels;
     }
 }

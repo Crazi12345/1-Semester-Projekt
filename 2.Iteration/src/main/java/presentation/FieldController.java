@@ -12,11 +12,13 @@ public class FieldController extends SceneController {
     @FXML
     private Button west;
 
-    public void initialize(){
-        if(game.getPlayer().getEnergy()==0){
+    public void initialize() throws FileNotFoundException {
+        loadInventory();
+        if (game.getPlayer().getEnergy() == 0) {
             disableButtons();
         }
     }
+
     public FieldController() throws FileNotFoundException {
     }
 
@@ -24,7 +26,8 @@ public class FieldController extends SceneController {
         look("stackofsticks");
 
     }
-    public void disableButtons(){
+
+    public void disableButtons() {
 
         west.setDisable(true);
 

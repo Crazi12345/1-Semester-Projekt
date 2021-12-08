@@ -36,42 +36,43 @@ public class HomeController extends SceneController {
     }
 
 
+    public void initialize() throws FileNotFoundException {
+        loadInventory();
+        try {
+            if (game.getCurrentLevel() == 5) {
+                sleepWin.setVisible(true);
+                sleep.setVisible(false);
+            } else {
+                sleep.setVisible(true);
+                sleepWin.setVisible(false);
+            }
 
-    public void initialize() {
-        try{
-        if(game.getCurrentLevel() == 5){
+            if (game.getCurrentRoom().getExit("north") == null) {
+                north.setVisible(false);
+            } else {
+                north.setVisible(true);
+            }
+        } catch (NullPointerException e) {
+            System.out.println(e);
+        }
+        if (game.getPlayer().getEnergy() == 0) {
+            disableButtons();
+        }
+    }
+
+    @FXML
+    private void onSleepClick(ActionEvent event) throws IOException {
+        System.out.println("Slept like a baby");
+        game.incrementCurrentLevel();
+        game.startLevel();
+        if (game.getCurrentLevel() == 5) {
             sleepWin.setVisible(true);
             sleep.setVisible(false);
         }
-        else{
-            sleep.setVisible(true);
-            sleepWin.setVisible(false);
-        }
+        sleep.setDisable(true);
+    }
 
-        if (game.getCurrentRoom().getExit("north") == null) {
-            north.setVisible(false);
-        } else {
-            north.setVisible(true);
-        }}
-          catch (NullPointerException e){
-            System.out.println(e);
-        }
-        if(game.getPlayer().getEnergy()==0){
-        disableButtons();
-        }
-    }
-@FXML
-    private void onSleepClick(ActionEvent event)throws IOException {
-    System.out.println("Slept like a baby");
-    game.incrementCurrentLevel();
-    game.startLevel();
-    if(game.getCurrentLevel() == 5){
-        sleepWin.setVisible(true);
-        sleep.setVisible(false);
-    }
-    sleep.setDisable(true);
-}
-@FXML
+    @FXML
     public void setWinScreen(ActionEvent event) throws IOException {
 
         root = FXMLLoader.load(getClass().getResource("winScreen.fxml"));
@@ -80,22 +81,22 @@ public class HomeController extends SceneController {
         stage.setScene(scene);
         stage.show();
     }
-@FXML
-    public void openWebPage() throws Exception{
+
+    @FXML
+    public void openWebPage() throws Exception {
         Desktop d = Desktop.getDesktop();
         d.browse(new URI("https://www.verdensmaalene.dk/maal/2"));
     }
 
- @FXML
- public void disableButtons(){
+    @FXML
+    public void disableButtons() {
         try {
             north.setDisable(true);
             east.setDisable(true);
             south.setDisable(true);
-        }
-        catch (NullPointerException e){
+        } catch (NullPointerException e) {
             System.out.println(e);
         }
- }
+    }
 
 }

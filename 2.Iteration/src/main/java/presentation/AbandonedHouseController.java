@@ -13,15 +13,17 @@ public class AbandonedHouseController extends SceneController {
     @FXML
     private Button south;
 
-    public void initialize(){
-        if(game.getPlayer().getEnergy()==0){
+    public void initialize() throws FileNotFoundException {
+        loadInventory();
+        if (game.getPlayer().getEnergy() == 0) {
             disableButtons();
         }
     }
+
     public AbandonedHouseController() throws FileNotFoundException {
     }
 
-    public void disableButtons(){
+    public void disableButtons() {
 
         west.setDisable(true);
         south.setDisable(true);

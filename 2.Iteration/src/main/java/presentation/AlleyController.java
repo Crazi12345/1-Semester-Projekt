@@ -10,8 +10,10 @@ public class AlleyController extends SceneController {
 
     @FXML
     private Button north;
-    public void initialize(){
-        if(game.getPlayer().getEnergy()==0){
+
+    public void initialize() throws FileNotFoundException {
+        loadInventory();
+        if (game.getPlayer().getEnergy() == 0) {
             disableButtons();
         }
     }
@@ -21,8 +23,9 @@ public class AlleyController extends SceneController {
 
     public void lookFootball() throws FileNotFoundException {
         look("football");
-}
-    public void disableButtons(){
+    }
+
+    public void disableButtons() {
         north.setDisable(true);
 
     }
