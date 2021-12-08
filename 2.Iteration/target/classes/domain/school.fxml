@@ -18,7 +18,7 @@
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="106.0" layoutX="-21.0" layoutY="303.0" stroke="BLACK" strokeType="INSIDE" width="636.0" />
         <Text layoutX="241.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="placeholder player ui" />
       <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="68.0" fitWidth="85.0" layoutX="331.0" layoutY="225.0" onMouseClicked="#talkTeacher" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="73.0" fitWidth="73.0" layoutX="326.0" layoutY="223.0" onMouseClicked="#talkTeacher" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../files/sprites/teacher.png" />
          </image>

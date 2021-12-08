@@ -6,9 +6,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import org.controlsfx.control.action.Action;
+import java.awt.Desktop;
+import java.net.URI;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -25,6 +28,8 @@ public class HomeController extends SceneController {
 
     @FXML
     private Button sleepWin;
+    @FXML
+    Hyperlink link;
 
     public HomeController() throws FileNotFoundException {
 
@@ -74,6 +79,11 @@ public class HomeController extends SceneController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+@FXML
+    public void openWebPage() throws Exception{
+        Desktop d = Desktop.getDesktop();
+        d.browse(new URI("https://www.verdensmaalene.dk/maal/2"));
     }
 
  @FXML
