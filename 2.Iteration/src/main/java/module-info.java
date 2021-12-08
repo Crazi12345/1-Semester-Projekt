@@ -7,4 +7,6 @@ module domain {
     requires java.desktop;
     exports domain;
     opens domain to javafx.fxml;
+    exports presentation;
+    opens presentation to javafx.fxml;
 }
