@@ -15,6 +15,7 @@ public class WellController extends SceneController{
             disableButtons();
         }
     }
+
     public void lookBucket() throws FileNotFoundException {
         look("bucket");
     }

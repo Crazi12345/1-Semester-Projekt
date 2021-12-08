@@ -51,7 +51,7 @@ public class SceneController extends Application {
     Button no;
     public static Game game = new Game();
     @FXML
-    ImageView slot1, slot2, slot3, slot4, slot5, slot6;
+    ImageView slot1, slot2, slot3, slot4, slot5, slot6 = new ImageView();
     @FXML
     Image currentImage;
 
@@ -266,7 +266,6 @@ public class SceneController extends Application {
         stage.setScene(scene);
         stage.show();
         loadInventory();
-
     }
 
     @FXML
@@ -352,10 +351,6 @@ public class SceneController extends Application {
             }
         System.out.println("inventory loaded");
         }
-
-    public void lookBucket(MouseEvent mouseEvent) {
-    }
-
 
     public void eatSlot1() throws FileNotFoundException, NullPointerException {
         if(game.getPlayer().getInventory().size()>0) {
