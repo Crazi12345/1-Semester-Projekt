@@ -41,7 +41,7 @@
             <Image url="@../files/grey.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="slot2" fitHeight="30.0" fitWidth="30.0" layoutX="513.0" layoutY="366.0" onMouseClicked="#eatSlot2" pickOnBounds="true">
+      <ImageView fx:id="slot5" fitHeight="30.0" fitWidth="30.0" layoutX="513.0" layoutY="366.0" onMouseClicked="#eatSlot2" pickOnBounds="true">
          <image>
             <Image url="@../files/grey.png" />
          </image>
@@ -56,7 +56,7 @@
             <Image url="@../files/grey.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="slot5" fitHeight="30.0" fitWidth="30.0" layoutX="513.0" layoutY="316.0" onMouseClicked="#eatSlot5" pickOnBounds="true">
+      <ImageView fx:id="slot2" fitHeight="30.0" fitWidth="30.0" layoutX="513.0" layoutY="316.0" onMouseClicked="#eatSlot5" pickOnBounds="true">
          <image>
             <Image url="@../files/grey.png" />
          </image>
