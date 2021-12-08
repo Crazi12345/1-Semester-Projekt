@@ -88,9 +88,14 @@ public class HomeController extends SceneController {
 
  @FXML
  public void disableButtons(){
-        north.setDisable(true);
-     east.setDisable(true);
-     south.setDisable(true);
+        try {
+            north.setDisable(true);
+            east.setDisable(true);
+            south.setDisable(true);
+        }
+        catch (NullPointerException e){
+            System.out.println(e);
+        }
  }
 
 }

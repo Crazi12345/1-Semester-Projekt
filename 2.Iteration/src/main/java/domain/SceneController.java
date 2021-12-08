@@ -124,6 +124,7 @@ public class SceneController extends Application {
        // addInventoryMenu(root);
         //Parent root = FXMLLoader.load(getClass().getResource("VillageCenter.fxml"));
         stage.setResizable(false);
+        stage.setTitle("Life in Congo");
         stage.getIcons().add(new Image("file:bread.png"));
         Scene villageCenter = new Scene(root);
         stage.setScene(villageCenter);

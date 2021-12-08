@@ -220,7 +220,7 @@ public class Game {
     }
     public void goRoom(int id) {
         player.setFamilyEnergy(-2);
-        player.setEnergy(-10);
+        player.setEnergy(-2);
         currentRoom = getRoomByID(id);
         System.out.println(currentRoom.getLongDescription());
         }
