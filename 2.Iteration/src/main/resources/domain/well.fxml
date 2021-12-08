@@ -9,28 +9,28 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="domain.SceneController">
     <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9fa7ae" height="339.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
-      <ImageView fitHeight="306.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="355.0" fitWidth="614.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../files/wellbg.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="171.0" fitWidth="87.0" layoutX="379.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true" rotate="20.0">
+      <ImageView fitHeight="115.0" fitWidth="83.0" layoutX="409.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true" rotate="20.0">
          <image>
             <Image url="@../files/sprites/scarecrow.png" />
          </image>
       </ImageView>
-        <ImageView fitHeight="270.0" fitWidth="318.0" layoutX="190.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="270.0" fitWidth="318.0" layoutX="215.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../files/well.png" />
          </image></ImageView>
-        <Button fx:id="south" layoutX="272.0" layoutY="270.0" mnemonicParsing="false" onAction="#setSceneVillageCenter" text="South" />
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="106.0" layoutX="-21.0" layoutY="303.0" stroke="BLACK" strokeType="INSIDE" width="636.0" />
-      <ImageView fitHeight="81.0" fitWidth="85.0" layoutX="219.0" layoutY="129.0" onMouseClicked="#lookBucket" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="81.0" fitWidth="85.0" layoutX="248.0" layoutY="144.0" onMouseClicked="#lookBucket" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../files/sprites/bucket.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="180.0" fitWidth="212.0" layoutX="62.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
+        <Button fx:id="south" layoutX="272.0" layoutY="270.0" mnemonicParsing="false" onAction="#setSceneVillageCenter" text="South" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="106.0" layoutX="-21.0" layoutY="303.0" stroke="BLACK" strokeType="INSIDE" width="636.0" />
+      <ImageView fitHeight="175.0" fitWidth="187.0" layoutX="84.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../files/sprites/abena.png" />
          </image>
