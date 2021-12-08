@@ -39,23 +39,24 @@ public class SceneController extends Application {
     Scene scene;
     AnchorPane root;
     @FXML
+    Image placeholder = new Image(new FileInputStream("src/main/resources/files/grey.png"));
+    @FXML
     Text dialogueBox;
     @FXML
     Text tradeOffer;
     @FXML
-    Button yes = new Button();
+    Button yes;
     @FXML
-    Button no = new Button();
+    Button no;
     public static Game game = new Game();
     @FXML
-    ImageView slot1, slot2, slot3, slot4, slot5, slot6;
+    ImageView slot1, slot2, slot3, slot4, slot5, slot6 = new ImageView(placeholder);
 
     @FXML
     Image currentImage;
 
     String currentImageURL;
 
-    Image placeholder = new Image(new FileInputStream("src/main/resources/files/grey.png"));
 
     public SceneController() throws FileNotFoundException {
     }
@@ -64,8 +65,8 @@ public class SceneController extends Application {
         launch();
     }
 
+    @FXML
     private String getBatteryName(int energy) {
-
         String filename = "target/classes/files/battery";
         if (energy > 75) {
             filename += "4";
@@ -84,7 +85,7 @@ public class SceneController extends Application {
         return (filename);
     }
 
-    public void addInventoryMenu(AnchorPane root) {
+    public void addInventoryMenu(AnchorPane root) throws FileNotFoundException {
         ImageView imageViewMarvin = new ImageView();
         Label marvinLabel = new Label();
         marvinLabel.setTextAlignment(TextAlignment.CENTER);
@@ -117,27 +118,12 @@ public class SceneController extends Application {
             System.out.println("not found");
         }
 
-        energyBox.setHgap(10);
-        energyBox.setVgap(10);
-        energyBox.setPadding(new Insets(10, 10, 10, 10));
+        inventorybox.setMinHeight(100.0);
+        root.setBottomAnchor(inventorybox, 0.0);
+        root.setLeftAnchor(inventorybox, 0.0);
+        inventorybox.getChildren().addAll(imageViewMarvin, imageViewFamily);
+        root.getChildren().add(inventorybox);
 
-        energyBox.setStyle("-fx-border-style: solid inside;" +
-                "-fx-border-width: 2;");
-        energyBox.setMinHeight(100.0);
-
-        root.setBottomAnchor(energyBox, 0.0);
-        root.setLeftAnchor(energyBox, 0.0);
-        root.setRightAnchor(energyBox, 0.0);
-
-
-
-        energyBox.add(imageViewMarvin, 0,0);
-        energyBox.add(imageViewFamily, 1,0);
-        energyBox.add(marvinLabel,0,1);
-        energyBox.add(familyLabel,1,1);
-
-        //inventorybox.getChildren().addAll(imageViewMarvin, marvinLabel, imageViewFamily, familyLabel);
-        root.getChildren().add(energyBox);
     }
 
     @Override
@@ -152,17 +138,16 @@ public class SceneController extends Application {
         Scene villageCenter = new Scene(root);
         stage.setScene(villageCenter);
         stage.show();
-
     }
 
-    public void yes() {
+    public void yes(ActionEvent event) {
+        resetDialogue();
         game.yes();
-        resetDialogue();
     }
 
-    public void no() {
-        game.no();
+    public void no(ActionEvent event) {
         resetDialogue();
+        game.no();
     }
 
     @FXML
@@ -173,7 +158,6 @@ public class SceneController extends Application {
     @FXML
     public void initialize() {
         texti.setText("does this work?");
-
     }
 
     @FXML
@@ -183,11 +167,9 @@ public class SceneController extends Application {
         addInventoryMenu(root);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
-
         stage.setScene(scene);
-
         stage.show();
-
+        loadInventory();
 
     }
 
@@ -201,6 +183,8 @@ public class SceneController extends Application {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        loadInventory();
+
     }
 
     @FXML
@@ -212,6 +196,8 @@ public class SceneController extends Application {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        loadInventory();
+
     }
 
     @FXML
@@ -223,6 +209,8 @@ public class SceneController extends Application {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        loadInventory();
+
     }
 
     @FXML
@@ -234,6 +222,8 @@ public class SceneController extends Application {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        loadInventory();
+
     }
 
     @FXML
@@ -245,6 +235,8 @@ public class SceneController extends Application {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        loadInventory();
+
     }
 
     @FXML
@@ -256,6 +248,8 @@ public class SceneController extends Application {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        loadInventory();
+
     }
 
     @FXML
@@ -267,6 +261,8 @@ public class SceneController extends Application {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        loadInventory();
+
     }
 
     @FXML
@@ -278,6 +274,7 @@ public class SceneController extends Application {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        loadInventory();
 
     }
 
@@ -290,18 +287,10 @@ public class SceneController extends Application {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        loadInventory();
     }
 
-    @FXML
-    public void talk(String name) {
-        for (int i = 0; i < game.getCurrentRoom().getNPCs().size(); i++) {
-            if (game.getCurrentRoom().getNPCsName(i) == name) {
-                if (game.questComplete(game.getNPCi(i))) {
-                    tradeOffer.setText(game.getNPCi(i).getQuestComplete());
-                }
-            }
-        }
-    }
+
 
     @FXML
     public void look(String name) throws FileNotFoundException {
@@ -315,26 +304,21 @@ public class SceneController extends Application {
     }
 
     @FXML
-    public void showDialogue(String name) {
+    public void talk(String name) throws FileNotFoundException {
         for (int i = 0; i < game.getCurrentRoom().getNPCs().size(); i++) {
-            if (game.getNPCi(i).getName() == name && game.getNPCi(i).getTrader()) {
-                game.setCurrentTrader(game.getNPCi(i));
+            if (game.getCurrentRoom().getNPCsName(i) == name) {
+                game.setCurrentTrader(game.getCurrentRoom().getNPCs().get(i));
                 dialogueBox.setText(game.getCurrentTrader().getQuest());
-                for (int j = 0; j < game.getInventory().size(); j++) {
-                    if (game.getInventory().get(i) == game.getCurrentTrader().getQuestItem()) {
-                        yes.setDisable(false);
-                        yes.setOpacity(1);
-                        no.setDisable(false);
-                        no.setOpacity(1);
-                        break;
-                    }
+                if (game.questComplete(game.getCurrentTrader())) {
+                    tradeOffer.setText(game.getCurrentTrader().getQuestComplete());
+                    yes.setDisable(false);
+                    yes.setOpacity(1);
+                    no.setDisable(false);
+                    no.setOpacity(1);
                 }
-                break;
-            } else {
-                dialogueBox.setText(game.getCurrentTrader().getQuestComplete());
-                break;
             }
         }
+        loadInventory();
     }
 
     @FXML
@@ -348,7 +332,6 @@ public class SceneController extends Application {
 
     @FXML
     public void loadInventory() throws FileNotFoundException {
-
         slot1.setImage(placeholder);
         slot2.setImage(placeholder);
         slot3.setImage(placeholder);
@@ -373,34 +356,54 @@ public class SceneController extends Application {
                         break;
                 }
             }
+        System.out.println("inventory loaded");
         }
+
     public void lookBucket(MouseEvent mouseEvent) {
     }
 
 
-    public void eatSlot1() throws FileNotFoundException {
-        game.eat(0);
-        loadInventory();
+    public void eatSlot1() throws FileNotFoundException, NullPointerException {
+        if(game.getPlayer().getInventory().size()>0) {
+            game.eat(0);
+            loadInventory();
+            getBatteryName(game.getPlayer().getEnergy());
+        }
     }
     public void eatSlot2() throws FileNotFoundException {
-        game.eat(1);
-        loadInventory();
+        if(game.getPlayer().getInventory().size()>1) {
+            game.eat(1);
+            loadInventory();
+            getBatteryName(game.getPlayer().getEnergy());
+        }
     }
     public void eatSlot3() throws FileNotFoundException {
-        game.eat(2);
-        loadInventory();
+        if(game.getPlayer().getInventory().size()>2) {
+            game.eat(2);
+            loadInventory();
+            getBatteryName(game.getPlayer().getEnergy());
+        }
     }
     public void eatSlot4() throws FileNotFoundException {
-        game.eat(3);
-        loadInventory();
+        if(game.getPlayer().getInventory().size()>3) {
+            game.eat(3);
+            loadInventory();
+            getBatteryName(game.getPlayer().getEnergy());
+        }
     }
     public void eatSlot5() throws FileNotFoundException {
-        game.eat(4);
-        loadInventory();
+        if(game.getPlayer().getInventory().size()>4) {
+            game.eat(4);
+            loadInventory();
+            getBatteryName(game.getPlayer().getEnergy());
+
+        }
     }
     public void eatSlot6() throws FileNotFoundException {
-        game.eat(5);
-        loadInventory();
+        if(game.getPlayer().getInventory().size()>5) {
+            game.eat(5);
+            getBatteryName(game.getPlayer().getEnergy());
+        }
     }
 }
 

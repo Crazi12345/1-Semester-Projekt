@@ -19,8 +19,8 @@
         <Button fx:id="east" layoutX="545.0" layoutY="143.0" mnemonicParsing="false" onAction="#setScenefarmhouse" text="East" />
         <Button fx:id="south" layoutX="272.0" layoutY="270.0" mnemonicParsing="false" onAction="#setSceneMarket" text="South" />
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="106.0" layoutX="-21.0" layoutY="303.0" stroke="BLACK" strokeType="INSIDE" width="636.0" />
-      <Text fx:id="tradeOffer" layoutX="219.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="166.08056640625" />
-        <Text fx:id="dialogueBox" layoutX="219.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="166.08056640625" />
+      <Text fx:id="tradeOffer" layoutX="219.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="166.08056640625" />
+        <Text fx:id="dialogueBox" layoutX="219.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="166.08056640625" />
         <ImageView fitHeight="116.0" fitWidth="98.0" layoutX="320.0" layoutY="189.0" onMouseClicked="#talkSteve" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../files/sprites/steve.png" />
@@ -36,38 +36,38 @@
             <Image url="@../files/sprites/poster.png" />
          </image>
       </ImageView>
-      <Button fx:id="yes" disable="true" layoutX="234.0" layoutY="356.0" mnemonicParsing="false" onAction="#yes" opacity="0.0" text="Yes" />
+      <ImageView fx:id="slot1" fitHeight="30.0" fitWidth="30.0" layoutX="463.0" layoutY="316.0" onMouseClicked="#eatSlot1" pickOnBounds="true">
+         <image>
+            <Image url="@../files/grey.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="slot2" fitHeight="30.0" fitWidth="30.0" layoutX="513.0" layoutY="366.0" onMouseClicked="#eatSlot2" pickOnBounds="true">
+         <image>
+            <Image url="@../files/grey.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="slot3" fitHeight="30.0" fitWidth="30.0" layoutX="563.0" layoutY="316.0" onMouseClicked="#eatSlot3" pickOnBounds="true">
+         <image>
+            <Image url="@../files/grey.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="slot4" fitHeight="30.0" fitWidth="30.0" layoutX="463.0" layoutY="366.0" onMouseClicked="#eatSlot4" pickOnBounds="true">
+         <image>
+            <Image url="@../files/grey.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="slot5" fitHeight="30.0" fitWidth="30.0" layoutX="513.0" layoutY="316.0" onMouseClicked="#eatSlot5" pickOnBounds="true">
+         <image>
+            <Image url="@../files/grey.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="slot6" fitHeight="30.0" fitWidth="30.0" layoutX="563.0" layoutY="366.0" onMouseClicked="#eatSlot6" pickOnBounds="true">
+         <image>
+            <Image url="@../files/grey.png" />
+         </image>
+      </ImageView>
       <Button fx:id="no" disable="true" layoutX="322.0" layoutY="356.0" mnemonicParsing="false" onAction="#no" opacity="0.0" text="No" />
-      <ImageView fx:id="slot1" fitHeight="30.0" fitWidth="30.0" layoutX="488.0" layoutY="313.0" pickOnBounds="true" onMouseClicked="#eatSlot1">
-         <image>
-            <Image url="@../files/grey.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="slot2" fitHeight="30.0" fitWidth="30.0" layoutX="530.0" layoutY="313.0" pickOnBounds="true" onMouseClicked="#eatSlot2">
-         <image>
-            <Image url="@../files/grey.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="slot3" fitHeight="30.0" fitWidth="30.0" layoutX="568.0" layoutY="313.0" pickOnBounds="true" onMouseClicked="#eatSlot3">
-         <image>
-            <Image url="@../files/grey.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="slot4" fitHeight="30.0" fitWidth="30.0" layoutX="488.0" layoutY="354.0" pickOnBounds="true" onMouseClicked="#eatSlot4">
-         <image>
-            <Image url="@../files/grey.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="slot5" fitHeight="30.0" fitWidth="30.0" layoutX="530.0" layoutY="354.0" pickOnBounds="true" onMouseClicked="#eatSlot5">
-         <image>
-            <Image url="@../files/grey.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="slot6" fitHeight="30.0" fitWidth="30.0" layoutX="568.0" layoutY="354.0" pickOnBounds="true" onMouseClicked="#eatSlot6">
-         <image>
-            <Image url="@../files/grey.png" />
-         </image>
-      </ImageView>
-      <Button fx:id="help" onAction="#rulesAlert" mnemonicParsing="false" text="Help" />
+      <Button fx:id="yes" disable="true" layoutX="234.0" layoutY="356.0" mnemonicParsing="false" onAction="#yes" opacity="0.0" text="Yes" />
+      <Button fx:id="help" mnemonicParsing="false" onAction="#rulesAlert" text="Help" />
     </children>
 </AnchorPane>

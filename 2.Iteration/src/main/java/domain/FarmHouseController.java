@@ -6,6 +6,6 @@ public class FarmHouseController extends SceneController{
     public FarmHouseController() throws FileNotFoundException {
     }
 
-    public void talkFarmer(){
+    public void talkFarmer() throws FileNotFoundException {
         talk("farmer");
 }}

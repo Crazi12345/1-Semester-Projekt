@@ -22,5 +22,35 @@
             <Image url="@../files/sprites/football.png" />
          </image>
       </ImageView>
+        <ImageView fx:id="slot1" fitHeight="30.0" fitWidth="30.0" layoutX="463.0" layoutY="316.0" onMouseClicked="#eatSlot1" pickOnBounds="true">
+            <image>
+                <Image url="@../files/grey.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="slot2" fitHeight="30.0" fitWidth="30.0" layoutX="513.0" layoutY="366.0" onMouseClicked="#eatSlot2" pickOnBounds="true">
+            <image>
+                <Image url="@../files/grey.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="slot3" fitHeight="30.0" fitWidth="30.0" layoutX="563.0" layoutY="316.0" onMouseClicked="#eatSlot3" pickOnBounds="true">
+            <image>
+                <Image url="@../files/grey.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="slot4" fitHeight="30.0" fitWidth="30.0" layoutX="463.0" layoutY="366.0" onMouseClicked="#eatSlot4" pickOnBounds="true">
+            <image>
+                <Image url="@../files/grey.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="slot5" fitHeight="30.0" fitWidth="30.0" layoutX="513.0" layoutY="316.0" onMouseClicked="#eatSlot5" pickOnBounds="true">
+            <image>
+                <Image url="@../files/grey.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="slot6" fitHeight="30.0" fitWidth="30.0" layoutX="563.0" layoutY="366.0" onMouseClicked="#eatSlot6" pickOnBounds="true">
+            <image>
+                <Image url="@../files/grey.png" />
+            </image>
+        </ImageView>
     </children>
 </AnchorPane>

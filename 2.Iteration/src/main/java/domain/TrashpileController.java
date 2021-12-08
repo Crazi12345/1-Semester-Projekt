@@ -6,7 +6,7 @@ public class TrashpileController extends SceneController{
     public TrashpileController() throws FileNotFoundException {
     }
 
-    public void talkHomelessman(){
+    public void talkHomelessman() throws FileNotFoundException {
         talk("homelessman");
     }
 }

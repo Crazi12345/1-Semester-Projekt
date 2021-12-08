@@ -14,7 +14,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class HomeController extends SceneController {
-@FXML
+    @FXML
     private Button sleep;
     @FXML
     private Button north;
@@ -22,7 +22,10 @@ public class HomeController extends SceneController {
     private Button sleepWin;
 
     public HomeController() throws FileNotFoundException {
+
     }
+
+
 
     public void initialize() {
         try{
