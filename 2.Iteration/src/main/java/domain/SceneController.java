@@ -87,21 +87,11 @@ public class SceneController extends Application {
 
     public void addInventoryMenu(AnchorPane root) throws FileNotFoundException {
         ImageView imageViewMarvin = new ImageView();
-        Label marvinLabel = new Label();
-        marvinLabel.setTextAlignment(TextAlignment.CENTER);
-
-        GridPane.setHalignment(marvinLabel, HPos.CENTER);
-        GridPane.setHalignment(marvinLabel, HPos.CENTER);
-        GridPane energyBox = new GridPane();
-
+        HBox inventorybox = new HBox();
         ImageView imageViewFamily = new ImageView();
-        Label familyLabel = new Label();
-        familyLabel.setTextAlignment(TextAlignment.CENTER);
         int marvinEnergy = game.getPlayer().getEnergy();
-        marvinLabel.setText("%d%%".formatted(marvinEnergy));
         System.out.println(game.getPlayer().getEnergy());
         int familyEnergy = game.getPlayer().getFamilyEnergy();
-        familyLabel.setText("%d%%".formatted(familyEnergy));
 
 
         try {
@@ -311,10 +301,13 @@ public class SceneController extends Application {
                 dialogueBox.setText(game.getCurrentTrader().getQuest());
                 if (game.questComplete(game.getCurrentTrader())) {
                     tradeOffer.setText(game.getCurrentTrader().getQuestComplete());
-                    yes.setDisable(false);
+                    try{yes.setDisable(false);
                     yes.setOpacity(1);
                     no.setDisable(false);
-                    no.setOpacity(1);
+                    no.setOpacity(1);}
+                    catch (NullPointerException e){
+                        System.out.println(e);
+                    }
                 }
             }
         }

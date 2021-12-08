@@ -19,8 +19,10 @@
         <Button fx:id = "east" layoutX="545.0" layoutY="143.0" mnemonicParsing="false" onAction="#setSceneVillageCenter" text="East" />
         <Button fx:id="south" layoutX="272.0" layoutY="270.0" mnemonicParsing="false" onAction="#setSceneAlley" text="South" />
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="106.0" layoutX="-21.0" layoutY="303.0" stroke="BLACK" strokeType="INSIDE" width="636.0" />
-        <Text layoutX="241.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="this is alley" />
-      <Button fx:id="sleep" layoutX="56.0" layoutY="112.0" mnemonicParsing="false" onAction="#onSleepClick" prefHeight="38.0" prefWidth="87.0" text="Sleep">
+        <Text fx:id="tradeOffer" layoutX="219.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="166.08056640625" />
+        <Text fx:id="dialogueBox" layoutX="219.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="166.08056640625" />
+
+        <Button fx:id="sleep" layoutX="56.0" layoutY="112.0" mnemonicParsing="false" onAction="#onSleepClick" prefHeight="38.0" prefWidth="87.0" text="Sleep">
          <font>
             <Font size="20.0" />
          </font>

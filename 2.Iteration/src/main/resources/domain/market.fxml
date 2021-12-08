@@ -17,8 +17,10 @@
         <Button fx:id="north" layoutX="273.0" layoutY="14.0" mnemonicParsing="false" onAction="#setSceneVillageCenter" text="North" />
         <Button fx:id="east" layoutX="545.0" layoutY="143.0" mnemonicParsing="false" onAction="#setSceneSchool" text="East" />
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="106.0" layoutX="-21.0" layoutY="303.0" stroke="BLACK" strokeType="INSIDE" width="636.0" />
-        <Text layoutX="241.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="this is alley" />
-      <ImageView fitHeight="93.0" fitWidth="97.0" layoutX="180.0" layoutY="182.0" onMouseClicked="#talkBaker" pickOnBounds="true" preserveRatio="true">
+        <Text fx:id="tradeOffer" layoutX="219.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="166.08056640625" />
+        <Text fx:id="dialogueBox" layoutX="219.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="166.08056640625" />
+
+        <ImageView fitHeight="93.0" fitWidth="97.0" layoutX="180.0" layoutY="182.0" onMouseClicked="#talkBaker" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../files/sprites/baker.png" />
          </image>
