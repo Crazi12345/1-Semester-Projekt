@@ -14,7 +14,7 @@
             <Image url="@../files/school.png" />
          </image>
       </ImageView>
-        <Button layoutX="14.0" layoutY="143.0" mnemonicParsing="false" onAction="#setSceneMarket" text="West" />
+        <Button fx:id="west" layoutX="14.0" layoutY="143.0" mnemonicParsing="false" onAction="#setSceneMarket" text="West" />
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="106.0" layoutX="-21.0" layoutY="303.0" stroke="BLACK" strokeType="INSIDE" width="636.0" />
         <Text layoutX="241.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="placeholder player ui" />
       <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />

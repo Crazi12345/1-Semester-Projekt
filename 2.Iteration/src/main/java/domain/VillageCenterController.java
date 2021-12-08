@@ -62,6 +62,11 @@ public class VillageCenterController extends SceneController {
             } else {
                 south.setVisible(true);
             }
+
+                if(game.getPlayer().getEnergy()==0){
+                    disableButtons();
+                }
+
         }
 
      /*   public void talkSteve () {
@@ -101,5 +106,12 @@ public class VillageCenterController extends SceneController {
             public void dialogueSteve() throws FileNotFoundException {
                 talk("steve");
             }
+
+    public void disableButtons(){
+        north.setDisable(true);
+        east.setDisable(true);
+        west.setDisable(true);
+        south.setDisable(true);
+    }
 
     }

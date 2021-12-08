@@ -19,6 +19,11 @@ public class HomeController extends SceneController {
     @FXML
     private Button north;
     @FXML
+    private Button south;
+    @FXML
+    private Button east;
+
+    @FXML
     private Button sleepWin;
 
     public HomeController() throws FileNotFoundException {
@@ -46,6 +51,9 @@ public class HomeController extends SceneController {
           catch (NullPointerException e){
             System.out.println(e);
         }
+        if(game.getPlayer().getEnergy()==0){
+        disableButtons();
+        }
     }
 @FXML
     private void onSleepClick(ActionEvent event)throws IOException {
@@ -67,5 +75,12 @@ public class HomeController extends SceneController {
         stage.setScene(scene);
         stage.show();
     }
+
+ @FXML
+ public void disableButtons(){
+        north.setDisable(true);
+     east.setDisable(true);
+     south.setDisable(true);
+ }
 
 }
