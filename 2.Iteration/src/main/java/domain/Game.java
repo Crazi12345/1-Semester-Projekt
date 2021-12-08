@@ -195,6 +195,9 @@ public class Game {
     public Room getCurrentRoom() {
         return currentRoom;
     }
+    public int getCurrentLevel(){
+        return currentLevel;
+    }
 
     public ArrayList<Room> getRooms(){
         return levels.getRooms();
