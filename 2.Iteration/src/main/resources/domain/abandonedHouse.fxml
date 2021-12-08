@@ -13,8 +13,8 @@
                 <Image url="@../files/abandonedHouse.png" />
             </image>
         </ImageView>
-        <Button layoutX="14.0" layoutY="143.0" mnemonicParsing="false" onAction="#setSceneTrashpile" text="West" />
-        <Button layoutX="272.0" layoutY="270.0" mnemonicParsing="false" onAction="#setSceneHome" text="South" />
+        <Button fx:id="west" layoutX="14.0" layoutY="143.0" mnemonicParsing="false" onAction="#setSceneTrashpile" text="West" />
+        <Button fx:id="south" layoutX="272.0" layoutY="270.0" mnemonicParsing="false" onAction="#setSceneHome" text="South" />
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="106.0" layoutX="-21.0" layoutY="303.0" stroke="BLACK" strokeType="INSIDE" width="636.0" />
     </children>
 </AnchorPane>

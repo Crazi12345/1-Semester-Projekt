@@ -13,11 +13,24 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class AlleyController extends SceneController {
+
+    @FXML
+    private Button north;
+    public void initialize(){
+        if(game.getPlayer().getEnergy()==0){
+            disableButtons();
+        }
+    }
+
     public AlleyController() throws FileNotFoundException {
     }
 
     public void lookFootball() throws FileNotFoundException {
         look("football");
 }
+    public void disableButtons(){
+        north.setDisable(true);
+
+    }
 
 }

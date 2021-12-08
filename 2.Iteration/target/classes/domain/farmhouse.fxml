@@ -14,8 +14,8 @@
                 <Image url="@../files/farmHouse.png" />
             </image>
         </ImageView>
-        <Button layoutX="14.0" layoutY="143.0" mnemonicParsing="false" onAction="#setSceneVillageCenter" text="West" />
-        <Button layoutX="545.0" layoutY="143.0" mnemonicParsing="false" onAction="#setScenefield" text="East" />
+        <Button fx:id="west" layoutX="14.0" layoutY="143.0" mnemonicParsing="false" onAction="#setSceneVillageCenter" text="West" />
+        <Button fx:id="east" layoutX="545.0" layoutY="143.0" mnemonicParsing="false" onAction="#setScenefield" text="East" />
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="106.0" layoutX="-21.0" layoutY="303.0" stroke="BLACK" strokeType="INSIDE" width="636.0" />
         <Text layoutX="241.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="this is alley" />
       <ImageView fitHeight="106.0" fitWidth="114.0" layoutX="108.0" layoutY="189.0" onMouseClicked="#talkFarmer" pickOnBounds="true" preserveRatio="true">

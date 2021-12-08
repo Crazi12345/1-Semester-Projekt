@@ -6,6 +6,17 @@ import javafx.scene.control.Button;
 import java.io.FileNotFoundException;
 
 public class MarketController extends SceneController{
+
+    @FXML
+    private Button north;
+    @FXML
+    private Button east;
+    public void initialize(){
+        if(game.getPlayer().getEnergy()==0){
+            disableButtons();
+        }
+    }
+
     public MarketController() throws FileNotFoundException {
     }
 
@@ -17,6 +28,12 @@ public class MarketController extends SceneController{
         public void talkShopper(){
         talk("shopper");
         }
+
+    public void disableButtons(){
+        north.setDisable(true);
+        east.setDisable(true);
+
+    }
     }
 
 
