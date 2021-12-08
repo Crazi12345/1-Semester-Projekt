@@ -34,7 +34,6 @@ public class Level {
     public Level(int id) {
 
         this.id = id;
-        //   this.items = items;
         this.rooms = rooms;
 
     }
@@ -96,7 +95,7 @@ public class Level {
         Alley = new Room(8, "at in an Alley", npcs_Alley, iO_Alley);
         Well = new Room(9, "at the good old well", npcs_Well, iO_Well);
         School = new Room(10, "at your school", npcs_School, iO_School);
-        // These are the Exist that are dependent on the levels we are on.
+
 
         rooms.add(Village_center);
         rooms.add(Home);
@@ -164,9 +163,7 @@ public class Level {
         }
 
     }
-    public HashMap<String, Room> getCenterExits(){
-        return getRooms().get(0).getExits();
-    }
+
 
     private void clearCenterExits() {
         rooms.get(0).setExit("west", null);

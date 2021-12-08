@@ -8,13 +8,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.stage.Stage;
-import presentation.SceneController;
 
-import java.awt.Desktop;
-import java.net.URI;
-
+import java.awt.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.URI;
 
 public class HomeController extends SceneController {
     @FXML

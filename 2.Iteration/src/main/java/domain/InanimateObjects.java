@@ -1,6 +1,5 @@
 package domain;
 
-import java.util.ArrayList;
 
 public class InanimateObjects extends Interactables {
     private Item foundItem;
