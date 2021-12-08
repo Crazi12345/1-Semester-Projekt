@@ -16,12 +16,18 @@ public class WellController extends SceneController{
         }
     }
 
-    public void lookBucket() throws FileNotFoundException {
-        look("bucket");
-    }
+
     public WellController() throws FileNotFoundException {
     }
     public void disableButtons(){
         south.setDisable(true);
     }
+
+    public void talkAbena() throws FileNotFoundException{
+        talk("abena");
+    }
+    public void lookWell() throws FileNotFoundException {
+        look("well");
+    }
+
 }

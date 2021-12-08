@@ -56,7 +56,7 @@ public class Level {
         Item Bread = new Item("bread", 60, "src/main/resources/files/sprites/bread.png");
         NPC Steve = new NPC("steve", Fish, "steve.png", "I miss my football", "Thank you for finding my football", Football);
         NPC Homeless_man = new NPC("homeless-man", Mushrooms, "homelessman.png", "Have you seen my wand, i need it for my spells", "Finally my beloved wand, now i can become the most powerful wizard in the whole land", Stick);
-        NPC Farmer = new NPC("farmer", Flour, "flour.png", "I lost my scarecrow, i think the birds hid it from me ", "There it was", Scarecrow);
+        NPC Farmer = new NPC("farmer", Flour, "farmer.png", "I lost my scarecrow, i think the birds hid it from me ", "There it was", Scarecrow);
         NPC Teacher = new NPC("teacher", Apple, "teacher.png", "I have been looking for chalk all day", "Thank you soo much i needed that", Chalk);
         NPC Shopper = new NPC("shopper", Chalk, "shopper.png", "I have way too much chalk, give me a poster and i will give you some", "I love it", Poster);
         NPC Baker = new NPC("baker", Bread, "baker.png", "I just dropped my last bag of flour, can you get me some more", "thank you have a bread", Flour);
