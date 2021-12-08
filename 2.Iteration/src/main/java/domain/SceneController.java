@@ -64,8 +64,8 @@ public class SceneController extends Application {
         launch();
     }
 
+    @FXML
     private String getBatteryName(int energy) {
-
         String filename = "target/classes/files/battery";
         if (energy > 75) {
             filename += "4";
@@ -159,6 +159,7 @@ public class SceneController extends Application {
         stage.setScene(scene);
         stage.show();
         loadInventory();
+
     }
 
 
@@ -172,6 +173,7 @@ public class SceneController extends Application {
         stage.setScene(scene);
         stage.show();
         loadInventory();
+
     }
 
     @FXML
@@ -184,6 +186,7 @@ public class SceneController extends Application {
         stage.setScene(scene);
         stage.show();
         loadInventory();
+
     }
 
     @FXML
@@ -196,6 +199,7 @@ public class SceneController extends Application {
         stage.setScene(scene);
         stage.show();
         loadInventory();
+
     }
 
     @FXML
@@ -208,6 +212,7 @@ public class SceneController extends Application {
         stage.setScene(scene);
         stage.show();
         loadInventory();
+
     }
 
     @FXML
@@ -218,26 +223,22 @@ public class SceneController extends Application {
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
-        loadInventory();
         stage.show();
+        loadInventory();
+
     }
 
     @FXML
     public void setSceneHome(ActionEvent event) throws IOException {
         game.goRoom(4);
-        loadInventory();
         root = FXMLLoader.load(getClass().getResource("home.fxml"));
-        loadInventory();
         addInventoryMenu(root);
-        loadInventory();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        loadInventory();
         scene = new Scene(root);
-        loadInventory();
         stage.setScene(scene);
-        loadInventory();
         stage.show();
         loadInventory();
+
     }
 
     @FXML
@@ -250,6 +251,7 @@ public class SceneController extends Application {
         stage.setScene(scene);
         stage.show();
         loadInventory();
+
     }
 
     @FXML
@@ -261,6 +263,8 @@ public class SceneController extends Application {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        loadInventory();
+
     }
 
     @FXML
@@ -272,6 +276,7 @@ public class SceneController extends Application {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        loadInventory();
     }
 
 
@@ -340,6 +345,7 @@ public class SceneController extends Application {
                         break;
                 }
             }
+        System.out.println("inventory loaded");
         }
 
     public void lookBucket(MouseEvent mouseEvent) {
@@ -350,36 +356,42 @@ public class SceneController extends Application {
         if(game.getPlayer().getInventory().size()>0) {
             game.eat(0);
             loadInventory();
+            getBatteryName(game.getPlayer().getEnergy());
         }
     }
     public void eatSlot2() throws FileNotFoundException {
         if(game.getPlayer().getInventory().size()>1) {
             game.eat(1);
             loadInventory();
+            getBatteryName(game.getPlayer().getEnergy());
         }
     }
     public void eatSlot3() throws FileNotFoundException {
         if(game.getPlayer().getInventory().size()>2) {
             game.eat(2);
             loadInventory();
+            getBatteryName(game.getPlayer().getEnergy());
         }
     }
     public void eatSlot4() throws FileNotFoundException {
         if(game.getPlayer().getInventory().size()>3) {
             game.eat(3);
             loadInventory();
+            getBatteryName(game.getPlayer().getEnergy());
         }
     }
     public void eatSlot5() throws FileNotFoundException {
         if(game.getPlayer().getInventory().size()>4) {
             game.eat(4);
             loadInventory();
+            getBatteryName(game.getPlayer().getEnergy());
+
         }
     }
     public void eatSlot6() throws FileNotFoundException {
         if(game.getPlayer().getInventory().size()>5) {
             game.eat(5);
-            loadInventory();
+            getBatteryName(game.getPlayer().getEnergy());
         }
     }
 }
