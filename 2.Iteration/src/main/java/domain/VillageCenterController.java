@@ -31,6 +31,8 @@ public class VillageCenterController extends SceneController {
     public VillageCenterController() throws FileNotFoundException {
     }
 
+
+
     public void talkSteve() throws FileNotFoundException {
         talk("steve");
     }

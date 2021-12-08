@@ -11,13 +11,16 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class HomeController extends SceneController {
-@FXML
+    @FXML
     private Button sleep;
     @FXML
     private Button north;
 
     public HomeController() throws FileNotFoundException {
+
     }
+
+
 
     public void initialize() {
         if (game.getCurrentRoom().getExit("north") == null) {

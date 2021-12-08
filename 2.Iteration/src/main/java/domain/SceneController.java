@@ -38,6 +38,8 @@ public class SceneController extends Application {
     Scene scene;
     AnchorPane root;
     @FXML
+    Image placeholder = new Image(new FileInputStream("src/main/resources/files/grey.png"));
+    @FXML
     Text dialogueBox;
     @FXML
     Text tradeOffer;
@@ -47,14 +49,12 @@ public class SceneController extends Application {
     Button no;
     public static Game game = new Game();
     @FXML
-    ImageView slot1, slot2, slot3, slot4, slot5, slot6;
+    ImageView slot1, slot2, slot3, slot4, slot5, slot6 = new ImageView(placeholder);
 
     @FXML
     Image currentImage;
 
     String currentImageURL;
-
-    Image placeholder = new Image(new FileInputStream("src/main/resources/files/grey.png"));
 
 
     public SceneController() throws FileNotFoundException {
@@ -84,7 +84,7 @@ public class SceneController extends Application {
         return (filename);
     }
 
-    public void addInventoryMenu(AnchorPane root) {
+    public void addInventoryMenu(AnchorPane root) throws FileNotFoundException {
         ImageView imageViewMarvin = new ImageView();
         HBox inventorybox = new HBox();
         ImageView imageViewFamily = new ImageView();
@@ -107,13 +107,12 @@ public class SceneController extends Application {
             System.out.println("not found");
         }
 
-
-
         inventorybox.setMinHeight(100.0);
         root.setBottomAnchor(inventorybox, 0.0);
         root.setLeftAnchor(inventorybox, 0.0);
         inventorybox.getChildren().addAll(imageViewMarvin, imageViewFamily);
         root.getChildren().add(inventorybox);
+
     }
 
     @Override
@@ -128,9 +127,7 @@ public class SceneController extends Application {
         Scene villageCenter = new Scene(root);
         stage.setScene(villageCenter);
         stage.show();
-
     }
-
 
     public void yes(ActionEvent event) {
         resetDialogue();
@@ -221,18 +218,24 @@ public class SceneController extends Application {
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
-        stage.show();
         loadInventory();
+        stage.show();
     }
 
     @FXML
     public void setSceneHome(ActionEvent event) throws IOException {
         game.goRoom(4);
+        loadInventory();
         root = FXMLLoader.load(getClass().getResource("home.fxml"));
+        loadInventory();
         addInventoryMenu(root);
+        loadInventory();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        loadInventory();
         scene = new Scene(root);
+        loadInventory();
         stage.setScene(scene);
+        loadInventory();
         stage.show();
         loadInventory();
     }
@@ -269,7 +272,6 @@ public class SceneController extends Application {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-        loadInventory();
     }
 
 
@@ -344,29 +346,41 @@ public class SceneController extends Application {
     }
 
 
-    public void eatSlot1() throws FileNotFoundException {
-        game.eat(0);
-        loadInventory();
+    public void eatSlot1() throws FileNotFoundException, NullPointerException {
+        if(game.getPlayer().getInventory().size()>0) {
+            game.eat(0);
+            loadInventory();
+        }
     }
     public void eatSlot2() throws FileNotFoundException {
-        game.eat(1);
-        loadInventory();
+        if(game.getPlayer().getInventory().size()>1) {
+            game.eat(1);
+            loadInventory();
+        }
     }
     public void eatSlot3() throws FileNotFoundException {
-        game.eat(2);
-        loadInventory();
+        if(game.getPlayer().getInventory().size()>2) {
+            game.eat(2);
+            loadInventory();
+        }
     }
     public void eatSlot4() throws FileNotFoundException {
-        game.eat(3);
-        loadInventory();
+        if(game.getPlayer().getInventory().size()>3) {
+            game.eat(3);
+            loadInventory();
+        }
     }
     public void eatSlot5() throws FileNotFoundException {
-        game.eat(4);
-        loadInventory();
+        if(game.getPlayer().getInventory().size()>4) {
+            game.eat(4);
+            loadInventory();
+        }
     }
     public void eatSlot6() throws FileNotFoundException {
-        game.eat(5);
-        loadInventory();
+        if(game.getPlayer().getInventory().size()>5) {
+            game.eat(5);
+            loadInventory();
+        }
     }
 }
 
