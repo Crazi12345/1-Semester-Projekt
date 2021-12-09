@@ -5,6 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 
 
+import java.io.File;
 import java.io.FileNotFoundException;
 
 public class WellController extends SceneController {
@@ -19,13 +20,12 @@ public class WellController extends SceneController {
         }
     }
 
-    public void lookBucket() throws FileNotFoundException {
-        look("bucket");
-
+    public void lookWell() throws FileNotFoundException {
+        look("well");
     }
 
-    public void lookScarecrow() throws FileNotFoundException {
-        look("scarecrow");
+    public void talkAbena() throws FileNotFoundException{
+        talk("abena");
     }
 
     public WellController() throws FileNotFoundException {
