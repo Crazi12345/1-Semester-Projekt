@@ -113,14 +113,16 @@ public class SceneController extends Application {
         stage.show();
     }
 
-    public void yes(ActionEvent event) {
+    public void yes(ActionEvent event) throws FileNotFoundException {
         resetDialogue();
         game.yes();
+        loadInventory();
     }
 
-    public void no(ActionEvent event) {
+    public void no(ActionEvent event) throws FileNotFoundException {
         resetDialogue();
         game.no();
+        loadInventory();
     }
 
     @FXML
@@ -284,17 +286,22 @@ public class SceneController extends Application {
         for (int i = 0; i < game.getCurrentRoom().getNPCs().size(); i++) {
             if (game.getCurrentRoom().getNPCsName(i) == name) {
                 game.setCurrentTrader(game.getCurrentRoom().getNPCs().get(i));
-                dialogueBox.setText(game.getCurrentTrader().getQuest());
-                if (game.questComplete(game.getCurrentTrader())) {
-                    tradeOffer.setText(game.getCurrentTrader().getQuestComplete());
-                    try {
-                        yes.setDisable(false);
-                        yes.setOpacity(1);
-                        no.setDisable(false);
-                        no.setOpacity(1);
-                    } catch (NullPointerException e) {
-                        System.out.println(e);
+                if(game.getCurrentTrader().getTrader()){
+                    dialogueBox.setText(game.getCurrentTrader().getQuest());
+                    if (game.questComplete(game.getCurrentTrader())) {
+                        tradeOffer.setText(game.getCurrentTrader().getQuestComplete());
+                        try {
+                            yes.setDisable(false);
+                            yes.setOpacity(1);
+                            no.setDisable(false);
+                            no.setOpacity(1);
+                        } catch (NullPointerException e) {
+                            System.out.println(e);
+                        }
                     }
+                }
+                else{
+                    dialogueBox.setText(game.getCurrentTrader().getQuestComplete());
                 }
             }
         }

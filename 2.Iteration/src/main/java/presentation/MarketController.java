@@ -24,8 +24,6 @@ public class MarketController extends SceneController {
 
     public void talkBaker() throws FileNotFoundException {
         talk("baker");
-
-
     }
 
     public void talkShopper() throws FileNotFoundException {
@@ -35,7 +33,6 @@ public class MarketController extends SceneController {
     public void disableButtons() {
         north.setDisable(true);
         east.setDisable(true);
-
     }
 }
 
