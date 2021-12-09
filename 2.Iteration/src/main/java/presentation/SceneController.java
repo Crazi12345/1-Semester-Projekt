@@ -5,13 +5,17 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.HPos;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -71,12 +75,28 @@ public class SceneController extends Application {
     }
 
     public void addInventoryMenu(AnchorPane root) throws FileNotFoundException {
+        GridPane inventorybox = new GridPane();
+
         ImageView imageViewMarvin = new ImageView();
-        HBox inventorybox = new HBox();
+        Label marvinLabel = new Label();
+
         ImageView imageViewFamily = new ImageView();
+        Label familyLabel = new Label();
+
+        GridPane.setHalignment(marvinLabel, HPos.CENTER);
+        GridPane.setHalignment(marvinLabel, HPos.CENTER);
+
         int marvinEnergy = game.getPlayer().getEnergy();
-        System.out.println(game.getPlayer().getEnergy());
+        marvinLabel.setText("%d%%".formatted(marvinEnergy));
+
         int familyEnergy = game.getPlayer().getFamilyEnergy();
+        familyLabel.setText("%d%%".formatted(familyEnergy));
+        if (marvinEnergy<1){
+            System.out.println("you fucking died lmao (you starved to death)");
+        }
+        else if(familyEnergy<1){
+            System.out.println("your family fucking died (they starved to death)");
+        }
 
 
         try {
@@ -93,10 +113,20 @@ public class SceneController extends Application {
             System.out.println("not found");
         }
 
+        inventorybox.setHgap(10);
+        inventorybox.setVgap(10);
+        inventorybox.setPadding(new Insets(10, 10, 10, 10));
+
         inventorybox.setMinHeight(100.0);
+
+        inventorybox.add(imageViewMarvin, 0,0);
+        inventorybox.add(imageViewFamily, 1,0);
+        inventorybox.add(marvinLabel,0,1);
+        inventorybox.add(familyLabel,1,1);
+
         root.setBottomAnchor(inventorybox, 0.0);
         root.setLeftAnchor(inventorybox, 0.0);
-        inventorybox.getChildren().addAll(imageViewMarvin, imageViewFamily);
+
         root.getChildren().add(inventorybox);
 
     }
