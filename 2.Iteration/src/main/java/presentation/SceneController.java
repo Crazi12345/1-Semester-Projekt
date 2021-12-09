@@ -345,9 +345,6 @@ public class SceneController extends Application {
         System.out.println("inventory loaded");
     }
 
-    public void lookBucket(MouseEvent mouseEvent) {
-    }
-
 
     public void eatSlot1() throws FileNotFoundException, NullPointerException {
         if (game.getPlayer().getInventory().size() > 0) {
