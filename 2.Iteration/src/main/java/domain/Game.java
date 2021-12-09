@@ -10,6 +10,11 @@ public class Game {
     private int currentLevel = 1;
     private static Player player = new Player("Marvin", new ArrayList<Item>());
     private Level levels = new Level(1);
+    private boolean seenFootball;
+    private boolean seenDog;
+    private boolean seenSC;
+    private boolean seenPoster;
+
 
     public Game() {
         startLevel();
@@ -124,7 +129,6 @@ public class Game {
     }
 
 
-
     private void printWelcome() {
         System.out.println();
         System.out.println("Welcome to The Adventures of Marvin!");
@@ -212,5 +216,36 @@ public class Game {
 
     public Level getLevels() {
         return levels;
+    }
+
+
+    public boolean getSeenFootball() {
+        return seenFootball;
+    }
+
+    public boolean setSeenFootball(boolean seen) {
+        return seenFootball = seen;
+    }
+    public boolean getSeenDog() {
+        return seenDog;
+    }
+
+    public boolean setSeenDog(boolean seen) {
+        return seenDog = seen;
+    }
+    public boolean getSeenSC() {
+        return seenSC;
+    }
+
+    public boolean setSeenSC(boolean seen) {
+        return seenSC = seen;
+    }
+
+    public boolean getSeenPoster() {
+        return seenPoster;
+    }
+
+    public boolean setSeenPoster(boolean seen) {
+        return seenPoster = seen;
     }
 }

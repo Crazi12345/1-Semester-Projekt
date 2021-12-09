@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -20,6 +21,8 @@ public class VillageCenterController extends SceneController {
     private Button west;
     @FXML
     private Button south;
+    @FXML
+    private ImageView poster;
 
     public VillageCenterController() throws FileNotFoundException {
     }
@@ -36,6 +39,9 @@ public class VillageCenterController extends SceneController {
 
     public void initialize() throws FileNotFoundException {
         loadInventory();
+        if (game.getSeenPoster()){
+            poster.imageProperty().set(null);
+        }
         if (game.getCurrentRoom().getExit("north") == null) {
             north.setVisible(false);
         } else {
@@ -94,6 +100,8 @@ public class VillageCenterController extends SceneController {
 
     public void lookPoster() throws FileNotFoundException {
         look("poster");
+        poster.imageProperty().set(null);
+        game.setSeenPoster(true);
     }
 
     @FXML
