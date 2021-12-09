@@ -22,12 +22,10 @@ public class SchoolController extends SceneController {
     }
 
     public void talkTeacher() throws FileNotFoundException {
-        look("teacher");
+        talk("teacher");
     }
 
     public void disableButtons() {
-
         west.setDisable(true);
-
     }
 }

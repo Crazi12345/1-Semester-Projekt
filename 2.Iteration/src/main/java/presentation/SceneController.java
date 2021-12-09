@@ -310,6 +310,7 @@ public class SceneController extends Application {
 
     @FXML
     public void talk(String name) throws FileNotFoundException {
+        resetDialogue();
         for (int i = 0; i < game.getCurrentRoom().getNPCs().size(); i++) {
             if (game.getCurrentRoom().getNPCsName(i) == name) {
                 game.setCurrentTrader(game.getCurrentRoom().getNPCs().get(i));
@@ -337,7 +338,8 @@ public class SceneController extends Application {
 
     @FXML
     public void resetDialogue() {
-        dialogueBox.setText(" ");
+        dialogueBox.setText("");
+        tradeOffer.setText("");
         yes.setDisable(true);
         yes.setOpacity(0);
         no.setDisable(true);
