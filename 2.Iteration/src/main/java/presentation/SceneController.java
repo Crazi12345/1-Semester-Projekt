@@ -114,15 +114,15 @@ public class SceneController extends Application {
     }
 
     public void yes(ActionEvent event) throws FileNotFoundException {
-        resetDialogue();
         game.yes();
         loadInventory();
+        resetDialogue();
     }
 
     public void no(ActionEvent event) throws FileNotFoundException {
-        resetDialogue();
         game.no();
         loadInventory();
+        resetDialogue();
     }
 
     @FXML
@@ -225,9 +225,6 @@ public class SceneController extends Application {
         stage.setScene(scene);
         loadInventory();
         stage.show();
-
-
-
     }
 
     @FXML
@@ -301,7 +298,7 @@ public class SceneController extends Application {
                     }
                 }
                 else{
-                    dialogueBox.setText(game.getCurrentTrader().getQuestComplete());
+                    tradeOffer.setText(game.getCurrentTrader().getQuestComplete());
                 }
             }
         }
