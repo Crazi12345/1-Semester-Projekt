@@ -66,6 +66,8 @@
             <Image url="@../files/sprites/abena.png" />
          </image>
       </ImageView>
+        <Button fx:id="no" disable="true" layoutX="322.0" layoutY="356.0" mnemonicParsing="false" onAction="#no" opacity="0.0" text="No" />
+        <Button fx:id="yes" disable="true" layoutX="234.0" layoutY="356.0" mnemonicParsing="false" onAction="#yes" opacity="0.0" text="Yes" />
         <Text fx:id="tradeOffer" layoutX="219.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="166.08056640625" />
         <Text fx:id="dialogueBox" layoutX="219.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="166.08056640625" />
     </children>
