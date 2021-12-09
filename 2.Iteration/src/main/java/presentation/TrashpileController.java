@@ -2,11 +2,14 @@ package presentation;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 
 import java.io.FileNotFoundException;
 
 public class TrashpileController extends SceneController {
 
+    @FXML
+    private ImageView dog;
 
     @FXML
     private Button east;
@@ -16,6 +19,10 @@ public class TrashpileController extends SceneController {
     }
 
     public TrashpileController() throws FileNotFoundException {
+    }
+
+    public void lookDog() throws FileNotFoundException {
+        look("dog");
     }
 
     public void talkHomelessman() throws FileNotFoundException {

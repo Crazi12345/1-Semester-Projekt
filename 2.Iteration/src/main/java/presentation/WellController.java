@@ -2,12 +2,12 @@ package presentation;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 
 
 import java.io.FileNotFoundException;
 
 public class WellController extends SceneController {
-
 
     @FXML
     private Button south;
@@ -21,6 +21,11 @@ public class WellController extends SceneController {
 
     public void lookBucket() throws FileNotFoundException {
         look("bucket");
+
+    }
+
+    public void lookScarecrow() throws FileNotFoundException {
+        look("scarecrow");
     }
 
     public WellController() throws FileNotFoundException {
