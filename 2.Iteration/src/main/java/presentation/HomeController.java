@@ -35,8 +35,9 @@ public class HomeController extends SceneController {
 
 
     public void initialize() throws FileNotFoundException {
-        loadInventory();
+
         try {
+            loadInventory();
             if (game.getCurrentLevel() == 5) {
                 sleepWin.setVisible(true);
                 sleep.setVisible(false);
