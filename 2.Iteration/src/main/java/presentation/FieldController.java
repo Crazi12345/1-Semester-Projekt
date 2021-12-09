@@ -22,8 +22,7 @@ public class FieldController extends SceneController {
     }
 
     public void lookStackofsticks() throws FileNotFoundException {
-        look("stackofsticks");
-
+        look("stack-of-sticks");
     }
 
     public void disableButtons() {
