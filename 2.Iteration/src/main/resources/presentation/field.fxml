@@ -19,7 +19,7 @@
         <Text fx:id="dialogueBox" layoutX="142.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="321.0" />
         <Text fx:id="tradeOffer" layoutX="142.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="321.0" />
 
-        <ImageView fitHeight="132.0" fitWidth="114.0" layoutX="393.0" layoutY="132.0" onMouseClicked="#lookStackofsticks" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="sos" fitHeight="132.0" fitWidth="114.0" layoutX="393.0" layoutY="132.0" onMouseClicked="#lookStackofsticks" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../files/sprites/stackofsticks.png" />
          </image>
