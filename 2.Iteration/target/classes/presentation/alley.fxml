@@ -16,8 +16,8 @@
         </ImageView>
         <Button fx:id="north" layoutX="273.0" layoutY="14.0" mnemonicParsing="false" onAction="#setSceneHome" text="North" />
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="106.0" layoutX="-21.0" layoutY="303.0" stroke="BLACK" strokeType="INSIDE" width="636.0" />
-        <Text fx:id="tradeOffer" layoutX="219.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="166.08056640625" />
-        <Text fx:id="dialogueBox" layoutX="219.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="166.08056640625" />
+        <Text fx:id="dialogueBox" layoutX="142.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="321.0" />
+        <Text fx:id="tradeOffer" layoutX="142.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="321.0" />
 
         <ImageView fitHeight="72.0" fitWidth="74.0" layoutX="184.0" layoutY="221.0" onMouseClicked="#lookFootball" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -54,5 +54,7 @@
                 <Image url="@../files/grey.png" />
             </image>
         </ImageView>
+        <Button fx:id="no" disable="true" layoutX="325.0" layoutY="369.0" mnemonicParsing="false" onAction="#no" opacity="0.0" text="No" />
+        <Button fx:id="yes" disable="true" layoutX="237.0" layoutY="369.0" mnemonicParsing="false" onAction="#yes" opacity="0.0" text="Yes" />
     </children>
 </AnchorPane>
