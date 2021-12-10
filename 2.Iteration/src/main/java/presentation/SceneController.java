@@ -77,6 +77,7 @@ public class SceneController extends Application {
         return (filename);
     }
 
+
     public void addInventoryMenu(AnchorPane root) throws FileNotFoundException {
         GridPane inventorybox = new GridPane();
 
@@ -94,12 +95,7 @@ public class SceneController extends Application {
 
         int familyEnergy = game.getPlayer().getFamilyEnergy();
         familyLabel.setText("%d%%".formatted(familyEnergy));
-        if (marvinEnergy<1){
-            System.out.println("you fucking died lmao (you starved to death)");
-        }
-        else if(familyEnergy<1){
-            System.out.println("your family fucking died (they starved to death)");
-        }
+
 
 
         try {
@@ -351,6 +347,22 @@ public class SceneController extends Application {
 
     @FXML
     public void loadInventory() throws FileNotFoundException {
+        int marvinEnergy = game.getPlayer().getEnergy();
+        int familyEnergy = game.getPlayer().getFamilyEnergy();
+        if (marvinEnergy<1){
+            resetDialogue();
+            dialogueBox.setText("You starved to death");
+            dialogueBox.setDisable(false);
+            dialogueBox.setVisible(true);
+            dialogueBox.setOpacity(100.0);
+        }
+        else if(familyEnergy<1){
+            resetDialogue();
+            dialogueBox.setText("Your family starved to death");
+            dialogueBox.setDisable(false);
+            dialogueBox.setVisible(true);
+            dialogueBox.setOpacity(100.0);
+        }
         slot1.setImage(placeholder);
         slot2.setImage(placeholder);
         slot3.setImage(placeholder);
