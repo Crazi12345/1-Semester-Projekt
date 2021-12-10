@@ -19,7 +19,7 @@
         <Text fx:id="dialogueBox" layoutX="142.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="321.0" />
         <Text fx:id="tradeOffer" layoutX="142.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="321.0" />
 
-        <ImageView fitHeight="72.0" fitWidth="74.0" layoutX="184.0" layoutY="221.0" onMouseClicked="#lookFootball" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="Football" fitHeight="72.0" fitWidth="74.0" layoutX="184.0" layoutY="221.0" onMouseClicked="#lookFootball" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../files/sprites/football.png" />
          </image>

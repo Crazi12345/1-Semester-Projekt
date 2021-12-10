@@ -9,12 +9,16 @@ import java.io.File;
 import java.io.FileNotFoundException;
 
 public class WellController extends SceneController {
-
+    @FXML
+    private ImageView scarecrow;
     @FXML
     private Button south;
 
     public void initialize() throws FileNotFoundException {
         loadInventory();
+        if (game.getSeenSC()){
+            scarecrow.imageProperty().set(null);
+        }
         if (game.getPlayer().getEnergy() == 0) {
             disableButtons();
         }
@@ -22,6 +26,8 @@ public class WellController extends SceneController {
 
     public void lookWell() throws FileNotFoundException {
         look("well");
+        scarecrow.imageProperty().set(null);
+        game.setSeenSC(true);
     }
 
     public void talkAbena() throws FileNotFoundException{
