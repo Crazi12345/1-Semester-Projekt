@@ -53,9 +53,6 @@ public class Game {
         }
     }
 
-    public void family() {
-        System.out.println("your family has " + player.getFamilyEnergy() + " energy");
-    }
 
 
     public void eat(int i) {
