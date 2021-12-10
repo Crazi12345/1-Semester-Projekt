@@ -86,7 +86,13 @@ public class VillageCenterController extends SceneController {
         rules.setText("The Rules are simple, help marvin get food\n" +
                 "You can do that by collecting food or help people\n" +
                 "You can eat food by clicking on it in your inventory\n" +
-                "You gain energy by eating and lose it by walking                            " +
+                "interact with the characters and items on screen by clicking\n"+
+                "You gain energy by eating and lose it by walking                            \n" +
+                "If you or your familys energy is depleted you will die\n"+
+                "If you eat at your food at your home, you will feed your family as well      \n"+
+                "There are 5 days to get through, you can sleep to start a new day\n"+
+                "and maybe there will be new places to explore\n"+
+
                 "               \n\r\r\r\r");
 
         VBox layout = new VBox(10);

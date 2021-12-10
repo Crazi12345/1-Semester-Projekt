@@ -67,7 +67,6 @@ public class SceneController extends Application {
         } else if (energy > 25) {
             filename += "2";
         } else if (energy > 0) {
-
             filename += "1";
         } else if (energy == 0) {
             filename += "0";
@@ -279,7 +278,6 @@ public class SceneController extends Application {
         stage.setScene(scene);
         stage.show();
         loadInventory();
-
     }
 
     @FXML
@@ -292,7 +290,6 @@ public class SceneController extends Application {
         stage.setScene(scene);
         loadInventory();
         stage.show();
-
     }
 
 
