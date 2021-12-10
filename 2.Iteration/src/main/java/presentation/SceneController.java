@@ -47,12 +47,15 @@ public class SceneController extends Application {
     String currentImageURL;
 
 
+
     public SceneController() throws FileNotFoundException {
     }
 
     public static void main(String[] args) {
         launch();
     }
+
+
 
     @FXML
     private String getBatteryName(int energy) {

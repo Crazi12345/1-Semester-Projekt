@@ -15,16 +15,16 @@
             <Image url="@../files/wellbg.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="scarecrow" fitHeight="149.0" fitWidth="119.0" layoutX="378.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="scarecrow" fitHeight="149.0" fitWidth="119.0" layoutX="378.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true" rotate="20.0">
          <image>
             <Image url="@../files/sprites/scarecrow.png" />
          </image>
       </ImageView>
-        <ImageView fitHeight="270.0" fitWidth="318.0" layoutX="219.0" layoutY="19.0" onMouseClicked="#lookWell" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="270.0" fitWidth="318.0" layoutX="206.0" layoutY="19.0" onMouseClicked="#lookWell" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../files/well.png" />
          </image></ImageView>
-      <ImageView fitHeight="81.0" fitWidth="85.0" layoutX="262.0" layoutY="138.0" onMouseClicked="#lookWell" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="81.0" fitWidth="85.0" layoutX="244.0" layoutY="140.0" onMouseClicked="#lookWell" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../files/sprites/bucket.png" />
          </image>

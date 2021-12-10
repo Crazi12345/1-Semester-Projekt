@@ -16,6 +16,9 @@ public class TrashpileController extends SceneController {
 
     public void initialize() throws FileNotFoundException {
         loadInventory();
+        if (game.getSeenDog()){
+            dog.imageProperty().set(null);
+        }
     }
 
     public TrashpileController() throws FileNotFoundException {
@@ -23,6 +26,8 @@ public class TrashpileController extends SceneController {
 
     public void lookDog() throws FileNotFoundException {
         look("dog");
+        dog.imageProperty().set(null);
+        game.setSeenDog(true);
     }
 
     public void talkHomelessman() throws FileNotFoundException {

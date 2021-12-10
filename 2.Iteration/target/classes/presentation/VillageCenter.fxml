@@ -31,7 +31,7 @@
             <Image url="@../files/sprites/barrel.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="61.0" fitWidth="70.0" layoutX="418.0" layoutY="225.0" onMouseClicked="#lookPoster" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="poster" fitHeight="61.0" fitWidth="70.0" layoutX="418.0" layoutY="225.0" onMouseClicked="#lookPoster" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../files/sprites/poster.png" />
          </image>
