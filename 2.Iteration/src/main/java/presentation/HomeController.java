@@ -69,6 +69,23 @@ public class HomeController extends SceneController {
             sleep.setVisible(false);
         }
         sleep.setDisable(true);
+        switch (game.getCurrentLevel()) {
+            case 1:
+                dialogueBox.setText("Welcome to day 1");
+                break;
+            case 2:
+                dialogueBox.setText("Welcome to day 2");
+                break;
+            case 3:
+                dialogueBox.setText("Welcome to day 3");
+                break;
+            case 4:
+                dialogueBox.setText("Welcome to day 4");
+                break;
+            case 5:
+                dialogueBox.setText("Welcome to day 5");
+                break;
+        }
     }
 
     @FXML

@@ -44,11 +44,11 @@ public class Level {
         Item Fish = new Item("fish", 50, "src/main/resources/files/sprites/fish.png");
         Item Poster = new Item("poster", 0, "src/main/resources/files/sprites/poster.png");
         Item Dog = new Item("dog", 80, "src/main/resources/files/sprites/dog.png");
-        Item Stick = new Item("stick", 0, "src/main/resources/files/sprites/wand.png");
+        Item Stick = new Item("stick", 0, "src/main/resources/files/sprites/stick.png");
         Item Flour = new Item("flour", 5, "src/main/resources/files/sprites/flour.png");
         Item Scarecrow = new Item("scarecrow", 0, "src/main/resources/files/sprites/scarecrow.png");
         Item Chalk = new Item("chalk", 1, "src/main/resources/files/sprites/chalk.png");
-        Item Mushrooms = new Item("mushrooms", 1000, "src/main/resources/files/sprites/mushrooms.png");
+        Item Mushrooms = new Item("mushrooms", 1000, "src/main/resources/files/sprites/muschroom.png");
         Item Football = new Item("football", 0, "src/main/resources/files/sprites/football.png");
         Item Apple = new Item("apple", 25, "src/main/resources/files/sprites/apple.png");
         Item Rice = new Item("rice", 50, "src/main/resources/files/sprites/rice.png");

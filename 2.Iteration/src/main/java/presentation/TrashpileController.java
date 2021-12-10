@@ -26,7 +26,7 @@ public class TrashpileController extends SceneController {
     }
 
     public void talkHomelessman() throws FileNotFoundException {
-        talk("homelessman");
+        talk("homeless-man");
 
     }
 
