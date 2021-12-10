@@ -15,7 +15,7 @@ public class FieldController extends SceneController {
     private ImageView sos;
     public void initialize() throws FileNotFoundException {
         loadInventory();
-        if (game.getPlayer().getEnergy() == 0) {
+        if (game.getPlayer().getEnergy() == 0||game.getPlayer().getFamilyEnergy()==0) {
             disableButtons();
         }
     }

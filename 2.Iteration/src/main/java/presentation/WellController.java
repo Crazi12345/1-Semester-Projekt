@@ -19,7 +19,7 @@ public class WellController extends SceneController {
         if (game.getSeenSC()){
             scarecrow.imageProperty().set(null);
         }
-        if (game.getPlayer().getEnergy() == 0) {
+        if (game.getPlayer().getEnergy() == 0||game.getPlayer().getFamilyEnergy()==0) {
             disableButtons();
         }
     }

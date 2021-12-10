@@ -19,6 +19,9 @@ public class TrashpileController extends SceneController {
         if (game.getSeenDog()){
             dog.imageProperty().set(null);
         }
+        if(game.getPlayer().getEnergy()==0||game.getPlayer().getFamilyEnergy()==0){
+            disableButtons();
+        }
     }
 
     public TrashpileController() throws FileNotFoundException {

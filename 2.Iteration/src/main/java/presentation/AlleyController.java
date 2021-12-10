@@ -17,7 +17,7 @@ public class AlleyController extends SceneController {
         if (game.getSeenFootball()){
             Football.imageProperty().set(null);
         }
-        if (game.getPlayer().getEnergy() == 0) {
+        if (game.getPlayer().getEnergy() == 0||game.getPlayer().getFamilyEnergy()==0) {
             disableButtons();
         }
     }

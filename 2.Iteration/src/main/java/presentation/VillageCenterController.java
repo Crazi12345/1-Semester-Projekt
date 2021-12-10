@@ -63,7 +63,7 @@ public class VillageCenterController extends SceneController {
             south.setVisible(true);
         }
 
-        if (game.getPlayer().getEnergy() == 0) {
+        if (game.getPlayer().getEnergy() == 0||game.getPlayer().getFamilyEnergy()==0) {
             disableButtons();
         }
 

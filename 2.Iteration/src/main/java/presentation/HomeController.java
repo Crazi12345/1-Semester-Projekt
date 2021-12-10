@@ -54,7 +54,7 @@ public class HomeController extends SceneController {
         } catch (NullPointerException e) {
             System.out.println(e);
         }
-        if (game.getPlayer().getEnergy() == 0) {
+        if (game.getPlayer().getEnergy() == 0||game.getPlayer().getFamilyEnergy()==0) {
             disableButtons();
         }
     }
