@@ -16,10 +16,10 @@ public class WellController extends SceneController {
 
     public void initialize() throws FileNotFoundException {
         loadInventory();
-        if (game.getSeenSC()){
+        if (game.getSeenSC()) {
             scarecrow.imageProperty().set(null);
         }
-        if (game.getPlayer().getEnergy() == 0||game.getPlayer().getFamilyEnergy()==0) {
+        if (game.getPlayer().getEnergy() == 0 || game.getPlayer().getFamilyEnergy() == 0) {
             disableButtons();
         }
     }
@@ -30,7 +30,7 @@ public class WellController extends SceneController {
         game.setSeenSC(true);
     }
 
-    public void talkAbena() throws FileNotFoundException{
+    public void talkAbena() throws FileNotFoundException {
         talk("abena");
     }
 

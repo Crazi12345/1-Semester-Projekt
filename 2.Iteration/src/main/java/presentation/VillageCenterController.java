@@ -39,7 +39,7 @@ public class VillageCenterController extends SceneController {
 
     public void initialize() throws FileNotFoundException {
         loadInventory();
-        if (game.getSeenPoster()){
+        if (game.getSeenPoster()) {
             poster.imageProperty().set(null);
         }
         if (game.getCurrentRoom().getExit("north") == null) {
@@ -63,20 +63,13 @@ public class VillageCenterController extends SceneController {
             south.setVisible(true);
         }
 
-        if (game.getPlayer().getEnergy() == 0||game.getPlayer().getFamilyEnergy()==0) {
+        if (game.getPlayer().getEnergy() == 0 || game.getPlayer().getFamilyEnergy() == 0) {
             disableButtons();
         }
 
     }
 
-    /*   public void talkSteve () {
 
-           for (int i = 0; i < game.getCurrentRoom().getNPCs().size(); i++) {
-               if (game.getCurrentRoom().getNPCsName(i) == "steve") {
-                   talk(game.getCurrentRoom().getNPCs().get(i).getName());
-               }
-           }
-       }*/
     public void rulesAlert() {
         Stage rulesWindow = new Stage();
         rulesWindow.initModality(Modality.APPLICATION_MODAL);
@@ -86,12 +79,12 @@ public class VillageCenterController extends SceneController {
         rules.setText("The Rules are simple, help marvin get food\n" +
                 "You can do that by collecting food or help people\n" +
                 "You can eat food by clicking on it in your inventory\n" +
-                "interact with the characters and items on screen by clicking\n"+
+                "interact with the characters and items on screen by clicking\n" +
                 "You gain energy by eating and lose it by walking                            \n" +
-                "If you or your familys energy is depleted you will die\n"+
-                "If you eat at your food at your home, you will feed your family as well      \n"+
-                "There are 5 days to get through, you can sleep to start a new day\n"+
-                "and maybe there will be new places to explore\n"+
+                "If you or your familys energy is depleted you will die\n" +
+                "If you eat at your food at your home, you will feed your family as well      \n" +
+                "There are 5 days to get through, you can sleep to start a new day\n" +
+                "and maybe there will be new places to explore\n" +
 
                 "               \n\r\r\r\r");
 
@@ -108,11 +101,6 @@ public class VillageCenterController extends SceneController {
         look("poster");
         poster.imageProperty().set(null);
         game.setSeenPoster(true);
-    }
-
-    @FXML
-    public void dialogueSteve() throws FileNotFoundException {
-        talk("steve");
     }
 
     public void disableButtons() {

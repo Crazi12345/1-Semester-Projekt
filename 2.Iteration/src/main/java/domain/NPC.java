@@ -27,10 +27,6 @@ public class NPC extends Interactables {
         return questItem;
     }
 
-    public String getQuestItemName() {
-        return questItem.getName();
-    }
-
     public boolean getTrader() {
         return trader;
     }
@@ -41,10 +37,6 @@ public class NPC extends Interactables {
 
     public Item getReward() {
         return this.reward;
-    }
-
-    public String getRewardName() {
-        return reward.getName();
     }
 
 }

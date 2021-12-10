@@ -7,54 +7,70 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.AlleyController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+            prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="presentation.AlleyController">
     <children>
-        <ImageView fitHeight="387.0" fitWidth="610.0" layoutX="-3.0" layoutY="-50.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="387.0" fitWidth="610.0" layoutX="-3.0" layoutY="-50.0" pickOnBounds="true"
+                   preserveRatio="true">
             <image>
-                <Image url="@../files/alley.png" />
+                <Image url="@../files/alley.png"/>
             </image>
         </ImageView>
-        <Button fx:id="north" layoutX="273.0" layoutY="14.0" mnemonicParsing="false" onAction="#setSceneHome" text="North" />
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="106.0" layoutX="-21.0" layoutY="303.0" stroke="BLACK" strokeType="INSIDE" width="636.0" />
-        <Text fx:id="dialogueBox" layoutX="142.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="321.0" />
-        <Text fx:id="tradeOffer" layoutX="142.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="321.0" />
+        <Button fx:id="north" layoutX="273.0" layoutY="14.0" mnemonicParsing="false" onAction="#setSceneHome"
+                text="North"/>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="106.0" layoutX="-21.0" layoutY="303.0"
+                   stroke="BLACK" strokeType="INSIDE" width="636.0"/>
+        <Text fx:id="dialogueBox" layoutX="142.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              textAlignment="CENTER" wrappingWidth="321.0"/>
+        <Text fx:id="tradeOffer" layoutX="142.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              textAlignment="CENTER" wrappingWidth="321.0"/>
 
-        <ImageView fx:id="Football" fitHeight="72.0" fitWidth="74.0" layoutX="184.0" layoutY="221.0" onMouseClicked="#lookFootball" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../files/sprites/football.png" />
-         </image>
-      </ImageView>
-        <ImageView fx:id="slot1" fitHeight="30.0" fitWidth="30.0" layoutX="463.0" layoutY="316.0" onMouseClicked="#eatSlot1" pickOnBounds="true">
+        <ImageView fx:id="Football" fitHeight="72.0" fitWidth="74.0" layoutX="184.0" layoutY="221.0"
+                   onMouseClicked="#lookFootball" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../files/grey.png" />
+                <Image url="@../files/sprites/football.png"/>
             </image>
         </ImageView>
-        <ImageView fx:id="slot5" fitHeight="30.0" fitWidth="30.0" layoutX="513.0" layoutY="366.0" onMouseClicked="#eatSlot2" pickOnBounds="true">
+        <ImageView fx:id="slot1" fitHeight="30.0" fitWidth="30.0" layoutX="463.0" layoutY="316.0"
+                   onMouseClicked="#eatSlot1" pickOnBounds="true">
             <image>
-                <Image url="@../files/grey.png" />
+                <Image url="@../files/grey.png"/>
             </image>
         </ImageView>
-        <ImageView fx:id="slot3" fitHeight="30.0" fitWidth="30.0" layoutX="563.0" layoutY="316.0" onMouseClicked="#eatSlot3" pickOnBounds="true">
+        <ImageView fx:id="slot5" fitHeight="30.0" fitWidth="30.0" layoutX="513.0" layoutY="366.0"
+                   onMouseClicked="#eatSlot2" pickOnBounds="true">
             <image>
-                <Image url="@../files/grey.png" />
+                <Image url="@../files/grey.png"/>
             </image>
         </ImageView>
-        <ImageView fx:id="slot4" fitHeight="30.0" fitWidth="30.0" layoutX="463.0" layoutY="366.0" onMouseClicked="#eatSlot4" pickOnBounds="true">
+        <ImageView fx:id="slot3" fitHeight="30.0" fitWidth="30.0" layoutX="563.0" layoutY="316.0"
+                   onMouseClicked="#eatSlot3" pickOnBounds="true">
             <image>
-                <Image url="@../files/grey.png" />
+                <Image url="@../files/grey.png"/>
             </image>
         </ImageView>
-        <ImageView fx:id="slot2" fitHeight="30.0" fitWidth="30.0" layoutX="513.0" layoutY="316.0" onMouseClicked="#eatSlot5" pickOnBounds="true">
+        <ImageView fx:id="slot4" fitHeight="30.0" fitWidth="30.0" layoutX="463.0" layoutY="366.0"
+                   onMouseClicked="#eatSlot4" pickOnBounds="true">
             <image>
-                <Image url="@../files/grey.png" />
+                <Image url="@../files/grey.png"/>
             </image>
         </ImageView>
-        <ImageView fx:id="slot6" fitHeight="30.0" fitWidth="30.0" layoutX="563.0" layoutY="366.0" onMouseClicked="#eatSlot6" pickOnBounds="true">
+        <ImageView fx:id="slot2" fitHeight="30.0" fitWidth="30.0" layoutX="513.0" layoutY="316.0"
+                   onMouseClicked="#eatSlot5" pickOnBounds="true">
             <image>
-                <Image url="@../files/grey.png" />
+                <Image url="@../files/grey.png"/>
             </image>
         </ImageView>
-        <Button fx:id="no" disable="true" layoutX="325.0" layoutY="369.0" mnemonicParsing="false" onAction="#no" opacity="0.0" text="No" />
-        <Button fx:id="yes" disable="true" layoutX="237.0" layoutY="369.0" mnemonicParsing="false" onAction="#yes" opacity="0.0" text="Yes" />
+        <ImageView fx:id="slot6" fitHeight="30.0" fitWidth="30.0" layoutX="563.0" layoutY="366.0"
+                   onMouseClicked="#eatSlot6" pickOnBounds="true">
+            <image>
+                <Image url="@../files/grey.png"/>
+            </image>
+        </ImageView>
+        <Button fx:id="no" disable="true" layoutX="325.0" layoutY="369.0" mnemonicParsing="false" onAction="#no"
+                opacity="0.0" text="No"/>
+        <Button fx:id="yes" disable="true" layoutX="237.0" layoutY="369.0" mnemonicParsing="false" onAction="#yes"
+                opacity="0.0" text="Yes"/>
     </children>
 </AnchorPane>

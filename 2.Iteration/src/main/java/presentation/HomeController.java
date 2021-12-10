@@ -23,7 +23,6 @@ public class HomeController extends SceneController {
     private Button south;
     @FXML
     private Button east;
-
     @FXML
     private Button sleepWin;
     @FXML
@@ -54,7 +53,7 @@ public class HomeController extends SceneController {
         } catch (NullPointerException e) {
             System.out.println(e);
         }
-        if (game.getPlayer().getEnergy() == 0||game.getPlayer().getFamilyEnergy()==0) {
+        if (game.getPlayer().getEnergy() == 0 || game.getPlayer().getFamilyEnergy() == 0) {
             disableButtons();
         }
     }
@@ -64,10 +63,7 @@ public class HomeController extends SceneController {
         System.out.println("Slept like a baby");
         game.incrementCurrentLevel();
         game.startLevel();
-        if (game.getCurrentLevel() == 5) {
-            sleepWin.setVisible(true);
-            sleep.setVisible(false);
-        }
+
         sleep.setDisable(true);
         switch (game.getCurrentLevel()) {
             case 1:

@@ -14,10 +14,10 @@ public class AlleyController extends SceneController {
 
     public void initialize() throws FileNotFoundException {
         loadInventory();
-        if (game.getSeenFootball()){
+        if (game.getSeenFootball()) {
             Football.imageProperty().set(null);
         }
-        if (game.getPlayer().getEnergy() == 0||game.getPlayer().getFamilyEnergy()==0) {
+        if (game.getPlayer().getEnergy() == 0 || game.getPlayer().getFamilyEnergy() == 0) {
             disableButtons();
         }
     }

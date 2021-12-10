@@ -1,4 +1,5 @@
 package domain;
+
 import java.util.ArrayList;
 
 public class Player {
@@ -22,21 +23,18 @@ public class Player {
         setFamilyEnergy(100);
     }
 
-    public String getName() {
-        return this.name;
-    }
 
     public int getEnergy() {
         return energy;
     }
 
-    public void setEnergyFromItem(int i){
+    public void setEnergyFromItem(int i) {
         energy += getItemEnergy(i);
         if (energy > 100) energy = 100;
         if (energy < 0) energy = 0;
     }
 
-    public void setEnergy(int i){
+    public void setEnergy(int i) {
         energy += i;
         if (energy > 100) energy = 100;
         if (energy < 0) energy = 0;
@@ -47,13 +45,13 @@ public class Player {
     }
 
     public void setFamilyEnergyFromItem(int i) {
-        familyEnergy += getItemEnergy(i)/2;
-        setEnergy(getItemEnergy(i)/2);
+        familyEnergy += getItemEnergy(i) / 2;
+        setEnergy(getItemEnergy(i) / 2);
         if (familyEnergy > 100) familyEnergy = 100;
         if (familyEnergy < 0) familyEnergy = 0;
     }
 
-    public void setFamilyEnergy(int i){
+    public void setFamilyEnergy(int i) {
         familyEnergy += i;
         if (familyEnergy > 100) familyEnergy = 100;
         if (familyEnergy < 0) familyEnergy = 0;
@@ -71,24 +69,14 @@ public class Player {
         return inventory;
     }
 
-    public Item getItem(int i){
+    public Item getItem(int i) {
         return this.inventory.get(i);
     }
 
-    public String getItemName(int i){
-        return getItem(i).getName();
-    }
 
-    public int getItemEnergy(int i){
+    public int getItemEnergy(int i) {
         return getItem(i).getFoodEnergy();
     }
 
-    public String familyEatString(int i){
-        return "You and your family ate the " + getItemName(i);
-    }
-
-    public String eatString(int i){
-        return "You ate the " + getItemName(i);
-    }
 
 }

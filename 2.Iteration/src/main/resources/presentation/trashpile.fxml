@@ -8,62 +8,79 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.TrashpileController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+            prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="presentation.TrashpileController">
     <children>
-        <ImageView fitHeight="387.0" fitWidth="610.0" layoutX="-3.0" layoutY="-50.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="387.0" fitWidth="610.0" layoutX="-3.0" layoutY="-50.0" pickOnBounds="true"
+                   preserveRatio="true">
             <image>
-                <Image url="@../files/trashpile.png" />
+                <Image url="@../files/trashpile.png"/>
             </image>
         </ImageView>
-        <Button fx:id="east" layoutX="545.0" layoutY="143.0" mnemonicParsing="false" onAction="#setSceneAbandonedHouse" text="East" />
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="106.0" layoutX="-21.0" layoutY="303.0" stroke="BLACK" strokeType="INSIDE" width="636.0" />
+        <Button fx:id="east" layoutX="545.0" layoutY="143.0" mnemonicParsing="false" onAction="#setSceneAbandonedHouse"
+                text="East"/>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="106.0" layoutX="-21.0" layoutY="303.0"
+                   stroke="BLACK" strokeType="INSIDE" width="636.0"/>
 
-        <ImageView fitHeight="90.0" fitWidth="108.0" layoutX="158.0" layoutY="141.0" onMouseClicked="#talkHomelessman" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../files/sprites/homelessman.png" />
-         </image>
-      </ImageView>
-        <ImageView fx:id="slot1" fitHeight="30.0" fitWidth="30.0" layoutX="463.0" layoutY="316.0" onMouseClicked="#eatSlot1" pickOnBounds="true">
+        <ImageView fitHeight="90.0" fitWidth="108.0" layoutX="158.0" layoutY="141.0" onMouseClicked="#talkHomelessman"
+                   pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../files/grey.png" />
+                <Image url="@../files/sprites/homelessman.png"/>
             </image>
         </ImageView>
-        <ImageView fx:id="slot5" fitHeight="30.0" fitWidth="30.0" layoutX="513.0" layoutY="366.0" onMouseClicked="#eatSlot2" pickOnBounds="true">
+        <ImageView fx:id="slot1" fitHeight="30.0" fitWidth="30.0" layoutX="463.0" layoutY="316.0"
+                   onMouseClicked="#eatSlot1" pickOnBounds="true">
             <image>
-                <Image url="@../files/grey.png" />
+                <Image url="@../files/grey.png"/>
             </image>
         </ImageView>
-        <ImageView fx:id="slot3" fitHeight="30.0" fitWidth="30.0" layoutX="563.0" layoutY="316.0" onMouseClicked="#eatSlot3" pickOnBounds="true">
+        <ImageView fx:id="slot5" fitHeight="30.0" fitWidth="30.0" layoutX="513.0" layoutY="366.0"
+                   onMouseClicked="#eatSlot2" pickOnBounds="true">
             <image>
-                <Image url="@../files/grey.png" />
+                <Image url="@../files/grey.png"/>
             </image>
         </ImageView>
-        <ImageView fx:id="slot4" fitHeight="30.0" fitWidth="30.0" layoutX="463.0" layoutY="366.0" onMouseClicked="#eatSlot4" pickOnBounds="true">
+        <ImageView fx:id="slot3" fitHeight="30.0" fitWidth="30.0" layoutX="563.0" layoutY="316.0"
+                   onMouseClicked="#eatSlot3" pickOnBounds="true">
             <image>
-                <Image url="@../files/grey.png" />
+                <Image url="@../files/grey.png"/>
             </image>
         </ImageView>
-        <ImageView fx:id="slot2" fitHeight="30.0" fitWidth="30.0" layoutX="513.0" layoutY="316.0" onMouseClicked="#eatSlot5" pickOnBounds="true">
+        <ImageView fx:id="slot4" fitHeight="30.0" fitWidth="30.0" layoutX="463.0" layoutY="366.0"
+                   onMouseClicked="#eatSlot4" pickOnBounds="true">
             <image>
-                <Image url="@../files/grey.png" />
+                <Image url="@../files/grey.png"/>
             </image>
         </ImageView>
-        <ImageView fx:id="slot6" fitHeight="30.0" fitWidth="30.0" layoutX="563.0" layoutY="366.0" onMouseClicked="#eatSlot6" pickOnBounds="true">
+        <ImageView fx:id="slot2" fitHeight="30.0" fitWidth="30.0" layoutX="513.0" layoutY="316.0"
+                   onMouseClicked="#eatSlot5" pickOnBounds="true">
             <image>
-                <Image url="@../files/grey.png" />
+                <Image url="@../files/grey.png"/>
             </image>
         </ImageView>
-      <ImageView fx:id="dog" fitHeight="90.0" fitWidth="125.0" layoutX="248.0" layoutY="155.0" onMouseClicked="#lookDog" pickOnBounds="true" preserveRatio="true" rotate="180.0">
-         <image>
-            <Image url="@../files/sprites/dog.png" />
-         </image>
-         <rotationAxis>
-            <Point3D y="180.0" z="1.0" />
-         </rotationAxis>
-      </ImageView>
-        <Text fx:id="dialogueBox" layoutX="142.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="321.0" />
-        <Text fx:id="tradeOffer" layoutX="142.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="321.0" />
-        <Button fx:id="no" disable="true" layoutX="325.0" layoutY="369.0" mnemonicParsing="false" onAction="#no" opacity="0.0" text="No" />
-        <Button fx:id="yes" disable="true" layoutX="237.0" layoutY="369.0" mnemonicParsing="false" onAction="#yes" opacity="0.0" text="Yes" />
+        <ImageView fx:id="slot6" fitHeight="30.0" fitWidth="30.0" layoutX="563.0" layoutY="366.0"
+                   onMouseClicked="#eatSlot6" pickOnBounds="true">
+            <image>
+                <Image url="@../files/grey.png"/>
+            </image>
+        </ImageView>
+        <ImageView fx:id="dog" fitHeight="90.0" fitWidth="125.0" layoutX="248.0" layoutY="155.0"
+                   onMouseClicked="#lookDog" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+            <image>
+                <Image url="@../files/sprites/dog.png"/>
+            </image>
+            <rotationAxis>
+                <Point3D y="180.0" z="1.0"/>
+            </rotationAxis>
+        </ImageView>
+        <Text fx:id="dialogueBox" layoutX="142.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              textAlignment="CENTER" wrappingWidth="321.0"/>
+        <Text fx:id="tradeOffer" layoutX="142.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              textAlignment="CENTER" wrappingWidth="321.0"/>
+        <Button fx:id="no" disable="true" layoutX="325.0" layoutY="369.0" mnemonicParsing="false" onAction="#no"
+                opacity="0.0" text="No"/>
+        <Button fx:id="yes" disable="true" layoutX="237.0" layoutY="369.0" mnemonicParsing="false" onAction="#yes"
+                opacity="0.0" text="Yes"/>
     </children>
 </AnchorPane>

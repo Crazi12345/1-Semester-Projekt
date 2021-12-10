@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class Game {
     private boolean trading = false;
     private NPC currentTrader;
-    private Parser parser;
     private Room currentRoom;
     private int currentLevel = 1;
     private static Player player = new Player("Marvin", new ArrayList<Item>());
@@ -18,7 +17,6 @@ public class Game {
 
     public Game() {
         startLevel();
-        parser = new Parser();
     }
 
 
@@ -52,16 +50,6 @@ public class Game {
                 break;
             default:
                 System.out.println("You have completed the game, congratulations! Type 'quit' to end the game");
-        }
-    }
-
-    public void endLevel() {
-        if (currentRoom.getId() == 4) {
-            currentLevel++;
-            family();
-            startLevel();
-        } else {
-            System.out.println("Sleeping here would surely get you robbed");
         }
     }
 
@@ -129,37 +117,6 @@ public class Game {
     }
 
 
-    private void printWelcome() {
-        System.out.println();
-        System.out.println("Welcome to The Adventures of Marvin!");
-        System.out.println("Your job is to help Marvin get food for him and his family");
-        System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
-        System.out.println();
-        System.out.println(currentRoom.getLongDescription());
-        System.out.println(currentRoom.getInteractablesString());
-    }
-
-
-    private void energy() {
-        System.out.println("You have " + player.getEnergy() + " energy left");
-        System.out.println("Your family has " + player.getFamilyEnergy() + " energy left");
-    }
-
-    private void inventory() {
-        if (player.getInventory().size() == 0) {
-            System.out.println("Inventory is empty...");
-        } else {
-            String inventoryString = "You have: ";
-            for (int i = 0; i < player.getInventory().size(); i++) {
-                inventoryString += player.getItemEnergy(i);
-                if (i != player.getInventory().size() - 1) {
-                    inventoryString += ", ";
-                }
-            }
-            System.out.println(inventoryString);
-        }
-    }
-
     public void yes() {
         player.removeItem(currentTrader.getQuestItem());
         player.addItem(currentTrader.getReward());
@@ -170,13 +127,6 @@ public class Game {
         currentTrader.setTrader(false);
     }
 
-    private void printHelp() {
-        System.out.println("You Should help Marvin by getting some food");
-        System.out.println("Maybe some people will help you");
-        System.out.println();
-        System.out.println("Your command words are:");
-        parser.showCommands();
-    }
 
     public Room getCurrentRoom() {
         return currentRoom;

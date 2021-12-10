@@ -14,10 +14,6 @@ public class Item {
         this.isEatable = foodEnergy > 0;
     }
 
-    public String getName() {
-        return this.name;
-    }
-
     public int getFoodEnergy() {
         return this.foodEnergy;
     }

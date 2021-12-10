@@ -28,10 +28,6 @@ public class Room {
         return exits;
     }
 
-    public String getShortDescription() {
-        return description;
-    }
-
     public String getLongDescription() {
         return "You are " + description + ".\n" + getExitString();
     }
@@ -42,19 +38,6 @@ public class Room {
 
     public ArrayList<InanimateObjects> getInanimateObjects() {
         return this.inanimateObjects;
-    }
-
-    public String getInteractablesString() {
-        String interactablesString = "You see: ";
-        for (int i = 0; i < NPCs.size(); i++) {
-            interactablesString += NPCs.get(i).getName();
-            interactablesString += ", ";
-        }
-        for (int i = 0; i < inanimateObjects.size(); i++) {
-            interactablesString += inanimateObjects.get(i).getName();
-            interactablesString += ", ";
-        }
-        return interactablesString;
     }
 
     private String getExitString() {
@@ -70,7 +53,6 @@ public class Room {
         return exits.get(direction);
     }
 
-
     public int getId() {
         return id;
     }
@@ -79,30 +61,8 @@ public class Room {
         return inanimateObjects.get(i).getName();
     }
 
-    public Boolean getInanimateObjectsIsChecked(int i){
-        return inanimateObjects.get(i).getIsChecked();
-    }
-
-    public void setInanimateObjectsIsChecked(int i, boolean checked){
-        inanimateObjects.get(i).setIsChecked(checked);
-    }
-
-    public Item getInanimateObjectsItem(int i){
-        return inanimateObjects.get(i).getItem();
-    }
-
-    public String getInanimateObjectsString(int i){
-        return getInanimateObjectsName(i) + " is added to inventory";
-    }
-
     public String getNPCsName(int i){
         return NPCs.get(i).getName();
     }
-
-    public boolean getNPCsTrader(int i){
-        return NPCs.get(i).getTrader();
-    }
-
-
 }
 

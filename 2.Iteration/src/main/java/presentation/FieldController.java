@@ -11,11 +11,11 @@ public class FieldController extends SceneController {
 
     @FXML
     private Button west;
-    @FXML
-    private ImageView sos;
+
+
     public void initialize() throws FileNotFoundException {
         loadInventory();
-        if (game.getPlayer().getEnergy() == 0||game.getPlayer().getFamilyEnergy()==0) {
+        if (game.getPlayer().getEnergy() == 0 || game.getPlayer().getFamilyEnergy() == 0) {
             disableButtons();
         }
     }
@@ -25,7 +25,7 @@ public class FieldController extends SceneController {
 
     public void lookStackofsticks() throws FileNotFoundException {
         look("stack-of-sticks");
-      //  sos.setVisible(false);
+
     }
 
     public void disableButtons() {

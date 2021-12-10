@@ -15,7 +15,7 @@ public class AbandonedHouseController extends SceneController {
 
     public void initialize() throws FileNotFoundException {
         loadInventory();
-        if (game.getPlayer().getEnergy() == 0||game.getPlayer().getFamilyEnergy()==0) {
+        if (game.getPlayer().getEnergy() == 0 || game.getPlayer().getFamilyEnergy() == 0) {
             disableButtons();
         }
     }

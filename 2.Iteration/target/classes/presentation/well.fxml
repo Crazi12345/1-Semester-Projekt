@@ -7,68 +7,88 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.WellController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+            prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="presentation.WellController">
     <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9fa7ae" height="339.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9fa7ae" height="339.0" stroke="BLACK" strokeType="INSIDE"
+                   width="600.0"/>
         <ImageView fitHeight="355.0" fitWidth="614.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../files/wellbg.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="scarecrow" fitHeight="149.0" fitWidth="119.0" layoutX="378.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true" rotate="20.0">
-         <image>
-            <Image url="@../files/sprites/scarecrow.png" />
-         </image>
-      </ImageView>
-        <ImageView fitHeight="270.0" fitWidth="318.0" layoutX="206.0" layoutY="19.0" onMouseClicked="#lookWell" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../files/well.png" />
-         </image></ImageView>
-      <ImageView fitHeight="81.0" fitWidth="85.0" layoutX="244.0" layoutY="140.0" onMouseClicked="#lookWell" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../files/sprites/bucket.png" />
-         </image>
-      </ImageView>
-        <Button fx:id="south" layoutX="272.0" layoutY="270.0" mnemonicParsing="false" onAction="#setSceneVillageCenter" text="South" />
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="106.0" layoutX="-21.0" layoutY="303.0" stroke="BLACK" strokeType="INSIDE" width="636.0" />
-        <ImageView fx:id="slot1" fitHeight="30.0" fitWidth="30.0" layoutX="463.0" layoutY="316.0" onMouseClicked="#eatSlot1" pickOnBounds="true">
             <image>
-                <Image url="@../files/grey.png" />
+                <Image url="@../files/wellbg.png"/>
             </image>
         </ImageView>
-        <ImageView fx:id="slot5" fitHeight="30.0" fitWidth="30.0" layoutX="513.0" layoutY="366.0" onMouseClicked="#eatSlot2" pickOnBounds="true">
+        <ImageView fx:id="scarecrow" fitHeight="149.0" fitWidth="119.0" layoutX="378.0" layoutY="113.0"
+                   pickOnBounds="true" preserveRatio="true" rotate="20.0">
             <image>
-                <Image url="@../files/grey.png" />
+                <Image url="@../files/sprites/scarecrow.png"/>
             </image>
         </ImageView>
-        <ImageView fx:id="slot3" fitHeight="30.0" fitWidth="30.0" layoutX="563.0" layoutY="316.0" onMouseClicked="#eatSlot3" pickOnBounds="true">
+        <ImageView fitHeight="270.0" fitWidth="318.0" layoutX="206.0" layoutY="19.0" onMouseClicked="#lookWell"
+                   pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../files/grey.png" />
+                <Image url="@../files/well.png"/>
             </image>
         </ImageView>
-        <ImageView fx:id="slot4" fitHeight="30.0" fitWidth="30.0" layoutX="463.0" layoutY="366.0" onMouseClicked="#eatSlot4" pickOnBounds="true">
+        <ImageView fitHeight="81.0" fitWidth="85.0" layoutX="244.0" layoutY="140.0" onMouseClicked="#lookWell"
+                   pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../files/grey.png" />
+                <Image url="@../files/sprites/bucket.png"/>
             </image>
         </ImageView>
-        <ImageView fx:id="slot2" fitHeight="30.0" fitWidth="30.0" layoutX="513.0" layoutY="316.0" onMouseClicked="#eatSlot5" pickOnBounds="true">
+        <Button fx:id="south" layoutX="272.0" layoutY="270.0" mnemonicParsing="false" onAction="#setSceneVillageCenter"
+                text="South"/>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="106.0" layoutX="-21.0" layoutY="303.0"
+                   stroke="BLACK" strokeType="INSIDE" width="636.0"/>
+        <ImageView fx:id="slot1" fitHeight="30.0" fitWidth="30.0" layoutX="463.0" layoutY="316.0"
+                   onMouseClicked="#eatSlot1" pickOnBounds="true">
             <image>
-                <Image url="@../files/grey.png" />
+                <Image url="@../files/grey.png"/>
             </image>
         </ImageView>
-        <ImageView fx:id="slot6" fitHeight="30.0" fitWidth="30.0" layoutX="563.0" layoutY="366.0" onMouseClicked="#eatSlot6" pickOnBounds="true">
+        <ImageView fx:id="slot5" fitHeight="30.0" fitWidth="30.0" layoutX="513.0" layoutY="366.0"
+                   onMouseClicked="#eatSlot2" pickOnBounds="true">
             <image>
-                <Image url="@../files/grey.png" />
+                <Image url="@../files/grey.png"/>
             </image>
         </ImageView>
-      <ImageView fitHeight="175.0" fitWidth="205.0" layoutX="64.0" layoutY="113.0" onMouseClicked="#talkAbena" pickOnBounds="true" preserveRatio="true" smooth="false">
-         <image>
-            <Image url="@../files/sprites/abena.png" />
-         </image>
-      </ImageView>
-        <Button fx:id="no" disable="true" layoutX="325.0" layoutY="369.0" mnemonicParsing="false" onAction="#no" opacity="0.0" text="No" />
-        <Button fx:id="yes" disable="true" layoutX="237.0" layoutY="369.0" mnemonicParsing="false" onAction="#yes" opacity="0.0" text="Yes" />
-        <Text fx:id="dialogueBox" layoutX="142.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="321.0" />
-        <Text fx:id="tradeOffer" layoutX="142.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="321.0" />
+        <ImageView fx:id="slot3" fitHeight="30.0" fitWidth="30.0" layoutX="563.0" layoutY="316.0"
+                   onMouseClicked="#eatSlot3" pickOnBounds="true">
+            <image>
+                <Image url="@../files/grey.png"/>
+            </image>
+        </ImageView>
+        <ImageView fx:id="slot4" fitHeight="30.0" fitWidth="30.0" layoutX="463.0" layoutY="366.0"
+                   onMouseClicked="#eatSlot4" pickOnBounds="true">
+            <image>
+                <Image url="@../files/grey.png"/>
+            </image>
+        </ImageView>
+        <ImageView fx:id="slot2" fitHeight="30.0" fitWidth="30.0" layoutX="513.0" layoutY="316.0"
+                   onMouseClicked="#eatSlot5" pickOnBounds="true">
+            <image>
+                <Image url="@../files/grey.png"/>
+            </image>
+        </ImageView>
+        <ImageView fx:id="slot6" fitHeight="30.0" fitWidth="30.0" layoutX="563.0" layoutY="366.0"
+                   onMouseClicked="#eatSlot6" pickOnBounds="true">
+            <image>
+                <Image url="@../files/grey.png"/>
+            </image>
+        </ImageView>
+        <ImageView fitHeight="175.0" fitWidth="205.0" layoutX="64.0" layoutY="113.0" onMouseClicked="#talkAbena"
+                   pickOnBounds="true" preserveRatio="true" smooth="false">
+            <image>
+                <Image url="@../files/sprites/abena.png"/>
+            </image>
+        </ImageView>
+        <Button fx:id="no" disable="true" layoutX="325.0" layoutY="369.0" mnemonicParsing="false" onAction="#no"
+                opacity="0.0" text="No"/>
+        <Button fx:id="yes" disable="true" layoutX="237.0" layoutY="369.0" mnemonicParsing="false" onAction="#yes"
+                opacity="0.0" text="Yes"/>
+        <Text fx:id="dialogueBox" layoutX="142.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              textAlignment="CENTER" wrappingWidth="321.0"/>
+        <Text fx:id="tradeOffer" layoutX="142.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              textAlignment="CENTER" wrappingWidth="321.0"/>
     </children>
 </AnchorPane>

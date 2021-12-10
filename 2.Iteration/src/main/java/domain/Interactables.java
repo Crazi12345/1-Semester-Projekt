@@ -10,7 +10,6 @@ public abstract class Interactables {
         this.fileName = fileName;
     }
 
-
     public String getName() {
         return this.name;
     }

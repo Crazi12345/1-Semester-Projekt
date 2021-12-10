@@ -13,10 +13,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -47,14 +45,12 @@ public class SceneController extends Application {
     String currentImageURL;
 
 
-
     public SceneController() throws FileNotFoundException {
     }
 
     public static void main(String[] args) {
         launch();
     }
-
 
 
     @FXML
@@ -96,7 +92,6 @@ public class SceneController extends Application {
         familyLabel.setText("%d%%".formatted(familyEnergy));
 
 
-
         try {
             Image image = new Image(new FileInputStream(getBatteryName(marvinEnergy)));
             imageViewMarvin = new ImageView(image);
@@ -117,10 +112,10 @@ public class SceneController extends Application {
 
         inventorybox.setMinHeight(100.0);
 
-        inventorybox.add(imageViewMarvin, 0,0);
-        inventorybox.add(imageViewFamily, 1,0);
-        inventorybox.add(marvinLabel,0,1);
-        inventorybox.add(familyLabel,1,1);
+        inventorybox.add(imageViewMarvin, 0, 0);
+        inventorybox.add(imageViewFamily, 1, 0);
+        inventorybox.add(marvinLabel, 0, 1);
+        inventorybox.add(familyLabel, 1, 1);
 
         root.setBottomAnchor(inventorybox, 0.0);
         root.setLeftAnchor(inventorybox, 0.0);
@@ -310,7 +305,7 @@ public class SceneController extends Application {
         for (int i = 0; i < game.getCurrentRoom().getNPCs().size(); i++) {
             if (game.getCurrentRoom().getNPCsName(i) == name) {
                 game.setCurrentTrader(game.getCurrentRoom().getNPCs().get(i));
-                if(game.getCurrentTrader().getTrader()){
+                if (game.getCurrentTrader().getTrader()) {
                     dialogueBox.setText(game.getCurrentTrader().getQuest());
                     if (game.questComplete(game.getCurrentTrader())) {
                         tradeOffer.setText(game.getCurrentTrader().getQuestComplete());
@@ -323,8 +318,7 @@ public class SceneController extends Application {
                             System.out.println(e);
                         }
                     }
-                }
-                else{
+                } else {
                     tradeOffer.setText(game.getCurrentTrader().getQuestComplete());
                 }
             }
@@ -346,14 +340,13 @@ public class SceneController extends Application {
     public void loadInventory() throws FileNotFoundException {
         int marvinEnergy = game.getPlayer().getEnergy();
         int familyEnergy = game.getPlayer().getFamilyEnergy();
-        if (marvinEnergy<1){
+        if (marvinEnergy < 1) {
             resetDialogue();
             dialogueBox.setText("You starved to death");
             dialogueBox.setDisable(false);
             dialogueBox.setVisible(true);
             dialogueBox.setOpacity(100.0);
-        }
-        else if(familyEnergy<1){
+        } else if (familyEnergy < 1) {
             resetDialogue();
             dialogueBox.setText("Your family starved to death");
             dialogueBox.setDisable(false);
