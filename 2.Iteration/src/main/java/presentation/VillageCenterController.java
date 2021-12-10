@@ -36,7 +36,6 @@ public class VillageCenterController extends SceneController {
         look("barrel");
 
     }
-
     public void initialize() throws FileNotFoundException {
         loadInventory();
         if (game.getSeenPoster()) {
