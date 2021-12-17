@@ -1,3 +1,1 @@
-just a file,
-for adding dataq   +
-
+This is a log of out project and all our meetings
